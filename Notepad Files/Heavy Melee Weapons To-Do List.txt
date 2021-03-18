@@ -1,0 +1,26 @@
+Key:
+*= Currently Requested
+**= Funded and Implemented
+Things Left to do:
+
+	- Apply the custom sounds to the ZeusSword.*
+
+Future Plans:
+
+	- Make it look like the pawns hold the weapons by the handle.*
+
+	- Togglable Shield*
+
+	-  Cleave Attacks for Big Swords?*
+
+	- Ultratech Blunt Weapon*
+		- Rocket Hammer or Gravity Hammer. Both?*
+
+	- SheathYourSword Compatibility?
+		- Probably Expensive
+
+Bugs(*)
+
+- Hat Display Settings Draws Hats over melee weapons.
+
+- Old Bug on current(corpo) modlist.(Small Weapons)

@@ -1,0 +1,21 @@
+
+New Things
+- Add New Customs Sounds for Weapons and their unique features.(~$50)
+
+- Add Two Weapons and a togglable, ultratech tower shield.(~$30+)
+	- Art for 1.1.($30?)
+	- Original Concept for Rocket Hammer:https://www.artstation.com/artwork/nPn0E
+	- 'Sagittarius's Might' black hole/solar pin hole "blunt" weapon.
+
+- Add a cleave attack to the Burst Blade and "True Strike" Cleave feature to the
+heavy monosword.($?)
+
+- Add XML patches to for new weapons and the shield.(~$36?)
+Quality of Life
+- C# Comps to adjust the posistion of equipped weapons($?)
+
+- Bug Fixes ($?)
+
+Estimated Budget:$116+
+
+I am already covering the cost of the custom sounds and art.
