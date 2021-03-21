@@ -57,6 +57,18 @@
 				<isHeavy>true</isHeavy>
 				<supportedArmors>
 					<li>VWE_Apparel_Exoframe</li>
+		            <li>SF_PoweredAssaultArmor</li>
+		            <li>SF_EngineerPowerArmor</li>
+		            <li>SF_ExplorerPowerArmor</li>
+		            <li>SF_GrenadierPowerArmor</li>
+		            <li>SF_CommandoArmor</li>
+		            <li>SF_HazardOperationsArmor</li>
+		            <li>SF_DiplomatPowerArmor</li>
+		            <li>SF_DefenderPowerArmor</li>
+		            <li>SF_ScoutPowerArmor</li>
+		            <li>SF_SamuraiPowerArmor</li>
+		            <li>SF_ShockTrooperArmor</li>
+		            <li>SF_ReconPowerArmor</li>
 				</supportedArmors>
 			</li>
 		</modExtensions>
@@ -228,6 +240,18 @@
 				<isHeavy>true</isHeavy>
 				<supportedArmors>
 					<li>VWE_Apparel_Exoframe</li>
+		            <li>SF_PoweredAssaultArmor</li>
+		            <li>SF_EngineerPowerArmor</li>
+		            <li>SF_ExplorerPowerArmor</li>
+		            <li>SF_GrenadierPowerArmor</li>
+		            <li>SF_CommandoArmor</li>
+		            <li>SF_HazardOperationsArmor</li>
+		            <li>SF_DiplomatPowerArmor</li>
+		            <li>SF_DefenderPowerArmor</li>
+		            <li>SF_ScoutPowerArmor</li>
+		            <li>SF_SamuraiPowerArmor</li>
+		            <li>SF_ShockTrooperArmor</li>
+		            <li>SF_ReconPowerArmor</li>
 				</supportedArmors>
 			</li>
 		</modExtensions>
@@ -288,6 +312,18 @@
 				<isHeavy>true</isHeavy>
 				<supportedArmors>
 					<li>VWE_Apparel_Exoframe</li>
+		            <li>SF_PoweredAssaultArmor</li>
+		            <li>SF_EngineerPowerArmor</li>
+		            <li>SF_ExplorerPowerArmor</li>
+		            <li>SF_GrenadierPowerArmor</li>
+		            <li>SF_CommandoArmor</li>
+		            <li>SF_HazardOperationsArmor</li>
+		            <li>SF_DiplomatPowerArmor</li>
+		            <li>SF_DefenderPowerArmor</li>
+		            <li>SF_ScoutPowerArmor</li>
+		            <li>SF_SamuraiPowerArmor</li>
+		            <li>SF_ShockTrooperArmor</li>
+		            <li>SF_ReconPowerArmor</li>
 				</supportedArmors>
 			</li>
 		</modExtensions>
@@ -397,6 +433,18 @@
 				<isHeavy>true</isHeavy>
 				<supportedArmors>
 					<li>VWE_Apparel_Exoframe</li>
+		            <li>SF_PoweredAssaultArmor</li>
+		            <li>SF_EngineerPowerArmor</li>
+		            <li>SF_ExplorerPowerArmor</li>
+		            <li>SF_GrenadierPowerArmor</li>
+		            <li>SF_CommandoArmor</li>
+		            <li>SF_HazardOperationsArmor</li>
+		            <li>SF_DiplomatPowerArmor</li>
+		            <li>SF_DefenderPowerArmor</li>
+		            <li>SF_ScoutPowerArmor</li>
+		            <li>SF_SamuraiPowerArmor</li>
+		            <li>SF_ShockTrooperArmor</li>
+		            <li>SF_ReconPowerArmor</li>
 				</supportedArmors>
 			</li>
 		</modExtensions>
