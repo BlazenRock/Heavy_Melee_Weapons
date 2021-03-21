@@ -1,7 +1,0 @@
-Bug Report:
-Search and Destroy
-	- Search and Destroy is counting the Burst Blade and Plasmalance as ranged
-weapons while they have ammo.
-	- Setting a pawn on search/destroy(r) makes them attempt to aim the plasmalance,
-causing the pawn to stand at max range, doing nothing since Plasmalance has no XML for aiming.
-	- Seems like an issue with Search and Destroy.
