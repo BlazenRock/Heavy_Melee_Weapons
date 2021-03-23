@@ -14,6 +14,8 @@ namespace HeavyMelee
             var harm = new Harmony("PitchStone.HeavyMeleeWeapons");
             harm.Patch(AccessTools.Method(typeof(CompEquippable), "GetVerbsCommands"),
                 postfix: new HarmonyMethod(typeof(HeavyMeleeMod), "AddShockCommand"));
+            harm.Patch(AccessTools.Method(typeof(Verb), "VerbTick"),
+                postfix: new HarmonyMethod(GetType(), "VerbPostTick"));
         }
 
         public static void AddShockCommand(ref IEnumerable<Command> __result, CompEquippable __instance)
@@ -68,5 +70,15 @@ namespace HeavyMelee
             reason = "";
             return false;
         }
+
+        public static void VerbPostTick(Verb __instance)
+        {
+            if (__instance is IVerbTick ticker) ticker.Tick();
+        }
+    }
+
+    public interface IVerbTick
+    {
+        void Tick();
     }
 }

@@ -90,7 +90,7 @@
     <verbs>
       <li>
         <label>Cleave</label>
-        <verbClass>HeavyMelee.Verb_MeleeCleave</verbClass>
+        <verbClass>HeavyMelee.Verb_Cleave</verbClass>
         <isPrimary>true</isPrimary>
         <onlyManualCast>true</onlyManualCast>
         <range>1.9</range>
@@ -98,6 +98,10 @@
         <meleeDamageDef>Cut</meleeDamageDef>
         <meleeArmorPenetrationBase>0.8</meleeArmorPenetrationBase>
         <hasStandardCommand>true</hasStandardCommand>
+        <targetable>false</targetable>
+        <targetParams>
+          <canTargetSelf>true</canTargetSelf>
+        </targetParams>
       </li>
     </verbs>
     <modExtensions>

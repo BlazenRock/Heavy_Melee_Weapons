@@ -60,6 +60,8 @@
     <Compile Include="DamageWorker_PsychicSmash.cs" />
     <Compile Include="HeavyMeleeMod.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Verb_Cleave.cs" />
+    <Compile Include="Verb_MeleeCleave.cs" />
     <Compile Include="Verb_ReloadableSelfExplode.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
