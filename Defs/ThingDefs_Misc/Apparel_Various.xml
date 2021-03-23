@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <ThingDef Name="HMW_GuardianShieldBase" ParentName="BaseMeleeWeapon_Blunt_Quality" Abstract="True">
+    <techLevel>Spacer</techLevel>
+	<thingClass>VFECore.Apparel_Shield</thingClass>
+		<apparel>
+			<careIfWornByCorpse>false</careIfWornByCorpse>
+			<careIfDamaged>false</careIfDamaged>
+			<wearPerDay>0</wearPerDay>
+		<bodyPartGroups>
+			<li>LeftHand</li>
+			<li>Arms</li>
+		</bodyPartGroups>
+		<defaultOutfitTags>
+				<li>Soldier</li>
+			</defaultOutfitTags>
+		<layers>
+			<li>VFEC_OuterShell</li>
+		</layers>
+	</apparel>
+    <thingCategories Inherit="False">
+      <li>VFEC_Shields</li>
+    </thingCategories>
+    <recipeMaker>
+      <researchPrerequisite>Fabrication</researchPrerequisite>
+      <unfinishedThingDef>UnfinishedGun</unfinishedThingDef>
+      <workSpeedStat>GeneralLaborSpeed</workSpeedStat>
+      <workSkill>Crafting</workSkill>
+      <effectWorking>Smith</effectWorking>
+      <soundWorking>Recipe_Smith</soundWorking>
+      <recipeUsers>
+        <li>FabricationBench</li>
+      </recipeUsers>
+      <skillRequirements>
+        <Crafting>7</Crafting>
+      </skillRequirements>
+    </recipeMaker>
+    <equippedAngleOffset>0</equippedAngleOffset>
+    <tools>
+      <li>
+        <label>centre</label>
+        <labelUsedInLogging>false</labelUsedInLogging>
+        <capacities>
+          <li>Blunt</li>
+        </capacities>
+        <power>9</power>
+        <cooldownTime>2</cooldownTime>
+      </li>
+    </tools>
+  </ThingDef>
+
+  <ThingDef ParentName="HMW_GuardianShieldBase">
+    <defName>HMW_GuardianShield</defName>
+    <label>guardian shield</label>
+    <description>A heavy spacer tech shield.</description> <!-- needs proper description -->
+    <graphicData>
+      <texPath>Pawn/GuardianShield/GuardianShield</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <drawSize>1</drawSize>
+    </graphicData>
+    <costList>
+      <Plasteel>60</Plasteel>
+	  <ComponentSpacer>1</ComponentSpacer>
+    </costList>
+    <statBases>
+      <MaxHitPoints>120</MaxHitPoints>
+      <Flammability>0.1</Flammability>
+      <ArmorRating_Sharp>0.85</ArmorRating_Sharp>
+      <ArmorRating_Blunt>0.45</ArmorRating_Blunt>
+      <ArmorRating_Heat>0.9</ArmorRating_Heat>
+      <WorkToMake>20000</WorkToMake>
+      <Mass>2.5</Mass>
+    </statBases>
+    <comps>
+      <li Class="CompOversizedWeapon.CompProperties_OversizedWeapon"/>
+      <li Class="VFECore.CompProperties_Shield">
+        <shieldTags>
+          <li>SpacerShield</li>
+        </shieldTags>
+        <useDeflectMetalEffect>true</useDeflectMetalEffect>
+        <coveredBodyPartGroups>
+          <li>Neck</li>
+          <li>Torso</li>
+          <li>Arms</li>
+          <li>Hands</li>
+          <li>Legs</li>
+        </coveredBodyPartGroups>
+        <offHandGraphicData>
+          <texPath>Pawn/GuardianShield/GuardianShield</texPath>
+          <graphicClass>Graphic_Multi</graphicClass>
+          <shaderType>CutoutComplex</shaderType>
+          <drawSize>1.6</drawSize>
+        </offHandGraphicData>
+        <offHandHoldOffset>
+          <northDefault>
+            <offset>(0, 0, 0.2)</offset>
+            <behind>true</behind>
+          </northDefault>
+          <east>
+            <offset>(-0.1, 0, 0.2)</offset>
+            <behind>true</behind>
+          </east>
+          <south>
+            <offset>(-0.1, -0.04, 0.2)</offset>
+          </south>
+          <west>
+            <offset>(0.1, 0, 0.2)</offset>
+          </west>
+        </offHandHoldOffset>
+      </li>
+    </comps>
+    <modExtensions>
+      <li Class="HeavyWeapons.HeavyWeapon">
+        <isHeavy>true</isHeavy>
+        <supportedArmors>
+          <li>VWE_Apparel_Exoframe</li>
+        </supportedArmors>
+      </li>
+    </modExtensions>
+  </ThingDef>
+  
+</Defs>
