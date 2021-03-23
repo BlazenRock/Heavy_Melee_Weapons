@@ -75,7 +75,7 @@
     </modExtensions>
   </ThingDef>
 
-  <ThingDef ParentName="BaseWeapon_Bladelink">
+  <!-- <ThingDef ParentName="BaseWeapon_Bladelink">
     <defName>HMW_MeleeWeapon_PersonaHeavyZeushammer</defName>
     <label>persona heavy zeushammer</label>
     <description>A heavy warhammer with an embedded EMP capacitor. Upon impact, it blasts the target with an EMP burst in addition to the physical damage.
@@ -136,7 +136,7 @@
         </supportedArmors>
       </li>
     </modExtensions>
-  </ThingDef>
+  </ThingDef> -->
 
   <ThingDef ParentName="BaseWeapon_Bladelink">
     <defName>HMW_MeleeWeapon_PersonaFlameLance</defName>
