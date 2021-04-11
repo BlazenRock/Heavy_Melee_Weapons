@@ -44,6 +44,7 @@ namespace HeavyMelee
             SA_HeavyWeaponThingString.Add("HMW_MeleeWeapon_PersonaFlameLance");
             SA_HeavyWeaponThingString.Add("HMW_MeleeWeapon_PersonaPsychicWarhammer");
             SA_HeavyWeaponThingString.Add("HMW_MeleeWeapon_PersonaZeusSword");
+            //SA_HeavyWeaponThingString.Add("HMW_GuardianShield");
             
             foreach(string str in SA_HeavyWeaponThingString){
                 ThingDef hdd = DefDatabase<ThingDef>.GetNamed(str, false);
@@ -68,8 +69,38 @@ namespace HeavyMelee
 				null,
                 new HarmonyMethod(typeof(Harmony_ExosuitHeavyWeapon), nameof(CanEquipPostFix)),
                 null);
+            
+			harmony.Patch(
+                AccessTools.Method(typeof(Pawn_EquipmentTracker), "GetGizmos"),
+				null,
+                new HarmonyMethod(typeof(Harmony_ExosuitHeavyWeapon), nameof(GetExtraEquipmentGizmosPassThrough)),
+                null);
         }
-
+		public static IEnumerable<Gizmo> GetExtraEquipmentGizmosPassThrough(IEnumerable<Gizmo> values, Pawn_EquipmentTracker __instance)
+		{
+			foreach(Gizmo giz in values){
+				yield return giz;
+			}
+			if(PawnAttackGizmoUtility.CanShowEquipmentGizmos() && __instance.pawn.IsColonistPlayerControlled){
+				List<ThingWithComps> list = __instance.AllEquipmentListForReading;
+				for (int i = 0; i < list.Count; i++){
+					ThingWithComps eq = list[i];
+                    if(eq.def.GetModExtension<SagittariusMightPlantModExtention>() is SagittariusMightPlantModExtention samip){
+                        yield return new Command_Action {
+                            defaultLabel = samip.label,
+                            defaultDesc = samip.description,
+                            icon = ContentFinder<Texture2D>.Get(samip.texPath, true),
+                            action = delegate (){
+                                Thing bb = ThingMaker.MakeThing(GravityLanceDefOf.PlantedGravityLance, null);
+                                GenSpawn.Spawn(bb, __instance.pawn.Position, __instance.pawn.Map);
+                                eq.Destroy();
+                            }
+                        };
+                    }
+                }
+			}
+			yield break;
+		}
 
         public static void CanEquipPostFix(Pawn pawn, HeavyWeapon options, ref bool __result) {
             if (!__result && SA_HeavyWeaponExtentionInstances.Contains(options)) {
