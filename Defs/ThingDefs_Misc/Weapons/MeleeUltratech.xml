@@ -36,7 +36,7 @@
     <description>A crystal-metallic heavy longsword infused with mechanites that maintain a mono-molecular cutting edge. It cuts through even thick armor with ease, and its fearsome shape intimidates foes. 
     Its great weight requires the user to wear an Exoframe, or flatter under the burden.</description>
     <soundInteract>Interact_MonoSword</soundInteract>
-    <meleeHitSound>MeleeHit_MonoSword</meleeHitSound>
+    <meleeHitSound>MeleeHit_HeavyMonoSword</meleeHitSound>
     <equippedAngleOffset>-65</equippedAngleOffset>
     <statBases>
       <MarketValue>3000</MarketValue>
@@ -346,7 +346,7 @@
     <description>A crystal-metallic greatsword infused with mechanites that maintain a mono-molecular cutting edge. The sword has built-in EMP emmiters, shocking those unfortunate enough to be on the recieving end of it.
   \nIt cuts through even thick armor with ease, but its great weight requires the use of an exoframe or similar apparel.</description>
     <soundInteract>Interact_MonoSword</soundInteract>
-    <meleeHitSound>MeleeHit_ZeusSword</meleeHitSound>
+    <meleeHitSound>MeleeHit_BurstBlade</meleeHitSound>
     <equippedAngleOffset>-65</equippedAngleOffset>
     <statBases>
       <MarketValue>3000</MarketValue>
@@ -462,7 +462,7 @@
     <description>A heavy warhammer with an embedded thruster. Upon using, the thruster sends the pawn flying.
     /n Every swing costs a bit of fuel so plan put your actions ahead of time.</description>
     <soundInteract>Interact_ZeusHammer</soundInteract>
-    <meleeHitSound>MeleeHit_ZeusHammer</meleeHitSound>
+    <meleeHitSound>MeleeHit_RocketHammer</meleeHitSound>
     <equippedAngleOffset>-65</equippedAngleOffset>
 	<techLevel>Industrial</techLevel>
     <statBases>
@@ -504,19 +504,28 @@
         <power>10</power>
         <cooldownTime>2.5</cooldownTime>
       </li>
-      <li>
+      <li><!--with ammo pawn will use this-->
         <label>head</label>
         <labelUsedInLogging>false</labelUsedInLogging>
         <capacities>
-          <li>Blunt</li>
+          <li>PoweredBlunt</li>
         </capacities>
         <power>24</power>
+        <cooldownTime>3</cooldownTime>
+      </li>
+      <li><!--but without it, it will use this instead-->
+        <label>head</label>
+        <labelUsedInLogging>false</labelUsedInLogging>
+        <capacities>
+          <li>UnpoweredBlunt</li>
+        </capacities>
+        <power>12</power>
         <cooldownTime>3</cooldownTime>
       </li>
     </tools>
     <verbs>
       <li>
-        <verbClass>MVCF.Verbs.Verb_Jump</verbClass>
+        <verbClass>HeavyMelee.Verb_ReloadableJump</verbClass>
         <label>rocket hammer jump</label>
         <violent>false</violent>
         <hasStandardCommand>true</hasStandardCommand>
@@ -526,6 +535,7 @@
         <warmupEffecter>JumpWarmupEffect</warmupEffecter>
 		<range>14.9</range>
         <requireLineOfSight>true</requireLineOfSight>
+		<consumeFuelPerShot>30</consumeFuelPerShot>
         <targetParams>
           <canTargetLocations>true</canTargetLocations>
           <canTargetPawns>true</canTargetPawns>
@@ -534,6 +544,17 @@
       </li>
     </verbs>
     <comps>
+      <li Class="Reloading.CompProperties_Reloadable">
+        <compClass>Reloading.CompReloadable</compClass>
+        <AmmoFilter>
+          <thingDefs>
+            <li>Chemfuel</li>
+          </thingDefs>
+        </AmmoFilter>
+        <MaxShots>180</MaxShots>
+        <ItemsPerShot>1</ItemsPerShot>
+        <ReloadTimePerShot>0.33</ReloadTimePerShot>
+      </li>
       <li Class="MVCF.Comps.CompProperties_VerbProps">
         <compClass>MVCF.Comps.Comp_VerbProps</compClass>
         <ConsiderMelee>true</ConsiderMelee>
@@ -589,7 +610,7 @@
       <li>
         <label>handle</label>
         <capacities>
-          <li>Poke</li>
+          <li>SelfDamagingPoke</li>
         </capacities>
         <power>12</power>
         <cooldownTime>2.5</cooldownTime>
@@ -598,13 +619,21 @@
         <label>head</label>
         <labelUsedInLogging>false</labelUsedInLogging>
         <capacities>
-          <li>Blunt</li>
+          <li>SelfDamagingBlunt</li>
         </capacities>
         <power>26</power>
         <cooldownTime>3.0</cooldownTime>
       </li>
     </tools>
     <modExtensions>
+      <li Class="HeavyMelee.SelfDamageModExtension">
+		<selfDamageAmountPerAttack>2</selfDamageAmountPerAttack>
+	  </li>
+      <li Class="HeavyMelee.SagittariusMightPlantModExtention">
+		<label>Plant Sagittarius Might</label>
+		<description>Planting this weapon will make it detonate after 15 seconds.</description>
+		<texPath>Building/PlantedGravityLance</texPath>
+	  </li>
       <li Class="HeavyWeapons.HeavyWeapon">
         <isHeavy>true</isHeavy>
         <supportedArmors>

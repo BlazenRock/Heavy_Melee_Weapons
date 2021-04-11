@@ -8,7 +8,7 @@
   \nIts great weight requires the user to wear an Exoframe, or falter under the burden.
 	\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
     <soundInteract>Interact_MonoSword</soundInteract>
-    <meleeHitSound>MeleeHit_MonoSword</meleeHitSound>
+    <meleeHitSound>MeleeHit_HeavyMonoSword</meleeHitSound>
     <equippedAngleOffset>-65</equippedAngleOffset>
     <graphicData>
       <texPath>Weapons/KIT_MonoSword</texPath>
@@ -264,7 +264,7 @@
   \nIts great weight requires the user to wear an Exoframe, or flatter under the burden.
 	\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
     <soundInteract>Interact_ZeusHammer</soundInteract>
-    <meleeHitSound>MeleeHit_ZeusHammer</meleeHitSound>
+    <meleeHitSound>MeleeHit_RelicMaul</meleeHitSound>
     <equippedAngleOffset>-65</equippedAngleOffset>
     <graphicData>
       <texPath>Weapons/KIT_RelicHammer</texPath>
@@ -331,12 +331,12 @@
   
   <ThingDef ParentName="BaseWeapon_Bladelink">
     <defName>HMW_MeleeWeapon_PersonaZeusSword</defName>
-    <label>persona burst  blade</label>
+    <label>persona burst blade</label>
     <description>A crystal-metallic greatsword infused with mechanites that maintain a mono-molecular cutting edge. The sword has built-in EMP emmiters, shocking those unfortunate enough to be on the recieving end of it.
   \nIt cuts through even thick armor with ease, but its great weight requires the use of an exoframe or similar apparel.
 	\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
     <soundInteract>Interact_MonoSword</soundInteract>
-    <meleeHitSound>MeleeHit_ZeusSword</meleeHitSound>
+    <meleeHitSound>MeleeHit_BurstBlade</meleeHitSound>
     <equippedAngleOffset>-65</equippedAngleOffset>
     <graphicData>
       <texPath>Weapons/KIT_ZeusSword</texPath>

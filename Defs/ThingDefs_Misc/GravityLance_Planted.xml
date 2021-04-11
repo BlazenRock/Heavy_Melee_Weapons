@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+  <ThingDef ParentName="BuildingBase">
+    <defName>PlantedGravityLance</defName>
+    <label>Planted Sagittarius Might</label>
+    <description>A Sagittarius Might planted onto the ground. Will explode soon, so you better get away as soon as you can!</description>
+    <thingClass>ThingWithComps</thingClass>
+    <graphicData>
+      <texPath>Building/PlantedGravityLance</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <drawSize>1.6</drawSize>
+    </graphicData>
+    <uiIconScale>0.65</uiIconScale>
+    <altitudeLayer>Building</altitudeLayer>
+    <rotatable>false</rotatable>
+    <fillPercent>0.5</fillPercent>
+    <statBases>
+      <MaxHitPoints>130</MaxHitPoints>
+      <Flammability>1.0</Flammability>
+    </statBases>
+    <pathCost>42</pathCost>
+    <receivesSignals>true</receivesSignals>
+    <blockWind>false</blockWind>
+    <tickerType>Normal</tickerType>
+    <passability>PassThroughOnly</passability>
+    <comps>
+      <li Class="HeavyMelee.CompProperties_GravityLanceExplode">
+        <explosionAfterTicks>900</explosionAfterTicks>	<!--15 seconds x 60 tps-->
+		<countDownSoundDef>MeleeHit_SagittariusMightCountdown</countDownSoundDef>
+		<countDownSoundDef4Sec>MeleeHit_SagittariusMightCountdown4SEC</countDownSoundDef4Sec>
+		<impactSoundDef>MeleeHit_SagittariusMightDetonation</impactSoundDef>
+		<explosionRadius>8</explosionRadius> <!--8 * 2-->
+		<damageDef>Flame</damageDef>
+		<damageAmount>200</damageAmount>
+		<armourPenetration>1</armourPenetration>
+      </li>
+    </comps>
+  </ThingDef>
+
+</Defs>
