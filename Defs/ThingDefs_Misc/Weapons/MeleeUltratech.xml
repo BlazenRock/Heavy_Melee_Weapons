@@ -592,8 +592,8 @@
     <defName>HMW_MeleeWeapon_SagittariusMight</defName>
     <label>Sagittarius Might</label>
     <description>A needlessly elaborate weapon of execution. The royal's preferred way of erasing internal opposition from existence.
-    /n The artifact is one in a limited collection of singularity field generators since being banned in the glitter worlds. It can now only be found in the blackest markets.
-    /n Despite it's name, the artifact has nowhere near the same power of a super massive black hole. Anyone holding it should excercise extreme caution nonetheless.</description> <!-- needs some creative writing -->
+	    /nThe artifact is one in a limited collection of singularity field generators since being banned in the glitter worlds. It can now only be found in the blackest markets.
+	    /nDespite it's name, the artifact has nowhere near the same power of a super massive black hole. Anyone holding it should excercise extreme caution nonetheless.</description> <!-- needs some creative writing -->
     <soundInteract>Interact_ZeusHammer</soundInteract>
     <meleeHitSound>MeleeHit_SagittariusMight</meleeHitSound>
     <equippedAngleOffset>-65</equippedAngleOffset>
