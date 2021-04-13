@@ -511,7 +511,7 @@
           <li>PoweredBlunt</li>
         </capacities>
         <power>24</power>
-        <cooldownTime>3</cooldownTime>
+        <cooldownTime>1.5</cooldownTime>
       </li>
       <li><!--but without it, it will use this instead-->
         <label>head</label>
@@ -590,7 +590,7 @@
   
   <ThingDef ParentName="HMW_MeleeWeaponUltratechHeavy">
     <defName>HMW_MeleeWeapon_SagittariusMight</defName>
-    <label>Sagittarius Might</label>
+    <label>Sagittarius's Might</label>
     <description>A needlessly elaborate weapon of execution. The royal's preferred way of erasing internal opposition from existence.
 	    /nThe artifact is one in a limited collection of singularity field generators since being banned in the glitter worlds. It can now only be found in the blackest markets.
 	    /nDespite it's name, the artifact has nowhere near the same power of a super massive black hole. Anyone holding it should excercise extreme caution nonetheless.</description> <!-- needs some creative writing -->
@@ -627,7 +627,7 @@
     </tools>
     <modExtensions>
       <li Class="HeavyMelee.SelfDamageModExtension">
-		<selfDamageAmountPerAttack>2</selfDamageAmountPerAttack>
+		<selfDamageAmountPerAttack>13</selfDamageAmountPerAttack>
 	  </li>
       <li Class="HeavyMelee.SagittariusMightPlantModExtention">
 		<label>Plant Sagittarius Might</label>

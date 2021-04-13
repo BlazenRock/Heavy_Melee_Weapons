@@ -11,6 +11,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
 using HeavyWeapons;
+using VFECore;
 
 namespace HeavyMelee
 {
@@ -65,7 +66,7 @@ namespace HeavyMelee
             //harmony.PatchAll();
 			
 			harmony.Patch(
-                AccessTools.Method(typeof(Patch_FloatMenuMakerMap.AddHumanlikeOrders_Fix), "CanEquip"),
+                AccessTools.Method(typeof(HeavyWeapons.Patch_FloatMenuMakerMap.AddHumanlikeOrders_Fix), "CanEquip"),
 				null,
                 new HarmonyMethod(typeof(Harmony_ExosuitHeavyWeapon), nameof(CanEquipPostFix)),
                 null);
@@ -74,6 +75,12 @@ namespace HeavyMelee
                 AccessTools.Method(typeof(Pawn_EquipmentTracker), "GetGizmos"),
 				null,
                 new HarmonyMethod(typeof(Harmony_ExosuitHeavyWeapon), nameof(GetExtraEquipmentGizmosPassThrough)),
+                null);
+
+			harmony.Patch(
+                AccessTools.Method(typeof(Thing), "TakeDamage"),
+                new HarmonyMethod(typeof(Harmony_ExosuitHeavyWeapon), nameof(TakeDamageExtendedShield)),
+                null,
                 null);
         }
 		public static IEnumerable<Gizmo> GetExtraEquipmentGizmosPassThrough(IEnumerable<Gizmo> values, Pawn_EquipmentTracker __instance)
@@ -113,7 +120,115 @@ namespace HeavyMelee
                     }
                 }
             }
-
         }
+
+        public static bool canBeShielded(Pawn p){
+            return p.Faction != null;
+        }
+
+        public static List<Thing> SA_PawnsCheck = new List<Thing>();
+        public static List<Apparel> SA_ConcurrencyErrorSafetyNet = new List<Apparel>();
+        public static IEnumerable<Apparel> DefenderPawnShields(Pawn basePawn, DamageInfo di){
+            //di.IgnoreArmor
+            Map map = basePawn.Map;
+            int dirIntForm = (int)(di.Angle * 16 / 360.0f) % 16;
+            Vector3 checkVector1;
+            Vector3 checkVector2;
+            Vector3 checkVector3;
+            switch(dirIntForm){
+                case 15: //east
+                case 0:{
+                    checkVector2 = new Vector3(0, 0, -1);
+                    break;
+                }
+                case 1:
+                case 2:{
+                    checkVector2 = new Vector3(-1, 0, -1);
+                    break;
+                }
+                case 3: //north
+                case 4:{
+                    checkVector2 = new Vector3(-1, 0, 0);
+                    break;
+                }
+                case 5:
+                case 6:{
+                    checkVector2 = new Vector3(-1, 0, 1);
+                    break;
+                }
+                case 7: //west
+                case 8:{
+                    checkVector2 = new Vector3(0, 0, 1);
+                    break;
+                }
+                case 9:
+                case 10:{
+                    checkVector2 = new Vector3(1, 0, 1);
+                    break;
+                }
+                case 11: //south
+                case 12:{
+                    checkVector2 = new Vector3(1, 0, 0);
+                    break;
+                }
+                case 13:
+                case 14:{
+                    checkVector2 = new Vector3(1, 0, -1);
+                    break;
+                }
+                default:{
+                    Log.Warning("Shield Calculation : Angle out of range");
+                    checkVector1 = default(Vector3);
+                    checkVector2 = default(Vector3);
+                    checkVector3 = default(Vector3);
+                    break;
+                }
+            }
+            //Log.Warning("Angle Calc " + checkVector2 + " / " + di.Angle);
+            SA_PawnsCheck.Clear();
+            SA_ConcurrencyErrorSafetyNet.Clear();
+            Faction baseFaction = basePawn.Faction;
+            IntVec3 iv3 = checkVector2.ToIntVec3() + basePawn.Position;
+            SA_PawnsCheck.AddRange(map.thingGrid.ThingsAt(iv3));
+            SA_PawnsCheck.AddRange(map.thingGrid.ThingsAt(basePawn.Position));
+            foreach(Thing thing in SA_PawnsCheck){
+                if(thing is Pawn pawn && pawn.apparel != null && pawn.Faction == baseFaction){
+                    foreach(Apparel app in pawn.apparel.WornApparel){
+                        if(app.def.GetModExtension<ExtendedShield>() != null){
+                            //yield return app;
+                            SA_ConcurrencyErrorSafetyNet.Add(app);
+                        }
+                    }
+                }
+            }
+            foreach(Apparel app in SA_ConcurrencyErrorSafetyNet){
+                yield return app;
+            }
+            yield break;
+        }
+
+        public static bool TakeDamageExtendedShield(Thing __instance, DamageInfo dinfo, ref DamageWorker.DamageResult __result){
+            if(__instance is Pawn p){
+                float amountNow = dinfo.Amount;
+                foreach(Apparel damageMe in DefenderPawnShields(p, dinfo)){
+                    int damage = Convert.ToInt32(Mathf.Min(amountNow, damageMe.HitPoints));
+                    //damageMe.HitPoints -= damage;
+                    DamageInfo ddClone = new DamageInfo(dinfo);
+                    ddClone.SetAmount(damage);
+                    damageMe.TakeDamage(ddClone);
+                    /**if(damageMe.HitPoints <= 0){
+                        damageMe.Destroy();
+                    }**/
+                    amountNow -= damage;
+                }
+                dinfo.SetAmount(amountNow);
+                if(amountNow == 0){
+                    __result = new DamageWorker.DamageResult();
+                    return false;
+                }
+            }
+            return true;
+        }
+
     }
 }

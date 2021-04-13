@@ -12,7 +12,7 @@
           </li>
         </grains>      
         <volumeRange>17~20</volumeRange>      
-        <pitchRange>0.9152174~1.169566</pitchRange>
+        <pitchRange>1~1</pitchRange>
       </li>
     </subSounds>
   </SoundDef>
@@ -28,8 +28,8 @@
             <clipFolderPath>SagittariusMight/SagittariusMightCountdown4SEC</clipFolderPath>
           </li>
         </grains>      
-        <volumeRange>17~20</volumeRange>      
-        <pitchRange>0.9152174~1.169566</pitchRange>
+        <volumeRange>85~100</volumeRange>      
+        <pitchRange>1~1</pitchRange>
       </li>
     </subSounds>
   </SoundDef>
