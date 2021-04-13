@@ -111,6 +111,8 @@
       </li>
     </comps>
     <modExtensions>
+      <li Class="HeavyMelee.ExtendedShield">
+	  </li>
       <li Class="HeavyWeapons.HeavyWeapon">
         <isHeavy>true</isHeavy>
         <supportedArmors>
