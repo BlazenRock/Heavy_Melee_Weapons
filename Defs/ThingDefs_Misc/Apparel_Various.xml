@@ -4,10 +4,10 @@
   <ThingDef Name="HMW_GuardianShieldBase" ParentName="BaseMeleeWeapon_Blunt_Quality" Abstract="True">
     <techLevel>Spacer</techLevel>
 	<thingClass>VFECore.Apparel_Shield</thingClass>
-		<apparel>
-			<careIfWornByCorpse>false</careIfWornByCorpse>
-			<careIfDamaged>false</careIfDamaged>
-			<wearPerDay>0</wearPerDay>
+	<apparel>
+		<careIfWornByCorpse>false</careIfWornByCorpse>
+		<careIfDamaged>false</careIfDamaged>
+		<wearPerDay>0</wearPerDay>
 		<bodyPartGroups>
 			<li>LeftHand</li>
 			<li>Arms</li>
@@ -63,6 +63,7 @@
       <Plasteel>60</Plasteel>
 	  <ComponentSpacer>1</ComponentSpacer>
     </costList>
+	<tickerType>Normal</tickerType>
     <statBases>
       <MaxHitPoints>120</MaxHitPoints>
       <Flammability>0.1</Flammability>
@@ -73,6 +74,17 @@
       <Mass>2.5</Mass>
     </statBases>
     <comps>
+      <li Class="HeavyMelee.CompProperties_ExtendedShield">
+		<shieldToggleLabel>Toggle Shield</shieldToggleLabel>
+		<shieldToggleDesc>Toggles whether you want to extend your shield or not.</shieldToggleDesc>
+		<shieldIcon>Pawn/GuardianShield/KIT_GuardianShield</shieldIcon>
+		<shieldActiveGraphic>
+          <texPath>Pawn/GuardianShield/ShieldExtended</texPath>
+          <graphicClass>Graphic_Multi</graphicClass>
+          <shaderType>CutoutComplex</shaderType>
+          <drawSize>2.4</drawSize>
+		</shieldActiveGraphic>
+	  </li>
       <li Class="CompOversizedWeapon.CompProperties_OversizedWeapon"/>
       <li Class="VFECore.CompProperties_Shield">
         <shieldTags>
@@ -88,6 +100,92 @@
         </coveredBodyPartGroups>
         <offHandGraphicData>
           <texPath>Pawn/GuardianShield/KIT_GuardianShield</texPath>
+          <graphicClass>Graphic_Multi</graphicClass>
+          <shaderType>CutoutComplex</shaderType>
+          <drawSize>1.6</drawSize>
+        </offHandGraphicData>
+        <offHandHoldOffset>
+          <northDefault>
+            <offset>(0, 0, 0.2)</offset>
+            <behind>true</behind>
+          </northDefault>
+          <east>
+            <offset>(-0.1, 0, 0.2)</offset>
+            <behind>true</behind>
+          </east>
+          <south>
+            <offset>(-0.1, -0.04, 0.2)</offset>
+          </south>
+          <west>
+            <offset>(0.1, 0, 0.2)</offset>
+          </west>
+        </offHandHoldOffset>
+      </li>
+    </comps>
+    <modExtensions>
+      <li Class="HeavyMelee.ExtendedShield">
+	  </li>
+      <li Class="HeavyWeapons.HeavyWeapon">
+        <isHeavy>true</isHeavy>
+        <supportedArmors>
+          <li>VWE_Apparel_Exoframe</li>
+        </supportedArmors>
+      </li>
+    </modExtensions>
+  </ThingDef>
+  
+  
+  <ThingDef ParentName="HMW_GuardianShieldBase">
+    <defName>HMW_GuardianShieldB</defName>
+    <label>guardian shield</label>
+    <description>A heavy spacer tech shield.</description> <!-- needs proper description -->
+    <graphicData>
+      <texPath>Pawn/GuardianShield/GuardianShield</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <drawSize>1</drawSize>
+    </graphicData>
+	<tickerType>Normal</tickerType>
+    <costList>
+      <Plasteel>60</Plasteel>
+	  <ComponentSpacer>1</ComponentSpacer>
+    </costList>
+    <statBases>
+      <MaxHitPoints>120</MaxHitPoints>
+      <Flammability>0.1</Flammability>
+      <ArmorRating_Sharp>0.85</ArmorRating_Sharp>
+      <ArmorRating_Blunt>0.45</ArmorRating_Blunt>
+      <ArmorRating_Heat>0.9</ArmorRating_Heat>
+      <WorkToMake>20000</WorkToMake>
+      <Mass>2.5</Mass>
+    </statBases>
+	
+    <comps>
+      <li Class="HeavyMelee.CompProperties_ExtendedShield">
+		<shieldToggleLabel>Toggle Shield</shieldToggleLabel>
+		<shieldToggleDesc>Toggles whether you want to extend your shield or not.</shieldToggleDesc>
+		<shieldIcon>Pawn/GuardianShield/GuardianShield</shieldIcon>
+		<shieldActiveGraphic>
+          <texPath>Pawn/GuardianShield/ShieldExtended</texPath>
+          <graphicClass>Graphic_Multi</graphicClass>
+          <shaderType>CutoutComplex</shaderType>
+          <drawSize>2.4</drawSize>
+		</shieldActiveGraphic>
+	  </li>
+      <li Class="CompOversizedWeapon.CompProperties_OversizedWeapon"/>
+      <li Class="VFECore.CompProperties_Shield">
+        <shieldTags>
+          <li>SpacerShield</li>
+        </shieldTags>
+        <useDeflectMetalEffect>true</useDeflectMetalEffect>
+        <coveredBodyPartGroups>
+          <li>Neck</li>
+          <li>Torso</li>
+          <li>Arms</li>
+          <li>Hands</li>
+          <li>Legs</li>
+        </coveredBodyPartGroups>
+        <offHandGraphicData>
+          <texPath>Pawn/GuardianShield/GuardianShield</texPath>
           <graphicClass>Graphic_Multi</graphicClass>
           <shaderType>CutoutComplex</shaderType>
           <drawSize>1.6</drawSize>
