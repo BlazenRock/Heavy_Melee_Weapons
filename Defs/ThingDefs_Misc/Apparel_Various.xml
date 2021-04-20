@@ -150,7 +150,7 @@
 	  <ComponentSpacer>1</ComponentSpacer>
     </costList>
     <statBases>
-      <MaxHitPoints>120</MaxHitPoints>
+      <MaxHitPoints>200</MaxHitPoints>
       <Flammability>0.1</Flammability>
       <ArmorRating_Sharp>0.85</ArmorRating_Sharp>
       <ArmorRating_Blunt>0.45</ArmorRating_Blunt>
