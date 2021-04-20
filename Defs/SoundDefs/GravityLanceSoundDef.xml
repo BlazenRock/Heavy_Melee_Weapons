@@ -2,99 +2,48 @@
 <Defs>
 
   <SoundDef>
-    <defName>MeleeHit_ZeusSword</defName>  
+    <defName>MeleeHit_SagittariusMightCountdown</defName>  
     <context>MapOnly</context> 
     <maxSimultaneous>1</maxSimultaneous>  
     <subSounds>
       <li>
         <grains>
           <li Class="AudioGrain_Folder">
-            <clipFolderPath>Impact/MonoSword</clipFolderPath> <!-- put the path here, should look like ZeusSword/YourSoundName -->
+            <clipFolderPath>SagittariusMight/SagittariusMightCountdown</clipFolderPath>
           </li>
         </grains>      
         <volumeRange>17~20</volumeRange>      
-        <pitchRange>0.9152174~1.169566</pitchRange>
-      </li>
-    </subSounds>
-  </SoundDef>
-  
-  <SoundDef>
-    <defName>MeleeHit_RelicMaul</defName>  
-    <context>MapOnly</context> 
-    <maxSimultaneous>1</maxSimultaneous>  
-    <subSounds>
-      <li>
-        <grains>
-          <li Class="AudioGrain_Folder">
-            <clipFolderPath>RelicMaul/RelicHammer</clipFolderPath> <!-- put the path here, should look like RelicMaul/YourSoundName -->
-          </li>
-        </grains>      
-        <volumeRange>17~20</volumeRange>      
-        <pitchRange>0.9152174~1.169566</pitchRange>
-      </li>
-    </subSounds>
-  </SoundDef>
-  
-  <SoundDef>
-    <defName>MeleeHit_SagittariusMight</defName>  
-    <context>MapOnly</context> 
-    <maxSimultaneous>1</maxSimultaneous>  
-    <subSounds>
-      <li>
-        <grains>
-          <li Class="AudioGrain_Folder">
-            <clipFolderPath>SagittariusMight/SagittariusMightonHit</clipFolderPath> <!-- put the path here, should look like SagittariusMight/YourSoundName -->
-          </li>
-        </grains>      
-        <volumeRange>17~20</volumeRange>      
-        <pitchRange>0.9152174~1.169566</pitchRange>
+        <pitchRange>1~1</pitchRange>
       </li>
     </subSounds>
   </SoundDef>
 
   <SoundDef>
-    <defName>MeleeHit_BurstBlade</defName>  
+    <defName>MeleeHit_SagittariusMightCountdown4SEC</defName>  
     <context>MapOnly</context> 
     <maxSimultaneous>1</maxSimultaneous>  
     <subSounds>
       <li>
         <grains>
           <li Class="AudioGrain_Folder">
-            <clipFolderPath>ZeusSword/BurstBlade</clipFolderPath>
+            <clipFolderPath>SagittariusMight/SagittariusMightCountdown4SEC</clipFolderPath>
           </li>
         </grains>      
-        <volumeRange>17~20</volumeRange>      
-        <pitchRange>0.9152174~1.169566</pitchRange>
-      </li>
-    </subSounds>
-  </SoundDef>
-  
-  <SoundDef>
-    <defName>MeleeHit_HeavyMonoSword</defName>  
-    <context>MapOnly</context> 
-    <maxSimultaneous>1</maxSimultaneous>  
-    <subSounds>
-      <li>
-        <grains>
-          <li Class="AudioGrain_Folder">
-            <clipFolderPath>ZeusSword/HeavyMonosword</clipFolderPath>
-          </li>
-        </grains>      
-        <volumeRange>17~20</volumeRange>      
-        <pitchRange>0.9152174~1.169566</pitchRange>
+        <volumeRange>85~100</volumeRange>      
+        <pitchRange>1~1</pitchRange>
       </li>
     </subSounds>
   </SoundDef>
 
   <SoundDef>
-    <defName>MeleeHit_LightMonoSword</defName>  
+    <defName>MeleeHit_SagittariusMightDetonation</defName>  
     <context>MapOnly</context> 
     <maxSimultaneous>1</maxSimultaneous>  
     <subSounds>
       <li>
         <grains>
           <li Class="AudioGrain_Folder">
-            <clipFolderPath>ZeusSword/LightMonosword</clipFolderPath>
+            <clipFolderPath>SagittariusMight/SagittariusMightDetonation</clipFolderPath>
           </li>
         </grains>      
         <volumeRange>17~20</volumeRange>      
@@ -102,22 +51,4 @@
       </li>
     </subSounds>
   </SoundDef>
-  
-  <SoundDef>
-    <defName>MeleeHit_RocketHammer</defName>  
-    <context>MapOnly</context> 
-    <maxSimultaneous>1</maxSimultaneous>  
-    <subSounds>
-      <li>
-        <grains>
-          <li Class="AudioGrain_Folder">
-            <clipFolderPath>RocketHammer/RocketHammer</clipFolderPath>
-          </li>
-        </grains>      
-        <volumeRange>17~20</volumeRange>      
-        <pitchRange>0.9152174~1.169566</pitchRange>
-      </li>
-    </subSounds>
-  </SoundDef>
-  
 </Defs>
