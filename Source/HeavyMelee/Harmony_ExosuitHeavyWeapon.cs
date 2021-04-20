@@ -82,7 +82,18 @@ namespace HeavyMelee
                 new HarmonyMethod(typeof(Harmony_ExosuitHeavyWeapon), nameof(TakeDamageExtendedShield)),
                 null,
                 null);
+
+            harmony.Patch(
+                AccessTools.Method(typeof(Apparel_Shield), "DrawWornExtras"),
+                null,
+                new HarmonyMethod(typeof(Harmony_ExosuitHeavyWeapon), nameof(DrawWornExtraPost))
+            );
+
         }
+        public static void DrawWornExtraPost(Apparel_Shield __instance){
+            __instance.TryGetComp<Comp_ExtendedShield>()?.PostDraw();
+        }
+
 		public static IEnumerable<Gizmo> GetExtraEquipmentGizmosPassThrough(IEnumerable<Gizmo> values, Pawn_EquipmentTracker __instance)
 		{
 			foreach(Gizmo giz in values){
@@ -192,11 +203,13 @@ namespace HeavyMelee
             SA_PawnsCheck.AddRange(map.thingGrid.ThingsAt(iv3));
             SA_PawnsCheck.AddRange(map.thingGrid.ThingsAt(basePawn.Position));
             foreach(Thing thing in SA_PawnsCheck){
-                if(thing is Pawn pawn && pawn.apparel != null && pawn.Faction == baseFaction){
+                if(thing is Pawn pawn && pawn.apparel != null && pawn.Faction == baseFaction && !pawn.Downed){
                     foreach(Apparel app in pawn.apparel.WornApparel){
                         if(app.def.GetModExtension<ExtendedShield>() != null){
-                            //yield return app;
-                            SA_ConcurrencyErrorSafetyNet.Add(app);
+                            Comp_ExtendedShield compC = app.TryGetComp<Comp_ExtendedShield>();
+                            if(compC != null && compC.shieldActive){
+                                SA_ConcurrencyErrorSafetyNet.Add(app);
+                            }
                         }
                     }
                 }
