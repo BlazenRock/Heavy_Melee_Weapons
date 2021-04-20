@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8" ?>
+<?xml version="1.0" encoding="utf-8" ?>
 <Defs>
 
   <ThingDef Abstract="True" Name="HMW_MeleeWeaponUltratechHeavy" ParentName="BaseWeapon">
@@ -33,8 +33,8 @@
   <ThingDef ParentName="HMW_MeleeWeaponUltratechHeavy">
     <defName>HMW_MeleeWeapon_HeavyMonoSword</defName>
     <label>heavy monosword</label>
-    <description>A crystal-metallic heavy longsword infused with mechanites that maintain a mono-molecular cutting edge. It cuts through even thick armor with ease, and its fearsome shape intimidates foes. 
-    Its great weight requires the user to wear an Exoframe, or flatter under the burden.</description>
+    <description>A crystal-metallic heavy curved blade infused with mechanites that maintain a mono-molecular cutting edge. It cuts through even thick armor with ease, and its fearsome swings intimidates both friend and foe. 
+    \nThis weapon requires an exoframe or a bionic equivalent to be equipped by pawns.</description>
     <soundInteract>Interact_MonoSword</soundInteract>
     <meleeHitSound>MeleeHit_HeavyMonoSword</meleeHitSound>
     <equippedAngleOffset>-65</equippedAngleOffset>
@@ -157,8 +157,8 @@
   <ThingDef ParentName="HMW_MeleeWeaponUltratechHeavy">
     <defName>HMW_MeleeWeapon_FlameLance</defName>
     <label>plasmalance</label>
-    <description>A metal-cored lance with a cutting edge that is able to set enemies on fire. The lance is capable of firing an incendiary charge, breaking defensive lines and roasting bugs. 
-  \nIts great weight requires the user to wear an Exoframe or flatter under the burden.</description>
+    <description>A metal-cored lance with a cutting edge that is able to set enemies on fire. The lance is capable of firing an incendiary charge, breaking defensive lines and roasting bugs.
+    \nThis weapon requires an exoframe or a bionic equivalent to be equipped by pawns.</description>
     <soundInteract>Interact_PlasmaSword</soundInteract>
     <meleeHitSound>MeleeHit_PlasmaSword</meleeHitSound>
     <equippedAngleOffset>0</equippedAngleOffset>
@@ -276,8 +276,8 @@
   <ThingDef ParentName="HMW_MeleeWeaponUltratechHeavy">
     <defName>HMW_MeleeWeapon_PsychicWarhammer</defName>
     <label>Relic Maul</label>
-    <description>An ultratech maul threaded with psychic focusing materials. A replica of the old legend, its main purpose is to enhance the wielder's psychic sensitivity and neural heat dissipation, allowing more use of psychic powers.
-  \nIts great weight requires the user to wear an Exoframe, or flatter under the burden.</description>
+    <description>An ultratech maul threaded with psychic focusing materials. A replica of the old legend, the weapon enhances a pawn's psychic abilities and allows them psychic shock anyone struck by it at the cost of psyfocus. 
+    \nThis weapon requires an exoframe or a bionic equivalent to be equipped by pawns.</description>
     <soundInteract>Interact_ZeusHammer</soundInteract>
     <meleeHitSound>MeleeHit_RelicMaul</meleeHitSound>
     <equippedAngleOffset>-65</equippedAngleOffset>
@@ -343,8 +343,8 @@
   <ThingDef ParentName="HMW_MeleeWeaponUltratechHeavy">
     <defName>HMW_MeleeWeapon_ZeusSword</defName>
     <label>burst blade</label>
-    <description>A crystal-metallic greatsword infused with mechanites that maintain a mono-molecular cutting edge. The sword has built-in EMP emmiters, shocking those unfortunate enough to be on the recieving end of it.
-  \nIt cuts through even thick armor with ease, but its great weight requires the use of an exoframe or similar apparel.</description>
+    <description>A crystal-metallic greatsword infused with mechanites that maintain a mono-molecular cutting edge. The sword has built-in EMP emmiters. It cuts through even thick armor with ease, and its fearsome swings intimidates both friends and foes. 
+    \nThis weapon requires an exoframe or a bionic equivalent to be equipped by pawns.</description>
     <soundInteract>Interact_MonoSword</soundInteract>
     <meleeHitSound>MeleeHit_BurstBlade</meleeHitSound>
     <equippedAngleOffset>-65</equippedAngleOffset>
@@ -459,8 +459,8 @@
   <ThingDef ParentName="HMW_MeleeWeaponUltratechHeavy">
     <defName>HMW_MeleeWeapon_RocketHammer</defName>
     <label>rocket hammer</label>
-    <description>A heavy warhammer with an embedded thruster. Upon using, the thruster sends the pawn flying.
-    /n Every swing costs a bit of fuel so plan put your actions ahead of time.</description>
+    <description>A heavy warhammer with an embedded thruster. Upon using, the thruster sends the pawn flying. 
+    \nEvery swing costs a bit of fuel so plan put your actions ahead of time.</description>
     <soundInteract>Interact_ZeusHammer</soundInteract>
     <meleeHitSound>MeleeHit_RocketHammer</meleeHitSound>
     <equippedAngleOffset>-65</equippedAngleOffset>
@@ -591,9 +591,9 @@
   <ThingDef ParentName="HMW_MeleeWeaponUltratechHeavy">
     <defName>HMW_MeleeWeapon_SagittariusMight</defName>
     <label>Sagittarius's Might</label>
-    <description>A needlessly elaborate weapon of execution. The royal's preferred way of erasing internal opposition from existence.
-	    /nThe artifact is one in a limited collection of singularity field generators since being banned in the glitter worlds. It can now only be found in the blackest markets.
-	    /nDespite it's name, the artifact has nowhere near the same power of a super massive black hole. Anyone holding it should excercise extreme caution nonetheless.</description> <!-- needs some creative writing -->
+    <description>An artifact of destruction. The royal's preferred method of obliterating internal opposition. 
+    \nThe artifact is one in a limited collection of singularity field generators since being banned in the glitter worlds. It can now only be found in the blackest markets. Despite it's name, the artifact has nowhere near the same power of a super massive black hole. 
+    \nAnyone holding it should excercise extreme caution nonetheless.</description> <!-- needs some creative writing -->
     <soundInteract>Interact_ZeusHammer</soundInteract>
     <meleeHitSound>MeleeHit_SagittariusMight</meleeHitSound>
     <equippedAngleOffset>-65</equippedAngleOffset>
@@ -602,7 +602,7 @@
       <Mass>4</Mass>
     </statBases>
     <graphicData>
-      <texPath>Weapons/KIT_RelicHammer</texPath>
+      <texPath>Weapons/KIT_GravityStaff</texPath>
       <drawSize>1.6</drawSize>
       <graphicClass>Graphic_Single</graphicClass>
     </graphicData>
@@ -631,7 +631,7 @@
 	  </li>
       <li Class="HeavyMelee.SagittariusMightPlantModExtention">
 		<label>Plant Sagittarius Might</label>
-		<description>Planting this weapon will make it detonate after 15 seconds.</description>
+		<description>Planting this weapon will make it detonate after 8 seconds.</description>
 		<texPath>Building/PlantedGravityLance</texPath>
 	  </li>
       <li Class="HeavyWeapons.HeavyWeapon">

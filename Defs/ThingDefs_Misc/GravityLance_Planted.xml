@@ -81,14 +81,14 @@
     <passability>PassThroughOnly</passability>
     <comps>
       <li Class="HeavyMelee.CompProperties_GravityLanceExplode">
-        <explosionAfterTicks>900</explosionAfterTicks>	<!--15 seconds x 60 tps-->
+        <explosionAfterTicks>480</explosionAfterTicks>	<!--15 seconds x 60 tps-->
 		<countDownSoundDef>MeleeHit_SagittariusMightCountdown</countDownSoundDef>
 		<countDownSoundDef4Sec>MeleeHit_SagittariusMightCountdown4SEC</countDownSoundDef4Sec>
 		<impactSoundDef>MeleeHit_SagittariusMightDetonation</impactSoundDef>
-		<explosionRadius>8</explosionRadius> <!--8 * 2-->
+		<explosionRadius>16</explosionRadius> <!--8 * 2-->
 		<damageDef>SagittariusMightImplosion</damageDef>
-		<damageAmount>200</damageAmount>
-		<armourPenetration>1</armourPenetration>
+		<damageAmount>600</damageAmount>
+		<armourPenetration>2</armourPenetration>
       </li>
     </comps>
   </ThingDef>
