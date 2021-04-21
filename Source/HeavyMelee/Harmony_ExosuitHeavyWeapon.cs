@@ -88,7 +88,6 @@ namespace HeavyMelee
                 null,
                 new HarmonyMethod(typeof(Harmony_ExosuitHeavyWeapon), nameof(DrawWornExtraPost))
             );
-
         }
         public static void DrawWornExtraPost(Apparel_Shield __instance){
             __instance.TryGetComp<Comp_ExtendedShield>()?.PostDraw();
@@ -140,7 +139,6 @@ namespace HeavyMelee
         public static List<Thing> SA_PawnsCheck = new List<Thing>();
         public static List<Apparel> SA_ConcurrencyErrorSafetyNet = new List<Apparel>();
         public static IEnumerable<Apparel> DefenderPawnShields(Pawn basePawn, DamageInfo di){
-            //di.IgnoreArmor
             Map map = basePawn.Map;
             int dirIntForm = (int)(di.Angle * 16 / 360.0f) % 16;
             Vector3 checkVector1;
@@ -200,16 +198,17 @@ namespace HeavyMelee
             SA_ConcurrencyErrorSafetyNet.Clear();
             Faction baseFaction = basePawn.Faction;
             IntVec3 iv3 = checkVector2.ToIntVec3() + basePawn.Position;
-            SA_PawnsCheck.AddRange(map.thingGrid.ThingsAt(iv3));
-            SA_PawnsCheck.AddRange(map.thingGrid.ThingsAt(basePawn.Position));
+            //SA_PawnsCheck.AddRange(map.thingGrid.ThingsAt(iv3));
+            for(int i = 0; i < 9; i++){
+                SA_PawnsCheck.AddRange(map.thingGrid.ThingsAt(basePawn.Position + new IntVec3((i / 3) - 1, 0, (i % 3) - 1)));
+            }
+            //SA_PawnsCheck.AddRange(map.thingGrid.ThingsAt(basePawn.Position));
             foreach(Thing thing in SA_PawnsCheck){
                 if(thing is Pawn pawn && pawn.apparel != null && pawn.Faction == baseFaction && !pawn.Downed){
                     foreach(Apparel app in pawn.apparel.WornApparel){
-                        if(app.def.GetModExtension<ExtendedShield>() != null){
-                            Comp_ExtendedShield compC = app.TryGetComp<Comp_ExtendedShield>();
-                            if(compC != null && compC.shieldActive){
-                                SA_ConcurrencyErrorSafetyNet.Add(app);
-                            }
+                        Comp_ExtendedShield compC = app.TryGetComp<Comp_ExtendedShield>();
+                        if(compC != null && compC.shieldActive && app is ShieldBeltExtended abc && abc.ShieldState == ShieldState.Active){
+                            SA_ConcurrencyErrorSafetyNet.Add(app);
                         }
                     }
                 }
@@ -223,18 +222,22 @@ namespace HeavyMelee
         public static bool TakeDamageExtendedShield(Thing __instance, DamageInfo dinfo, ref DamageWorker.DamageResult __result){
             if(__instance is Pawn p){
                 float amountNow = dinfo.Amount;
-                foreach(Apparel damageMe in DefenderPawnShields(p, dinfo)){
-                    int damage = Convert.ToInt32(Mathf.Min(amountNow, damageMe.HitPoints));
+                foreach(ShieldBeltExtended damageMe in DefenderPawnShields(p, dinfo)){
+                    //int damage = Convert.ToInt32(Mathf.Min(amountNow, damageMe.HitPoints));
                     //damageMe.HitPoints -= damage;
-                    DamageInfo ddClone = new DamageInfo(dinfo);
-                    ddClone.SetAmount(damage);
-                    damageMe.TakeDamage(ddClone);
+                    //DamageInfo ddClone = new DamageInfo(dinfo);
+                    //ddClone.SetAmount(damage);
+                    //damageMe.TakeDamage(ddClone);
                     /**if(damageMe.HitPoints <= 0){
                         damageMe.Destroy();
                     }**/
-                    amountNow -= damage;
+                    //amountNow -= damage;
+                    if(damageMe.CheckPreAbsorbDamage(dinfo)){
+                        amountNow = 0;
+                        break;
+                    }
                 }
-                dinfo.SetAmount(amountNow);
+                //dinfo.SetAmount(amountNow);
                 if(amountNow == 0){
                     __result = new DamageWorker.DamageResult();
                     return false;
