@@ -1,22 +1,22 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <Defs>
 
-  <ThingDef Name="HMW_GuardianShieldBase" ParentName="BaseMeleeWeapon_Blunt_Quality" Abstract="True">
+  <ThingDef Name="HMW_GuardianShieldBase" ParentName="ApparelBase" Abstract="True">
     <techLevel>Spacer</techLevel>
-	<thingClass>VFECore.Apparel_Shield</thingClass>
+	<thingClass>HeavyMelee.ShieldBeltExtended</thingClass>
 	<apparel>
 		<careIfWornByCorpse>false</careIfWornByCorpse>
 		<careIfDamaged>false</careIfDamaged>
 		<wearPerDay>0</wearPerDay>
 		<bodyPartGroups>
-			<li>LeftHand</li>
+			<li>LeftHand</li>	
 			<li>Arms</li>
 		</bodyPartGroups>
 		<defaultOutfitTags>
 				<li>Soldier</li>
 			</defaultOutfitTags>
 		<layers>
-			<li>VFEC_OuterShell</li>
+			<li>Belt</li>  <!--should still be usable with shields since bodyPartGroups differs from that of shield belt-->
 		</layers>
 	</apparel>
     <thingCategories Inherit="False">
@@ -37,21 +37,10 @@
       </skillRequirements>
     </recipeMaker>
     <equippedAngleOffset>0</equippedAngleOffset>
-    <tools>
-      <li>
-        <label>centre</label>
-        <labelUsedInLogging>false</labelUsedInLogging>
-        <capacities>
-          <li>Blunt</li>
-        </capacities>
-        <power>9</power>
-        <cooldownTime>2</cooldownTime>
-      </li>
-    </tools>
   </ThingDef>
 
   <ThingDef ParentName="HMW_GuardianShieldBase">
-    <defName>HMW_GuardianShield</defName>
+    <defName>HMW__GuardianShield</defName> <!--renamed to avoid error with previous def settings in VE-->
     <label>guardian shield</label>
     <description>A heavy spacer tech shield.</description> <!-- needs proper description -->
     <graphicData>
@@ -85,7 +74,6 @@
           <drawSize>2.4</drawSize>
 		</shieldActiveGraphic>
 	  </li>
-      <li Class="CompOversizedWeapon.CompProperties_OversizedWeapon"/>
       <li Class="VFECore.CompProperties_Shield">
         <shieldTags>
           <li>SpacerShield</li>
@@ -122,21 +110,11 @@
         </offHandHoldOffset>
       </li>
     </comps>
-    <modExtensions>
-      <li Class="HeavyMelee.ExtendedShield">
-	  </li>
-      <li Class="HeavyWeapons.HeavyWeapon">
-        <isHeavy>true</isHeavy>
-        <supportedArmors>
-          <li>VWE_Apparel_Exoframe</li>
-        </supportedArmors>
-      </li>
-    </modExtensions>
   </ThingDef>
   
   
   <ThingDef ParentName="HMW_GuardianShieldBase">
-    <defName>HMW_GuardianShieldB</defName>
+    <defName>HMW__GuardianShieldB</defName>
     <label>guardian shield</label>
     <description>A heavy spacer tech shield.</description> <!-- needs proper description -->
     <graphicData>
@@ -150,7 +128,7 @@
 	  <ComponentSpacer>1</ComponentSpacer>
     </costList>
     <statBases>
-      <MaxHitPoints>200</MaxHitPoints>
+      <MaxHitPoints>120</MaxHitPoints>
       <Flammability>0.1</Flammability>
       <ArmorRating_Sharp>0.85</ArmorRating_Sharp>
       <ArmorRating_Blunt>0.45</ArmorRating_Blunt>
@@ -171,7 +149,6 @@
           <drawSize>2.4</drawSize>
 		</shieldActiveGraphic>
 	  </li>
-      <li Class="CompOversizedWeapon.CompProperties_OversizedWeapon"/>
       <li Class="VFECore.CompProperties_Shield">
         <shieldTags>
           <li>SpacerShield</li>
@@ -208,16 +185,6 @@
         </offHandHoldOffset>
       </li>
     </comps>
-    <modExtensions>
-      <li Class="HeavyMelee.ExtendedShield">
-	  </li>
-      <li Class="HeavyWeapons.HeavyWeapon">
-        <isHeavy>true</isHeavy>
-        <supportedArmors>
-          <li>VWE_Apparel_Exoframe</li>
-        </supportedArmors>
-      </li>
-    </modExtensions>
   </ThingDef>
   
 </Defs>
