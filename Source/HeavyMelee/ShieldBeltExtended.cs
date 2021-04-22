@@ -36,11 +36,11 @@ namespace HeavyMelee {
 			Widgets.Label(rect3, this.shield.LabelCap);
 			Rect rect4 = rect2;
 			rect4.yMin = rect2.y + rect2.height / 2f;
-			float fillPercent = this.shield.Energy / Mathf.Max(1f, this.shield.GetStatValue(StatDefOf.EnergyShieldEnergyMax, true));
+			float fillPercent = this.shield.Energy / Mathf.Max(1f, this.shield.EnergyMax);
 			Widgets.FillableBar(rect4, fillPercent, FullShieldBarTex, EmptyShieldBarTex, false);
 			Text.Font = GameFont.Small;
 			Text.Anchor = TextAnchor.MiddleCenter;
-			Widgets.Label(rect4, (this.shield.Energy * 100f).ToString("F0") + " / " + (this.shield.GetStatValue(StatDefOf.EnergyShieldEnergyMax, true) * 100f).ToString("F0"));
+			Widgets.Label(rect4, (this.shield.Energy * 100f).ToString("F0") + " / " + (this.shield.EnergyMax * 100f).ToString("F0"));
 			Text.Anchor = TextAnchor.UpperLeft;
 			return new GizmoResult(GizmoState.Clear);
 		}
@@ -55,11 +55,11 @@ namespace HeavyMelee {
 	[StaticConstructorOnStartup]
 	public class ShieldBeltExtended : Apparel_Shield
 	{
-		private float EnergyMax
+		public float EnergyMax
 		{
 			get
 			{
-				return this.GetStatValue(StatDefOf.EnergyShieldEnergyMax, true);
+				return this.GetStatValue(StatDefOf.EnergyShieldEnergyMax, true) * 3.2f;
 			}
 		}
 
