@@ -102,11 +102,12 @@ namespace HeavyMelee
 				List<ThingWithComps> list = __instance.AllEquipmentListForReading;
 				for (int i = 0; i < list.Count; i++){
 					ThingWithComps eq = list[i];
-                    if(eq.def.GetModExtension<SagittariusMightPlantModExtention>() is SagittariusMightPlantModExtention samip){
+                    SagittariusMightPlantModExtention smp = eq.def.GetModExtension<SagittariusMightPlantModExtention>();
+                    if(smp != null){
                         yield return new Command_Action {
-                            defaultLabel = samip.label,
-                            defaultDesc = samip.description,
-                            icon = ContentFinder<Texture2D>.Get(samip.texPath, true),
+                            defaultLabel = smp.label,
+                            defaultDesc = smp.description,
+                            icon = ContentFinder<Texture2D>.Get(smp.texPath, true),
                             action = delegate (){
                                 Thing bb = ThingMaker.MakeThing(GravityLanceDefOf.PlantedGravityLance, null);
                                 GenSpawn.Spawn(bb, __instance.pawn.Position, __instance.pawn.Map);
