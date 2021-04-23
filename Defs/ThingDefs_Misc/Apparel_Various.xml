@@ -42,7 +42,9 @@
   <ThingDef ParentName="HMW_GuardianShieldBase">
     <defName>HMW__GuardianShield</defName> <!--renamed to avoid error with previous def settings in VE-->
     <label>guardian shield</label>
-    <description>A heavy spacer tech shield.</description> <!-- needs proper description -->
+    <description>A shield designed to take a beating.
+    \nThe Guardian Shield is capable of tanking a barrage of heavy charge blaster once its shields are active. Use this to get your troops in melee range.
+    </description> 
     <graphicData>
       <texPath>Pawn/GuardianShield/KIT_GuardianShield</texPath>
       <graphicClass>Graphic_Single</graphicClass>
@@ -90,7 +92,7 @@
           <texPath>Pawn/GuardianShield/KIT_GuardianShield</texPath>
           <graphicClass>Graphic_Multi</graphicClass>
           <shaderType>CutoutComplex</shaderType>
-          <drawSize>1.6</drawSize>
+          <drawSize>1.3</drawSize>
         </offHandGraphicData>
         <offHandHoldOffset>
           <northDefault>
@@ -112,7 +114,7 @@
     </comps>
   </ThingDef>
   
-  
+
   <ThingDef ParentName="HMW_GuardianShieldBase">
     <defName>HMW__GuardianShieldB</defName>
     <label>guardian shield</label>
