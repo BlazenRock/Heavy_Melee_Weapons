@@ -254,6 +254,9 @@
 		            <li>SF_ReconPowerArmor</li>
 				</supportedArmors>
 			</li>
+       <li Class="VFECore.ThingDefExtension">
+        <usableWithShields>true</usableWithShields>
+      </li>
 		</modExtensions>
   </ThingDef>
   
