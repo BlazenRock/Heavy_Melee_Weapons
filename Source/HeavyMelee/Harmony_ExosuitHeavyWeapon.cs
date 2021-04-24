@@ -88,6 +88,9 @@ namespace HeavyMelee
                 null,
                 new HarmonyMethod(typeof(Harmony_ExosuitHeavyWeapon), nameof(DrawWornExtraPost))
             );
+
+            Harmony_YayoCombat_OversizedWeaponTranspiler.tryPatch_YC_OWT(harmony);
+
         }
         public static void DrawWornExtraPost(Apparel_Shield __instance){
             __instance.TryGetComp<Comp_ExtendedShield>()?.PostDraw();
