@@ -1,15 +1,24 @@
 ﻿using RimWorld;
+using UnityEngine;
 using Verse;
 
 namespace HeavyMelee
 {
-    public class Verb_Cleave : Verb, IVerbTick
+    public class Verb_Cleave : Verb, IVerbTick, IVerbCustomCommand, IVerbCooldown
     {
+        public const float COOLDOWN = 12f;
         private int cooldownTicksLeft;
+        public float CooldownPercentLeft => cooldownTicksLeft / (float) COOLDOWN.SecondsToTicks();
+
+        public Command_VerbTarget GetTargetCommand(Command_VerbTarget old)
+        {
+            return new Command_VerbTargetCooldown(old);
+        }
 
         public void Tick()
         {
-            cooldownTicksLeft--;
+            if (cooldownTicksLeft > 0)
+                cooldownTicksLeft--;
         }
 
         protected override bool TryCastShot()
@@ -17,7 +26,7 @@ namespace HeavyMelee
             if (cooldownTicksLeft > 0) return false;
             foreach (var thing in GenRadial.RadialDistinctThingsAround(Caster.Position, Caster.Map, verbProps.range,
                 false)) ApplyDamage(thing);
-            cooldownTicksLeft = 12f.SecondsToTicks();
+            cooldownTicksLeft = COOLDOWN.SecondsToTicks();
             return true;
         }
 
@@ -38,6 +47,50 @@ namespace HeavyMelee
                 target, ImplementOwnerType, ReportLabel, EquipmentSource?.def, HediffCompSource?.Def,
                 LogEntryDefOf.MeleeAttack);
             target.TakeDamage(damageInfo).AssociateWithLog(log);
+        }
+
+        public override void ExposeData()
+        {
+            base.ExposeData();
+            Scribe_Values.Look(ref cooldownTicksLeft, "cooldownTicksLeft_Cleave");
+        }
+    }
+
+    public interface IVerbCooldown
+    {
+        float CooldownPercentLeft { get; }
+    }
+
+    [StaticConstructorOnStartup]
+    public class Command_VerbTargetCooldown : Command_VerbTarget
+    {
+        public static readonly Texture2D CooldownTex =
+            SolidColorMaterials.NewSolidColorTexture(new Color(1f, 1f, 1f, 0.1f));
+
+        public Command_VerbTargetCooldown(Command_VerbTarget old)
+        {
+            defaultLabel = old.defaultLabel;
+            defaultDesc = old.defaultDesc;
+            icon = old.icon;
+            iconAngle = old.iconAngle;
+            iconOffset = old.iconOffset;
+            tutorTag = old.tutorTag;
+            verb = old.verb;
+        }
+
+        private IVerbCooldown Cooldown => verb as IVerbCooldown;
+
+        protected override GizmoResult GizmoOnGUIInt(Rect butRect, bool shrunk = false)
+        {
+            disabled = Cooldown.CooldownPercentLeft != 0f;
+            disabledReason = disabled ? (string) "HeavyMelee.OnCooldown".Translate() : null;
+
+            var result = base.GizmoOnGUIInt(butRect, shrunk);
+
+            if (disabled)
+                GUI.DrawTexture(butRect.RightPartPixels(butRect.width * Cooldown.CooldownPercentLeft), CooldownTex);
+
+            return result;
         }
     }
 }
