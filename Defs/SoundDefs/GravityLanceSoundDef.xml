@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+  <SoundDef>
+    <defName>MeleeHit_SagittariusMightCountdown</defName>  
+    <context>MapOnly</context> 
+    <maxSimultaneous>1</maxSimultaneous>  
+    <subSounds>
+      <li>
+        <grains>
+          <li Class="AudioGrain_Folder">
+            <clipFolderPath>SagittariusMight/SagittariusMightCountdown</clipFolderPath>
+          </li>
+        </grains>      
+        <volumeRange>17~20</volumeRange>      
+        <pitchRange>1~1</pitchRange>
+      </li>
+    </subSounds>
+  </SoundDef>
+
+  <SoundDef>
+    <defName>MeleeHit_SagittariusMightCountdown4SEC</defName>  
+    <context>MapOnly</context> 
+    <maxSimultaneous>1</maxSimultaneous>  
+    <subSounds>
+      <li>
+        <grains>
+          <li Class="AudioGrain_Folder">
+            <clipFolderPath>SagittariusMight/SagittariusMightCountdown4SEC</clipFolderPath>
+          </li>
+        </grains>      
+        <volumeRange>85~100</volumeRange>      
+        <pitchRange>1~1</pitchRange>
+      </li>
+    </subSounds>
+  </SoundDef>
+
+  <SoundDef>
+    <defName>MeleeHit_SagittariusMightDetonation</defName>  
+    <context>MapOnly</context> 
+    <maxSimultaneous>1</maxSimultaneous>  
+    <subSounds>
+      <li>
+        <grains>
+          <li Class="AudioGrain_Folder">
+            <clipFolderPath>SagittariusMight/SagittariusMightDetonation</clipFolderPath>
+          </li>
+        </grains>      
+        <volumeRange>17~20</volumeRange>      
+        <pitchRange>0.9152174~1.169566</pitchRange>
+      </li>
+    </subSounds>
+  </SoundDef>
+</Defs>
