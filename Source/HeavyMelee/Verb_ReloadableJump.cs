@@ -1,82 +1,77 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using RimWorld;
-using Verse;
-using UnityEngine;
+﻿using MVCF.Verbs;
 using Reloading;
+using Verse;
 
-namespace HeavyMelee {
+namespace HeavyMelee
+{
+    public class Verb_ReloadableJump : Verb_Jump, IReloadingVerb
+    {
+        public const int shotConsumption = 30;
 
-	public class Verb_ReloadableJump : MVCF.Verbs.Verb_Jump, IReloadingVerb
-	{
-		public IReloadable Reloadable
-		{
-			get
-			{
-				IReloadable r = null;
-				bool flag;
-				if (base.EquipmentSource != null)
-				{
-					r = (base.EquipmentSource.AllComps.FirstOrFallback((ThingComp comp) => comp is IReloadable, null) as IReloadable);
-					flag = (r != null);
-				}
-				else
-				{
-					flag = false;
-				}
-				bool flag2 = flag;
-				IReloadable result;
-				if (flag2)
-				{
-					result = r;
-				}
-				else
-				{
-					HediffComp_VerbGiver hediffCompSource = base.HediffCompSource;
-					IReloadable r2 = null;
-					bool flag3;
-					if (((hediffCompSource != null) ? hediffCompSource.parent : null) != null)
-					{
-						r2 = (base.HediffCompSource.parent.comps.FirstOrFallback((HediffComp comp) => comp is IReloadable, null) as IReloadable);
-						flag3 = (r2 != null);
-					}
-					else
-					{
-						flag3 = false;
-					}
-					bool flag4 = flag3;
-					if (flag4)
-					{
-						result = r2;
-					}
-					else
-					{
-						result = null;
-					}
-				}
-				return result;
-			}
-		}
+        public IReloadable Reloadable
+        {
+            get
+            {
+                IReloadable r = null;
+                bool flag;
+                if (EquipmentSource != null)
+                {
+                    r = EquipmentSource.AllComps.FirstOrFallback(comp => comp is IReloadable) as IReloadable;
+                    flag = r != null;
+                }
+                else
+                {
+                    flag = false;
+                }
 
-		protected override bool TryCastShot(){
-			if(Reloadable.ShotsRemaining > 0){
-				bool ret = base.TryCastShot();
-				Reloadable.ShotsRemaining -= shotConsumption;
-				return ret;
-			}
-			return false;
-		}
+                var flag2 = flag;
+                IReloadable result;
+                if (flag2)
+                {
+                    result = r;
+                }
+                else
+                {
+                    var hediffCompSource = HediffCompSource;
+                    IReloadable r2 = null;
+                    bool flag3;
+                    if ((hediffCompSource != null ? hediffCompSource.parent : null) != null)
+                    {
+                        r2 = HediffCompSource.parent.comps.FirstOrFallback(comp => comp is IReloadable) as IReloadable;
+                        flag3 = r2 != null;
+                    }
+                    else
+                    {
+                        flag3 = false;
+                    }
 
-		public override bool Available()
-		{
-			IReloadable reloadable = Reloadable;
-			return reloadable != null && reloadable.ShotsRemaining >= shotConsumption && base.Available();
-		}
+                    var flag4 = flag3;
+                    if (flag4)
+                        result = r2;
+                    else
+                        result = null;
+                }
 
-		public const int shotConsumption = 30;
+                return result;
+            }
+        }
 
-	}
+        protected override bool TryCastShot()
+        {
+            if (Reloadable.ShotsRemaining > 0)
+            {
+                var ret = base.TryCastShot();
+                Reloadable.ShotsRemaining -= shotConsumption;
+                return ret;
+            }
+
+            return false;
+        }
+
+        public override bool Available()
+        {
+            var reloadable = Reloadable;
+            return reloadable != null && reloadable.ShotsRemaining >= shotConsumption && base.Available();
+        }
+    }
 }
