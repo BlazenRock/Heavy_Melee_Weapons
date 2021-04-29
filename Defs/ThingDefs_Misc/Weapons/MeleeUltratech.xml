@@ -13,9 +13,6 @@
         <minQualityForArtistic>Excellent</minQualityForArtistic>
       </li>
       <li Class="CompProperties_BiocodableWeapon" />
-      <li>
-        <compClass>CompOversizedWeapon.CompOversizedWeapon</compClass>
-      </li>
     </comps>
     <smeltable>true</smeltable>
     <burnableByRecipe>true</burnableByRecipe>
@@ -37,7 +34,7 @@
     Its great weight requires the user to wear an Exoframe, or flatter under the burden.</description>
     <soundInteract>Interact_MonoSword</soundInteract>
     <meleeHitSound>MeleeHit_MonoSword</meleeHitSound>
-    <equippedAngleOffset>-65</equippedAngleOffset>
+    <equippedAngleOffset>-85</equippedAngleOffset>
     <statBases>
       <MarketValue>3000</MarketValue>
       <Mass>4</Mass>
@@ -76,8 +73,11 @@
       </li>
     </tools>
     <comps>
-      <li>
-        <compClass>CompOversizedWeapon.CompOversizedWeapon</compClass>
+      <li Class="CompOversizedWeapon.CompProperties_OversizedWeapon">
+        <northOffset>(0.25, 0, 0.2)</northOffset>
+        <southOffset>(0.25, 0, 0.2)</southOffset>
+        <eastOffset>(0, 0, 0.2)</eastOffset>
+        <westOffset>(0, 0, 0.2)</westOffset>
       </li>
       <li Class="MVCF.Comps.CompProperties_VerbProps">
         <compClass>MVCF.Comps.Comp_VerbProps</compClass>
@@ -332,7 +332,7 @@
   \nIts great weight requires the user to wear an Exoframe, or flatter under the burden.</description>
     <soundInteract>Interact_ZeusHammer</soundInteract>
     <meleeHitSound>MeleeHit_ZeusHammer</meleeHitSound>
-    <equippedAngleOffset>-65</equippedAngleOffset>
+    <equippedAngleOffset>-85</equippedAngleOffset>
     <statBases>
       <MarketValue>3000</MarketValue>
       <Mass>4</Mass>
@@ -365,8 +365,11 @@
       <li Class="HeavyMelee.CompProperties_PsychicShock">
         <PsyfocusCost>0.1</PsyfocusCost>
       </li>
-      <li>
-        <compClass>CompOversizedWeapon.CompOversizedWeapon</compClass>
+      <li Class="CompOversizedWeapon.CompProperties_OversizedWeapon">
+        <northOffset>(0.4, 0, 0.1)</northOffset>
+        <southOffset>(0.4, 0, 0.1)</southOffset>
+        <eastOffset>(0.2, 0, 0.1)</eastOffset>
+        <westOffset>(-0.1, 0, 0.1)</westOffset>
       </li>
     </comps>
     <equippedStatOffsets>
@@ -524,7 +527,7 @@
     /n Every swing costs a bit of fuel so plan put your actions ahead of time.</description>
     <soundInteract>Interact_ZeusHammer</soundInteract>
     <meleeHitSound>MeleeHit_ZeusHammer</meleeHitSound>
-    <equippedAngleOffset>-65</equippedAngleOffset>
+    <equippedAngleOffset>-50</equippedAngleOffset>
     <techLevel>Industrial</techLevel>
     <statBases>
       <MarketValue>2500</MarketValue>
@@ -605,6 +608,12 @@
           </li>
         </verbProps>
       </li>
+      <li Class="CompOversizedWeapon.CompProperties_OversizedWeapon">
+        <northOffset>(0, 0, 0)</northOffset>
+        <southOffset>(0, 0, 0)</southOffset>
+        <eastOffset>(0, 0, 0)</eastOffset>
+        <westOffset>(0.3, 0, 0)</westOffset>
+      </li>
     </comps>
     <modExtensions>
       <li Class="HeavyWeapons.HeavyWeapon">
@@ -636,13 +645,13 @@
     /n Despite it's name, the artifact has nowhere near the same power of a super massive black hole. Anyone holding it should excercise extreme caution nonetheless.</description>    <!-- needs some creative writing -->
     <soundInteract>Interact_ZeusHammer</soundInteract>
     <meleeHitSound>MeleeHit_SagittariusMight</meleeHitSound>
-    <equippedAngleOffset>-65</equippedAngleOffset>
+    <equippedAngleOffset>-98</equippedAngleOffset>
     <statBases>
       <MarketValue>7000</MarketValue>
       <Mass>4</Mass>
     </statBases>
     <graphicData>
-      <texPath>Weapons/KIT_RelicHammer</texPath>
+      <texPath>Weapons/KIT_GravityStaff</texPath>
       <drawSize>1.6</drawSize>
       <graphicClass>Graphic_Single</graphicClass>
     </graphicData>
@@ -686,8 +695,11 @@
       </li>
     </modExtensions>
     <comps Inherit="False">
-      <li>
-        <compClass>CompOversizedWeapon.CompOversizedWeapon</compClass>
+      <li Class="CompOversizedWeapon.CompProperties_OversizedWeapon">
+        <northOffset>(-0.2, 0, 0.3)</northOffset>
+        <southOffset>(-0.2, 0, 0.3)</southOffset>
+        <eastOffset>(0., 0, 0.3)</eastOffset>
+        <westOffset>(0, 0, 0.3)</westOffset>
       </li>
       <li Class="CompProperties_Forbiddable" />
       <li>

@@ -9,7 +9,7 @@
 	\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
     <soundInteract>Interact_MonoSword</soundInteract>
     <meleeHitSound>MeleeHit_MonoSword</meleeHitSound>
-    <equippedAngleOffset>-65</equippedAngleOffset>
+    <equippedAngleOffset>-85</equippedAngleOffset>
     <graphicData>
       <texPath>Weapons/KIT_MonoSword</texPath>
       <graphicClass>Graphic_Single</graphicClass>
@@ -49,10 +49,40 @@
       </li>
     </tools>
     <comps>
-      <li>
-        <compClass>CompOversizedWeapon.CompOversizedWeapon</compClass>
+      <li Class="CompOversizedWeapon.CompProperties_OversizedWeapon">
+        <northOffset>(0.25, 0, 0.2)</northOffset>
+        <southOffset>(0.25, 0, 0.2)</southOffset>
+        <eastOffset>(0, 0, 0.2)</eastOffset>
+        <westOffset>(0, 0, 0.2)</westOffset>
+      </li>
+      <li Class="MVCF.Comps.CompProperties_VerbProps">
+        <compClass>MVCF.Comps.Comp_VerbProps</compClass>
+        <ConsiderMelee>true</ConsiderMelee>
+        <verbProps>
+          <li>
+            <colonistOnly>true</colonistOnly>
+            <label>Cleave</label>
+          </li>
+        </verbProps>
       </li>
     </comps>
+    <verbs>
+      <li>
+        <label>Cleave</label>
+        <verbClass>HeavyMelee.Verb_Cleave</verbClass>
+        <isPrimary>true</isPrimary>
+        <onlyManualCast>true</onlyManualCast>
+        <range>1.9</range>
+        <meleeDamageBaseAmount>30</meleeDamageBaseAmount>
+        <meleeDamageDef>Cut</meleeDamageDef>
+        <meleeArmorPenetrationBase>0.8</meleeArmorPenetrationBase>
+        <hasStandardCommand>true</hasStandardCommand>
+        <targetable>false</targetable>
+        <targetParams>
+          <canTargetSelf>true</canTargetSelf>
+        </targetParams>
+      </li>
+    </verbs>
     <modExtensions>
       <li Class="HeavyWeapons.HeavyWeapon">
         <isHeavy>true</isHeavy>
@@ -267,7 +297,7 @@
 	\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
     <soundInteract>Interact_ZeusHammer</soundInteract>
     <meleeHitSound>MeleeHit_ZeusHammer</meleeHitSound>
-    <equippedAngleOffset>-65</equippedAngleOffset>
+    <equippedAngleOffset>-85</equippedAngleOffset>
     <graphicData>
       <texPath>Weapons/KIT_RelicHammer</texPath>
       <graphicClass>Graphic_Single</graphicClass>
@@ -301,8 +331,11 @@
       <li Class="HeavyMelee.CompProperties_PsychicShock">
         <PsyfocusCost>0.1</PsyfocusCost>
       </li>
-      <li>
-        <compClass>CompOversizedWeapon.CompOversizedWeapon</compClass>
+      <li Class="CompOversizedWeapon.CompProperties_OversizedWeapon">
+        <northOffset>(0.4, 0, 0.1)</northOffset>
+        <southOffset>(0.4, 0, 0.1)</southOffset>
+        <eastOffset>(0.2, 0, 0.1)</eastOffset>
+        <westOffset>(-0.1, 0, 0.1)</westOffset>
       </li>
     </comps>
     <equippedStatOffsets>
