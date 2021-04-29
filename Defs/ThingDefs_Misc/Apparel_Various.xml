@@ -43,8 +43,7 @@
     <defName>HMW__GuardianShield</defName> <!--renamed to avoid error with previous def settings in VE-->
     <label>guardian shield</label>
     <description>A shield designed to take a beating.
-    \nThe Guardian Shield is capable of tanking a barrage of heavy charge blaster once its shields are active. Use this to get your troops in melee range.
-    </description> 
+    \nThe Guardian Shield is capable of tanking a barrage of heavy charge blaster once its shields are active. Use this to get your troops in melee range.</description> 
     <graphicData>
       <texPath>Pawn/GuardianShield/KIT_GuardianShield</texPath>
       <graphicClass>Graphic_Single</graphicClass>

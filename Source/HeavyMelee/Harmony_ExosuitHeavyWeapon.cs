@@ -1,28 +1,29 @@
-﻿using HarmonyLib;
-using JetBrains.Annotations;
-using System;
-using System.Reflection.Emit;
-using Verse.AI;
-using RimWorld;
-using RimWorld.Planet;
-using Verse;
-using UnityEngine;
-using System.Collections.Generic;
-using System.Linq;
-using System.Reflection;
+﻿using System.Collections.Generic;
+using HarmonyLib;
 using HeavyWeapons;
+using RimWorld;
+using UnityEngine;
+using Verse;
 using VFECore;
+using Patch_FloatMenuMakerMap = HeavyWeapons.Patch_FloatMenuMakerMap;
 
 namespace HeavyMelee
 {
-	[StaticConstructorOnStartup]
+    [StaticConstructorOnStartup]
     public static class Harmony_ExosuitHeavyWeapon
     {
-		public static HashSet<string> SA_HeavyWeaponHediffString = new HashSet<string>();
-		public static HashSet<HediffDef> SA_HeavyWeaponableHediffDefs = new HashSet<HediffDef>();
-		public static HashSet<string> SA_HeavyWeaponThingString = new HashSet<string>();
+        public static HashSet<string> SA_HeavyWeaponHediffString = new HashSet<string>();
+        public static HashSet<HediffDef> SA_HeavyWeaponableHediffDefs = new HashSet<HediffDef>();
+        public static HashSet<string> SA_HeavyWeaponThingString = new HashSet<string>();
         public static HashSet<ThingDef> SA_HeavyWeaponThingDefs = new HashSet<ThingDef>();
-		public static HashSet<HeavyWeapon> SA_HeavyWeaponExtentionInstances = new HashSet<HeavyWeapon>();//each of the heavy weapon has a unique instance of this class, so this can be used to keep track of which weapon
+
+        public static HashSet<HeavyWeapon>
+            SA_HeavyWeaponExtentionInstances =
+                new HashSet<HeavyWeapon>(); //each of the heavy weapon has a unique instance of this class, so this can be used to keep track of which weapon
+
+        public static List<Thing> SA_PawnsCheck = new List<Thing>();
+        public static List<Apparel> SA_ConcurrencyErrorSafetyNet = new List<Apparel>();
+
         static Harmony_ExosuitHeavyWeapon()
         {
             SA_HeavyWeaponHediffString.Add("ExoskeletonSuit");
@@ -30,8 +31,9 @@ namespace HeavyMelee
             SA_HeavyWeaponHediffString.Add("FSFImplantTorsoWorker");
             SA_HeavyWeaponHediffString.Add("FSFImplantTorsoSpeed");
             SA_HeavyWeaponHediffString.Add("FSFImplantTorsoPsychic");
-            foreach(string str in SA_HeavyWeaponHediffString){
-                HediffDef hdd = DefDatabase<HediffDef>.GetNamed(str, false);
+            foreach (var str in SA_HeavyWeaponHediffString)
+            {
+                var hdd = DefDatabase<HediffDef>.GetNamed(str, false);
                 SA_HeavyWeaponableHediffDefs.Add(hdd);
             }
 
@@ -46,42 +48,40 @@ namespace HeavyMelee
             SA_HeavyWeaponThingString.Add("HMW_MeleeWeapon_PersonaPsychicWarhammer");
             SA_HeavyWeaponThingString.Add("HMW_MeleeWeapon_PersonaZeusSword");
             //SA_HeavyWeaponThingString.Add("HMW_GuardianShield");
-            
-            foreach(string str in SA_HeavyWeaponThingString){
-                ThingDef hdd = DefDatabase<ThingDef>.GetNamed(str, false);
-                if(hdd == null){
-                    //Log.Warning("Could not find the def of " + str);
+
+            foreach (var str in SA_HeavyWeaponThingString)
+            {
+                var hdd = DefDatabase<ThingDef>.GetNamed(str, false);
+                if (hdd == null) //Log.Warning("Could not find the def of " + str);
                     continue;
-                }
                 SA_HeavyWeaponThingDefs.Add(hdd);
-                HeavyWeapon HW = hdd.GetModExtension<HeavyWeapon>();
-                if(HW == null){
+                var HW = hdd.GetModExtension<HeavyWeapon>();
+                if (HW == null)
+                {
                     //Log.Warning(str + " has no HeavyWeapon extention !");
-                }else{
+                }
+                else
+                {
                     SA_HeavyWeaponExtentionInstances.Add(HW);
                 }
             }
 
-            HarmonyLib.Harmony harmony = new HarmonyLib.Harmony("ExoHW.ExosuitHeavyWeapon");
+            var harmony = new Harmony("ExoHW.ExosuitHeavyWeapon");
             //harmony.PatchAll();
-			
-			harmony.Patch(
-                AccessTools.Method(typeof(HeavyWeapons.Patch_FloatMenuMakerMap.AddHumanlikeOrders_Fix), "CanEquip"),
-				null,
-                new HarmonyMethod(typeof(Harmony_ExosuitHeavyWeapon), nameof(CanEquipPostFix)),
-                null);
-            
-			harmony.Patch(
-                AccessTools.Method(typeof(Pawn_EquipmentTracker), "GetGizmos"),
-				null,
-                new HarmonyMethod(typeof(Harmony_ExosuitHeavyWeapon), nameof(GetExtraEquipmentGizmosPassThrough)),
-                null);
 
-			harmony.Patch(
-                AccessTools.Method(typeof(Thing), "TakeDamage"),
-                new HarmonyMethod(typeof(Harmony_ExosuitHeavyWeapon), nameof(TakeDamageExtendedShield)),
+            harmony.Patch(
+                AccessTools.Method(typeof(Patch_FloatMenuMakerMap.AddHumanlikeOrders_Fix), "CanEquip"),
                 null,
-                null);
+                new HarmonyMethod(typeof(Harmony_ExosuitHeavyWeapon), nameof(CanEquipPostFix)));
+
+            harmony.Patch(
+                AccessTools.Method(typeof(Pawn_EquipmentTracker), "GetGizmos"),
+                null,
+                new HarmonyMethod(typeof(Harmony_ExosuitHeavyWeapon), nameof(GetExtraEquipmentGizmosPassThrough)));
+
+            harmony.Patch(
+                AccessTools.Method(typeof(Thing), "TakeDamage"),
+                new HarmonyMethod(typeof(Harmony_ExosuitHeavyWeapon), nameof(TakeDamageExtendedShield)));
 
             harmony.Patch(
                 AccessTools.Method(typeof(Apparel_Shield), "DrawWornExtras"),
@@ -90,144 +90,155 @@ namespace HeavyMelee
             );
 
             Harmony_YayoCombat_OversizedWeaponTranspiler.tryPatch_YC_OWT(harmony);
-
         }
-        public static void DrawWornExtraPost(Apparel_Shield __instance){
+
+        public static void DrawWornExtraPost(Apparel_Shield __instance)
+        {
             __instance.TryGetComp<Comp_ExtendedShield>()?.PostDraw();
         }
 
-		public static IEnumerable<Gizmo> GetExtraEquipmentGizmosPassThrough(IEnumerable<Gizmo> values, Pawn_EquipmentTracker __instance)
-		{
-			foreach(Gizmo giz in values){
-				yield return giz;
-			}
-			if(PawnAttackGizmoUtility.CanShowEquipmentGizmos() && __instance.pawn.IsColonistPlayerControlled){
-				List<ThingWithComps> list = __instance.AllEquipmentListForReading;
-				for (int i = 0; i < list.Count; i++){
-					ThingWithComps eq = list[i];
-                    SagittariusMightPlantModExtention smp = eq.def.GetModExtension<SagittariusMightPlantModExtention>();
-                    if(smp != null){
-                        yield return new Command_Action {
+        public static IEnumerable<Gizmo> GetExtraEquipmentGizmosPassThrough(IEnumerable<Gizmo> values,
+            Pawn_EquipmentTracker __instance)
+        {
+            foreach (var giz in values) yield return giz;
+            if (PawnAttackGizmoUtility.CanShowEquipmentGizmos() && __instance.pawn.IsColonistPlayerControlled)
+            {
+                var list = __instance.AllEquipmentListForReading;
+                for (var i = 0; i < list.Count; i++)
+                {
+                    var eq = list[i];
+                    var smp = eq.def.GetModExtension<SagittariusMightPlantModExtention>();
+                    if (smp != null)
+                        yield return new Command_Action
+                        {
                             defaultLabel = smp.label,
                             defaultDesc = smp.description,
-                            icon = ContentFinder<Texture2D>.Get(smp.texPath, true),
-                            action = delegate (){
-                                Thing bb = ThingMaker.MakeThing(GravityLanceDefOf.PlantedGravityLance, null);
+                            icon = ContentFinder<Texture2D>.Get(smp.texPath),
+                            action = delegate
+                            {
+                                var bb = ThingMaker.MakeThing(GravityLanceDefOf.PlantedGravityLance);
                                 GenSpawn.Spawn(bb, __instance.pawn.Position, __instance.pawn.Map);
                                 eq.Destroy();
                             }
                         };
-                    }
-                }
-			}
-			yield break;
-		}
-
-        public static void CanEquipPostFix(Pawn pawn, HeavyWeapon options, ref bool __result) {
-            if (!__result && SA_HeavyWeaponExtentionInstances.Contains(options)) {
-                if (pawn != null && pawn.health != null) {
-                    foreach(Hediff hed in pawn.health.hediffSet.hediffs){
-                        if(SA_HeavyWeaponableHediffDefs.Contains(hed.def)){
-                            __result = true;
-                            return;
-                        }
-                    }
                 }
             }
         }
 
-        public static bool canBeShielded(Pawn p){
+        public static void CanEquipPostFix(Pawn pawn, HeavyWeapon options, ref bool __result)
+        {
+            if (!__result && SA_HeavyWeaponExtentionInstances.Contains(options))
+                if (pawn != null && pawn.health != null)
+                    foreach (var hed in pawn.health.hediffSet.hediffs)
+                        if (SA_HeavyWeaponableHediffDefs.Contains(hed.def))
+                        {
+                            __result = true;
+                            return;
+                        }
+        }
+
+        public static bool canBeShielded(Pawn p)
+        {
             return p.Faction != null;
         }
 
-        public static List<Thing> SA_PawnsCheck = new List<Thing>();
-        public static List<Apparel> SA_ConcurrencyErrorSafetyNet = new List<Apparel>();
-        public static IEnumerable<Apparel> DefenderPawnShields(Pawn basePawn, DamageInfo di){
-            Map map = basePawn.Map;
-            int dirIntForm = (int)(di.Angle * 16 / 360.0f) % 16;
+        public static IEnumerable<Apparel> DefenderPawnShields(Pawn basePawn, DamageInfo di)
+        {
+            var map = basePawn.Map;
+            var dirIntForm = (int) (di.Angle * 16 / 360.0f) % 16;
             Vector3 checkVector1;
             Vector3 checkVector2;
             Vector3 checkVector3;
-            switch(dirIntForm){
+            switch (dirIntForm)
+            {
                 case 15: //east
-                case 0:{
+                case 0:
+                {
                     checkVector2 = new Vector3(0, 0, -1);
                     break;
                 }
                 case 1:
-                case 2:{
+                case 2:
+                {
                     checkVector2 = new Vector3(-1, 0, -1);
                     break;
                 }
                 case 3: //north
-                case 4:{
+                case 4:
+                {
                     checkVector2 = new Vector3(-1, 0, 0);
                     break;
                 }
                 case 5:
-                case 6:{
+                case 6:
+                {
                     checkVector2 = new Vector3(-1, 0, 1);
                     break;
                 }
                 case 7: //west
-                case 8:{
+                case 8:
+                {
                     checkVector2 = new Vector3(0, 0, 1);
                     break;
                 }
                 case 9:
-                case 10:{
+                case 10:
+                {
                     checkVector2 = new Vector3(1, 0, 1);
                     break;
                 }
                 case 11: //south
-                case 12:{
+                case 12:
+                {
                     checkVector2 = new Vector3(1, 0, 0);
                     break;
                 }
                 case 13:
-                case 14:{
+                case 14:
+                {
                     checkVector2 = new Vector3(1, 0, -1);
                     break;
                 }
-                default:{
+                default:
+                {
                     Log.Warning("Shield Calculation : Angle out of range");
-                    checkVector1 = default(Vector3);
-                    checkVector2 = default(Vector3);
-                    checkVector3 = default(Vector3);
+                    checkVector1 = default;
+                    checkVector2 = default;
+                    checkVector3 = default;
                     break;
                 }
             }
+
             //Log.Warning("Angle Calc " + checkVector2 + " / " + di.Angle);
             SA_PawnsCheck.Clear();
             SA_ConcurrencyErrorSafetyNet.Clear();
-            Faction baseFaction = basePawn.Faction;
-            IntVec3 iv3 = checkVector2.ToIntVec3() + basePawn.Position;
+            var baseFaction = basePawn.Faction;
+            var iv3 = checkVector2.ToIntVec3() + basePawn.Position;
             //SA_PawnsCheck.AddRange(map.thingGrid.ThingsAt(iv3));
-            for(int i = 0; i < 9; i++){
-                SA_PawnsCheck.AddRange(map.thingGrid.ThingsAt(basePawn.Position + new IntVec3((i / 3) - 1, 0, (i % 3) - 1)));
-            }
+            for (var i = 0; i < 9; i++)
+                SA_PawnsCheck.AddRange(
+                    map.thingGrid.ThingsAt(basePawn.Position + new IntVec3(i / 3 - 1, 0, i % 3 - 1)));
             //SA_PawnsCheck.AddRange(map.thingGrid.ThingsAt(basePawn.Position));
-            foreach(Thing thing in SA_PawnsCheck){
-                if(thing is Pawn pawn && pawn.apparel != null && pawn.Faction == baseFaction && !pawn.Downed){
-                    foreach(Apparel app in pawn.apparel.WornApparel){
-                        Comp_ExtendedShield compC = app.TryGetComp<Comp_ExtendedShield>();
-                        if(compC != null && compC.shieldActive && app is ShieldBeltExtended abc && abc.ShieldState == ShieldState.Active){
-                            SA_ConcurrencyErrorSafetyNet.Add(app);
-                        }
+            foreach (var thing in SA_PawnsCheck)
+                if (thing is Pawn pawn && pawn.apparel != null && pawn.Faction == baseFaction && !pawn.Downed)
+                    foreach (var app in pawn.apparel.WornApparel)
+                    {
+                        var compC = app.TryGetComp<Comp_ExtendedShield>();
+                        if (compC != null && compC.shieldActive && app is ShieldBeltExtended abc &&
+                            abc.ShieldState == ShieldState.Active) SA_ConcurrencyErrorSafetyNet.Add(app);
                     }
-                }
-            }
-            foreach(Apparel app in SA_ConcurrencyErrorSafetyNet){
-                yield return app;
-            }
-            yield break;
+
+            foreach (var app in SA_ConcurrencyErrorSafetyNet) yield return app;
         }
 
-        public static bool TakeDamageExtendedShield(Thing __instance, DamageInfo dinfo, ref DamageWorker.DamageResult __result){
-            if(__instance is Pawn p){
-                float amountNow = dinfo.Amount;
-                foreach(ShieldBeltExtended damageMe in DefenderPawnShields(p, dinfo)){
-                    //int damage = Convert.ToInt32(Mathf.Min(amountNow, damageMe.HitPoints));
+        public static bool TakeDamageExtendedShield(Thing __instance, DamageInfo dinfo,
+            ref DamageWorker.DamageResult __result)
+        {
+            if (__instance is Pawn p)
+            {
+                var amountNow = dinfo.Amount;
+                foreach (ShieldBeltExtended damageMe in DefenderPawnShields(p, dinfo)
+                    ) //int damage = Convert.ToInt32(Mathf.Min(amountNow, damageMe.HitPoints));
                     //damageMe.HitPoints -= damage;
                     //DamageInfo ddClone = new DamageInfo(dinfo);
                     //ddClone.SetAmount(damage);
@@ -236,19 +247,21 @@ namespace HeavyMelee
                         damageMe.Destroy();
                     }**/
                     //amountNow -= damage;
-                    if(damageMe.CheckPreAbsorbDamage(dinfo)){
+                    if (damageMe.CheckPreAbsorbDamage(dinfo))
+                    {
                         amountNow = 0;
                         break;
                     }
-                }
+
                 //dinfo.SetAmount(amountNow);
-                if(amountNow == 0){
+                if (amountNow == 0)
+                {
                     __result = new DamageWorker.DamageResult();
                     return false;
                 }
             }
+
             return true;
         }
-
     }
 }

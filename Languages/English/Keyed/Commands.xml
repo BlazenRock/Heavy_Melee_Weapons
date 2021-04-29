@@ -3,4 +3,5 @@
     <HeavyMelee.PsychicShock>Activate psychic shock.</HeavyMelee.PsychicShock>
     <HeavyMelee.AlreadyShock>Already activated.</HeavyMelee.AlreadyShock>
     <HeavyMelee.NotEnoughPsyfocus>Not enough psyfocus.</HeavyMelee.NotEnoughPsyfocus>
+    <HeavyMelee.OnCooldown>Still on Cooldown</HeavyMelee.OnCooldown>
 </LanguageData>
