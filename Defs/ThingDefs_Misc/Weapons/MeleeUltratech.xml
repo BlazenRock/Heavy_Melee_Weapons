@@ -568,19 +568,28 @@
         <power>10</power>
         <cooldownTime>2.5</cooldownTime>
       </li>
-      <li>
+      <li><!--with ammo pawn will use this-->
         <label>head</label>
         <labelUsedInLogging>false</labelUsedInLogging>
         <capacities>
-          <li>Blunt</li>
+          <li>PoweredBlunt</li>
         </capacities>
         <power>24</power>
+        <cooldownTime>1.5</cooldownTime>
+      </li>
+      <li><!--but without it, it will use this instead-->
+        <label>head</label>
+        <labelUsedInLogging>false</labelUsedInLogging>
+        <capacities>
+          <li>UnpoweredBlunt</li>
+        </capacities>
+        <power>12</power>
         <cooldownTime>3</cooldownTime>
       </li>
     </tools>
     <verbs>
       <li>
-        <verbClass>MVCF.Verbs.Verb_Jump</verbClass>
+        <verbClass>HeavyMelee.Verb_ReloadableJump</verbClass>
         <label>rocket hammer jump</label>
         <violent>false</violent>
         <hasStandardCommand>true</hasStandardCommand>
@@ -588,8 +597,9 @@
         <forceNormalTimeSpeed>false</forceNormalTimeSpeed>
         <warmupTime>0.5</warmupTime>
         <warmupEffecter>JumpWarmupEffect</warmupEffecter>
-        <range>14.9</range>
+		    <range>14.9</range>
         <requireLineOfSight>true</requireLineOfSight>
+		    <consumeFuelPerShot>30</consumeFuelPerShot>
         <targetParams>
           <canTargetLocations>true</canTargetLocations>
           <canTargetPawns>true</canTargetPawns>
@@ -598,6 +608,17 @@
       </li>
     </verbs>
     <comps>
+      <li Class="Reloading.CompProperties_Reloadable">
+        <compClass>Reloading.CompReloadable</compClass>
+        <AmmoFilter>
+          <thingDefs>
+            <li>Chemfuel</li>
+          </thingDefs>
+        </AmmoFilter>
+        <MaxShots>180</MaxShots>
+        <ItemsPerShot>1</ItemsPerShot>
+        <ReloadTimePerShot>0.33</ReloadTimePerShot>
+      </li>
       <li Class="MVCF.Comps.CompProperties_VerbProps">
         <compClass>MVCF.Comps.Comp_VerbProps</compClass>
         <ConsiderMelee>true</ConsiderMelee>
