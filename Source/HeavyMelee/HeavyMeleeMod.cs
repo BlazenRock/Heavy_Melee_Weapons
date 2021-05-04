@@ -1,10 +1,12 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 using HarmonyLib;
 using Verse;
 
 namespace HeavyMelee
 {
-    internal class HeavyMeleeMod : Mod
+    public class HeavyMeleeMod : Mod
     {
         private static readonly Dictionary<CompEquippable, CompPsychicShock> compCache =
             new Dictionary<CompEquippable, CompPsychicShock>();
@@ -14,6 +16,35 @@ namespace HeavyMelee
             var harm = new Harmony("PitchStone.HeavyMeleeWeapons");
             harm.Patch(AccessTools.Method(typeof(CompEquippable), "GetVerbsCommands"),
                 postfix: new HarmonyMethod(typeof(HeavyMeleeMod), "AddShockCommand"));
+            harm.Patch(AccessTools.Method(typeof(Verb), "VerbTick"),
+                postfix: new HarmonyMethod(GetType(), "VerbPostTick"));
+            harm.Patch(AccessTools.Method(typeof(VerbTracker), "CreateVerbTargetCommand"),
+                new HarmonyMethod(AccessTools.Method(GetType(), "UseCustomCommand1")));
+            harm.Patch(
+                AccessTools.Method(Type.GetType("MVCF.Utilities.PawnVerbGizmoUtility, MVCF"),
+                    "GetGizmosForVerb"), postfix: new HarmonyMethod(GetType(), "UseCustomCommand2"));
+        }
+
+        public static bool UseCustomCommand1(
+            Thing ownerThing,
+            Verb verb,
+            ref Command_VerbTarget __result)
+        {
+            if (!(verb is IVerbCustomCommand custom)) return true;
+            __result = custom.GetTargetCommand(__result);
+            return false;
+        }
+
+        public static IEnumerable<Gizmo> UseCustomCommand2(
+            IEnumerable<Gizmo> __result)
+        {
+            return __result.Select(gizmo =>
+            {
+                if (gizmo is Command_VerbTarget cvt && cvt.verb is IVerbCustomCommand custom)
+                    return custom.GetTargetCommand(cvt);
+
+                return gizmo;
+            });
         }
 
         public static void AddShockCommand(ref IEnumerable<Command> __result, CompEquippable __instance)
@@ -68,5 +99,20 @@ namespace HeavyMelee
             reason = "";
             return false;
         }
+
+        public static void VerbPostTick(Verb __instance)
+        {
+            if (__instance is IVerbTick ticker) ticker.Tick();
+        }
+    }
+
+    public interface IVerbTick
+    {
+        void Tick();
+    }
+
+    public interface IVerbCustomCommand
+    {
+        Command_VerbTarget GetTargetCommand(Command_VerbTarget old);
     }
 }

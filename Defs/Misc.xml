@@ -70,4 +70,21 @@
       </points>
     </bluntStunChancePerDamagePctOfCorePartToBodyCurve>
   </DamageDef>
+  <ManeuverDef>
+    <defName>Cleave</defName>
+    <requiredCapacity>Cleave</requiredCapacity>
+    <verb>
+      <verbClass>HeavyMelee.Verb_MeleeCleave</verbClass>
+      <meleeDamageDef>Cut</meleeDamageDef>
+    </verb>
+    <logEntryDef>MeleeAttack</logEntryDef>
+    <combatLogRulesHit>Maneuver_Slash_MeleeHit</combatLogRulesHit>
+    <combatLogRulesDeflect>Maneuver_Slash_MeleeDeflect</combatLogRulesDeflect>
+    <combatLogRulesMiss>Maneuver_Slash_MeleeMiss</combatLogRulesMiss>
+    <combatLogRulesDodge>Maneuver_Slash_MeleeDodge</combatLogRulesDodge>
+  </ManeuverDef>
+  <ToolCapacityDef>
+    <defName>Cleave</defName>
+    <label>Cleave</label>
+  </ToolCapacityDef>
 </Defs>
