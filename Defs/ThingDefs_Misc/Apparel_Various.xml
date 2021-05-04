@@ -22,6 +22,12 @@
     <thingCategories Inherit="False">
       <li>VFEC_Shields</li>
     </thingCategories>
+	  <equippedStatOffsets>
+            <ShootingAccuracyPawn>-4</ShootingAccuracyPawn>
+            <MeleeHitChance>-4</MeleeHitChance>
+            <MeleeDodgeChance>-10</MeleeDodgeChance>
+	    <MoveSpeed>-0.8</MoveSpeed>
+        </equippedStatOffsets>
     <recipeMaker>
       <researchPrerequisite>Fabrication</researchPrerequisite>
       <unfinishedThingDef>UnfinishedGun</unfinishedThingDef>
