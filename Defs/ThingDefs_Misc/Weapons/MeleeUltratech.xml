@@ -568,13 +568,22 @@
         <power>10</power>
         <cooldownTime>2.5</cooldownTime>
       </li>
-      <li>
+      <li><!--with ammo pawn will use this-->
         <label>head</label>
         <labelUsedInLogging>false</labelUsedInLogging>
         <capacities>
-          <li>Blunt</li>
+          <li>PoweredBlunt</li>
         </capacities>
         <power>24</power>
+        <cooldownTime>1.5</cooldownTime>
+      </li>
+      <li><!--but without it, it will use this instead-->
+        <label>head</label>
+        <labelUsedInLogging>false</labelUsedInLogging>
+        <capacities>
+          <li>UnpoweredBlunt</li>
+        </capacities>
+        <power>12</power>
         <cooldownTime>3</cooldownTime>
       </li>
     </tools>
