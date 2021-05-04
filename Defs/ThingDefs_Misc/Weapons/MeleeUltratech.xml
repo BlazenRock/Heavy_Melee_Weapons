@@ -30,8 +30,9 @@
   <ThingDef ParentName="HMW_MeleeWeaponUltratechHeavy">
     <defName>HMW_MeleeWeapon_HeavyMonoSword</defName>
     <label>heavy monosword</label>
-    <description>A crystal-metallic heavy longsword infused with mechanites that maintain a mono-molecular cutting edge. It cuts through even thick armor with ease, and its fearsome shape intimidates foes. 
-    Its great weight requires the user to wear an Exoframe, or flatter under the burden.</description>
+   <description>A crystal-metallic heavy longsword infused with mechanites that maintain a mono-molecular cutting edge. It cuts through even thick armor with ease, and its fearsome shape intimidates foes. 
+	   \nIts great weight requires the user to wear powered armor or similar apparel.
+   </description>
     <soundInteract>Interact_MonoSword</soundInteract>
     <meleeHitSound>MeleeHit_MonoSword</meleeHitSound>
     <equippedAngleOffset>-85</equippedAngleOffset>
@@ -207,7 +208,7 @@
     <defName>HMW_MeleeWeapon_FlameLance</defName>
     <label>plasmalance</label>
     <description>A metal-cored lance with a cutting edge that is able to set enemies on fire. The lance is capable of firing an incendiary charge, breaking defensive lines and roasting bugs. 
-  \nIts great weight requires the user to wear an Exoframe or flatter under the burden.</description>
+  \nIts great weight requires the user to wear powered armor or similar apparel.</description>
     <soundInteract>Interact_PlasmaSword</soundInteract>
     <meleeHitSound>MeleeHit_PlasmaSword</meleeHitSound>
     <equippedAngleOffset>0</equippedAngleOffset>
@@ -328,8 +329,8 @@
   <ThingDef ParentName="HMW_MeleeWeaponUltratechHeavy">
     <defName>HMW_MeleeWeapon_PsychicWarhammer</defName>
     <label>Relic Maul</label>
-    <description>An ultratech maul threaded with psychic focusing materials. A replica of the old legend, its main purpose is to enhance the wielder's psychic sensitivity and neural heat dissipation, allowing more use of psychic powers.
-  \nIts great weight requires the user to wear an Exoframe, or flatter under the burden.</description>
+   <description>An ultratech maul threaded with psychic focusing materials. A replica of the old legend, its main purpose is to enhance the wielder's psychic sensitivity and neural heat dissipation, allowing more use of psychic powers.
+  \nIts great weight requires the user to wear powered armor or similar apparel.</description>
     <soundInteract>Interact_ZeusHammer</soundInteract>
     <meleeHitSound>MeleeHit_ZeusHammer</meleeHitSound>
     <equippedAngleOffset>-85</equippedAngleOffset>
@@ -402,7 +403,7 @@
     <defName>HMW_MeleeWeapon_ZeusSword</defName>
     <label>burst blade</label>
     <description>A crystal-metallic greatsword infused with mechanites that maintain a mono-molecular cutting edge. The sword has built-in EMP emmiters, shocking those unfortunate enough to be on the recieving end of it.
-  \nIt cuts through even thick armor with ease, but its great weight requires the use of an exoframe or similar apparel.</description>
+  \nIt cuts through even thick armor with ease, but its great weight requires the user to wear powered armor or similar apparel.</description>
     <soundInteract>Interact_MonoSword</soundInteract>
     <meleeHitSound>MeleeHit_ZeusSword</meleeHitSound>
     <equippedAngleOffset>-98</equippedAngleOffset>
@@ -524,7 +525,8 @@
     <defName>HMW_MeleeWeapon_RocketHammer</defName>
     <label>rocket hammer</label>
     <description>A heavy warhammer with an embedded thruster. Upon using, the thruster sends the pawn flying.
-    /n Every swing costs a bit of fuel so plan put your actions ahead of time.</description>
+    \n It's great weight requires the user to wear powered armor or similar apparel.
+    \n Every swing costs a bit of fuel so plan put your actions ahead of time.</description>
     <soundInteract>Interact_ZeusHammer</soundInteract>
     <meleeHitSound>MeleeHit_ZeusHammer</meleeHitSound>
     <equippedAngleOffset>-50</equippedAngleOffset>
