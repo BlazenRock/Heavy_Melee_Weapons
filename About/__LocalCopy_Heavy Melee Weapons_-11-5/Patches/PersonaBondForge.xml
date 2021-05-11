@@ -1,0 +1,264 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Patch>
+	<Operation Class="PatchOperationFindMod">
+	<mods><li>Persona Bond Forge</li></mods>
+		<match Class="PatchOperationSequence">
+			<operations>
+			<li Class="PatchOperationAdd">
+				<xpath>/Defs</xpath>
+					<value>
+  <RecipeDef>
+    <defName>HMW_Make_PersonaHeavyMonosword</defName>
+    <label>Bond heavy monosword</label>
+    <description>Bond a heavy monosword.</description>
+    <jobString>Bonding a heavy monosword.</jobString>
+    <workSpeedStat>GeneralLaborSpeed</workSpeedStat>
+    <effectWorking>Cook</effectWorking>
+    <soundWorking>Recipe_Machining</soundWorking>
+    <workAmount>200000</workAmount>
+    <unfinishedThingDef>UnfinishedComponent</unfinishedThingDef>
+    <ingredients>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>HMW_MeleeWeapon_HeavyMonoSword</li>
+          </thingDefs>
+        </filter>
+        <count>1</count>
+      </li>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>BondingCore</li>
+          </thingDefs>
+        </filter>
+        <count>1</count>
+      </li>
+    </ingredients>
+    <fixedIngredientFilter>
+      <thingDefs>
+        <li>HMW_MeleeWeapon_HeavyMonoSword</li>
+        <li>BondingCore</li>
+      </thingDefs>
+    </fixedIngredientFilter>
+    <products>
+      <HMW_MeleeWeapon_PersonaHeavyMonoSword>1</HMW_MeleeWeapon_PersonaHeavyMonoSword>
+    </products>
+    <skillRequirements>
+      <Intellectual>15</Intellectual>
+    </skillRequirements>
+    <workSkill>Intellectual</workSkill>
+	<recipeUsers>
+		<li>BondingBench</li>
+	</recipeUsers>
+  </RecipeDef>
+					</value>
+			</li>
+
+			<!-- <li Class="PatchOperationAdd">
+				<xpath>/Defs</xpath>
+					<value>
+  <RecipeDef>
+    <defName>HMW_Make_PersonaHeavyZeushammer</defName>
+    <label>Bond heavy zeushammer</label>
+    <description>Bond a heavy zeushammer.</description>
+    <jobString>Bonding a heavy zeushammer.</jobString>
+    <workSpeedStat>GeneralLaborSpeed</workSpeedStat>
+    <effectWorking>Cook</effectWorking>
+    <soundWorking>Recipe_Machining</soundWorking>
+    <workAmount>200000</workAmount>
+    <unfinishedThingDef>UnfinishedComponent</unfinishedThingDef>
+    <ingredients>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>HMW_MeleeWeapon_HeavyZeushammer</li>
+          </thingDefs>
+        </filter>
+        <count>1</count>
+      </li>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>BondingCore</li>
+          </thingDefs>
+        </filter>
+        <count>1</count>
+      </li>
+    </ingredients>
+    <fixedIngredientFilter>
+      <thingDefs>
+        <li>HMW_MeleeWeapon_HeavyZeushammer</li>
+        <li>BondingCore</li>
+      </thingDefs>
+    </fixedIngredientFilter>
+    <products>
+      <HMW_MeleeWeapon_PersonaHeavyZeushammer>1</HMW_MeleeWeapon_PersonaHeavyZeushammer>
+    </products>
+    <skillRequirements>
+      <Intellectual>15</Intellectual>
+    </skillRequirements>
+    <workSkill>Intellectual</workSkill>
+	<recipeUsers>
+		<li>BondingBench</li>
+	</recipeUsers>
+  </RecipeDef>
+					</value>
+			</li> -->
+			
+			<li Class="PatchOperationAdd">
+				<xpath>/Defs</xpath>
+					<value>
+  <RecipeDef>
+    <defName>HMW_Make_PersonaFlameLance</defName>
+    <label>Bond plasmalance</label>
+    <description>Bond a heavy plasmalance.</description>
+    <jobString>Bonding a heavy plasmalance.</jobString>
+    <workSpeedStat>GeneralLaborSpeed</workSpeedStat>
+    <effectWorking>Cook</effectWorking>
+    <soundWorking>Recipe_Machining</soundWorking>
+    <workAmount>200000</workAmount>
+    <unfinishedThingDef>UnfinishedComponent</unfinishedThingDef>
+    <ingredients>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>HMW_MeleeWeapon_FlameLance</li>
+          </thingDefs>
+        </filter>
+        <count>1</count>
+      </li>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>BondingCore</li>
+          </thingDefs>
+        </filter>
+        <count>1</count>
+      </li>
+    </ingredients>
+    <fixedIngredientFilter>
+      <thingDefs>
+        <li>HMW_MeleeWeapon_FlameLance</li>
+        <li>BondingCore</li>
+      </thingDefs>
+    </fixedIngredientFilter>
+    <products>
+      <HMW_MeleeWeapon_PersonaFlameLance>1</HMW_MeleeWeapon_PersonaFlameLance>
+    </products>
+    <skillRequirements>
+      <Intellectual>15</Intellectual>
+    </skillRequirements>
+    <workSkill>Intellectual</workSkill>
+	<recipeUsers>
+		<li>BondingBench</li>
+	</recipeUsers>
+  </RecipeDef>
+					</value>
+			</li>
+
+			<li Class="PatchOperationAdd">
+				<xpath>/Defs</xpath>
+					<value>
+  <RecipeDef>
+    <defName>HMW_Make_PersonaPsychicWarhammer</defName>
+    <label>Bond relic maul</label>
+    <description>Bond a relic maul.</description>
+    <jobString>Bonding a relic maul.</jobString>
+    <workSpeedStat>GeneralLaborSpeed</workSpeedStat>
+    <effectWorking>Cook</effectWorking>
+    <soundWorking>Recipe_Machining</soundWorking>
+    <workAmount>200000</workAmount>
+    <unfinishedThingDef>UnfinishedComponent</unfinishedThingDef>
+    <ingredients>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>HMW_MeleeWeapon_PsychicWarhammer</li>
+          </thingDefs>
+        </filter>
+        <count>1</count>
+      </li>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>BondingCore</li>
+          </thingDefs>
+        </filter>
+        <count>1</count>
+      </li>
+    </ingredients>
+    <fixedIngredientFilter>
+      <thingDefs>
+        <li>HMW_MeleeWeapon_PsychicWarhammer</li>
+        <li>BondingCore</li>
+      </thingDefs>
+    </fixedIngredientFilter>
+    <products>
+      <HMW_MeleeWeapon_PersonaPsychicWarhammer>1</HMW_MeleeWeapon_PersonaPsychicWarhammer>
+    </products>
+    <skillRequirements>
+      <Intellectual>15</Intellectual>
+    </skillRequirements>
+    <workSkill>Intellectual</workSkill>
+	<recipeUsers>
+		<li>BondingBench</li>
+	</recipeUsers>
+  </RecipeDef>
+					</value>
+			</li>
+			
+			<li Class="PatchOperationAdd">
+				<xpath>/Defs</xpath>
+					<value>
+  <RecipeDef>
+    <defName>HMW_Make_PersonaZeusSword</defName>
+    <label>Bond burst blade</label>
+    <description>Bond a burst blade.</description>
+    <jobString>Bonding a burst blade.</jobString>
+    <workSpeedStat>GeneralLaborSpeed</workSpeedStat>
+    <effectWorking>Cook</effectWorking>
+    <soundWorking>Recipe_Machining</soundWorking>
+    <workAmount>200000</workAmount>
+    <unfinishedThingDef>UnfinishedComponent</unfinishedThingDef>
+    <ingredients>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>HMW_MeleeWeapon_ZeusSword</li>
+          </thingDefs>
+        </filter>
+        <count>1</count>
+      </li>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>BondingCore</li>
+          </thingDefs>
+        </filter>
+        <count>1</count>
+      </li>
+    </ingredients>
+    <fixedIngredientFilter>
+      <thingDefs>
+        <li>HMW_MeleeWeapon_ZeusSword</li>
+        <li>BondingCore</li>
+      </thingDefs>
+    </fixedIngredientFilter>
+    <products>
+      <HMW_MeleeWeapon_PersonaZeusSword>1</HMW_MeleeWeapon_PersonaZeusSword>
+    </products>
+    <skillRequirements>
+      <Intellectual>15</Intellectual>
+    </skillRequirements>
+    <workSkill>Intellectual</workSkill>
+	<recipeUsers>
+		<li>BondingBench</li>
+	</recipeUsers>
+  </RecipeDef>
+					</value>
+			</li>
+			</operations>
+		</match>
+	</Operation>
+</Patch>
