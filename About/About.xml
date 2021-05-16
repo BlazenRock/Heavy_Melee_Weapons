@@ -7,11 +7,6 @@
 		<li>1.2</li>
 	</supportedVersions>
 	<packageId>PitchStone.HeavyMeleeWeapons</packageId>
-	<loadBefore>
-	<li>legodude17.heavyweaponsreloading</li>
-	</loadBefore>
-	<loadAfter>
-	</loadAfter>
 	<description>Roses are red. Violets are blue. Heavy Monoswords bring dread, and Rocket Hammers will swing true.
 
 Heavy Melee Weapons aims to make melee combat more interesting via the introduction of powerful weapons. In or out of combat, the weapons in this mod are designed to open up additional solutions for problems outside of shooting your them until they stop moving.
@@ -42,8 +37,11 @@ PackageId:Pitchstone.HeavyMeleeWeapons
 			<displayName>Vanilla Weapons Expanded - Heavy</displayName>
 			<steamWorkshopUrl>
 		</modDependencies>
+	<loadBefore>
+	<li>legodude17.heavyweaponsreloading</li>
+	</loadBefore>
 	<loadAfter>
-		<li>Ludeon.RimWorld.Royalty</li>
-		<li>oskarpotocki.vanillafactionsexpanded.core</li>
+	<li>Ludeon.RimWorld.Royalty</li>
+	<li>oskarpotocki.vanillafactionsexpanded.core</li>
 	</loadAfter>
 </ModMetaData>
