@@ -10,7 +10,7 @@
 
 <HugsLib.UpdateFeatureDef ParentName="UpdateFeatureBase">
 		<defName>HMW_v1_0_0</defName>
-		<assemblyVersion>1.0.0</assemblyVersion>
+		<assemblyVersion>1.0.0.0</assemblyVersion>
 		<content>The intial release. Thank you for downloading this mod. Nothing here would be possible without the existence of the Rimworld Mod Market Discord. You should give it a look.
 		</content>
 		<linkUrl>https://discord.gg/YXXwHYV6KR</linkUrl>
