@@ -35,7 +35,8 @@ PackageId:Pitchstone.HeavyMeleeWeapons
 		<li>
 			<packageId>VanillaExpanded.VWEHW</packageId>
 			<displayName>Vanilla Weapons Expanded - Heavy</displayName>
-			<steamWorkshopUrl>
+			<steamWorkshopUrl>https://steamcommunity.com/sharedfiles/filedetails/?id=2329126791</steamWorkshopUrl>
+		</li>
 		</modDependencies>
 	<loadBefore>
 	<li>legodude17.heavyweaponsreloading</li>
