@@ -682,7 +682,7 @@
       <li>
         <label>handle</label>
         <capacities>
-          <li>Poke</li>
+          <li>SelfDamagingPoke</li>
         </capacities>
         <power>12</power>
         <cooldownTime>2.5</cooldownTime>
@@ -691,13 +691,21 @@
         <label>head</label>
         <labelUsedInLogging>false</labelUsedInLogging>
         <capacities>
-          <li>Blunt</li>
+          <li>SelfDamagingBlunt</li>
         </capacities>
         <power>26</power>
         <cooldownTime>3.0</cooldownTime>
       </li>
     </tools>
     <modExtensions>
+      <li Class="HeavyMelee.SelfDamageModExtension">
+		<selfDamageAmountPerAttack>13</selfDamageAmountPerAttack>
+      </li>
+      <li Class="HeavyMelee.SagittariusMightPlantModExtention">
+		<label>Plant Sagittarius Might</label>
+		<description>Planting this weapon will make it detonate after 8 seconds.</description>
+		<texPath>Building/PlantedGravityLance</texPath>
+      </li>
       <li Class="HeavyWeapons.HeavyWeapon">
         <isHeavy>true</isHeavy>
         <supportedArmors>
