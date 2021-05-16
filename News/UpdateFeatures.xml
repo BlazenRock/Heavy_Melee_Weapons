@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+	<HugsLib.UpdateFeatureDef Abstract="true" Name="UpdateFeatureBase_PitchStone.HeavyMeleeWeapons">
+		<modNameReadable>Heavy Melee Weapons</modNameReadable>
+		<linkUrl>https://github.com/BlazenRock/Heavy_Melee_Weapons</linkURL>
+	</HugsLib.UpdateFeatureDef>
+
+	<HugsLib.UpdateFeatureDef ParentName="UpdateFeatureBase_PitchStone.HeavyMeleeWeapons">
+		<defName>HMW_v1_0_0</defName>
+		<assemblyVersion>1.0.0</assemblyVersion>
+		<content>The intial release. Thank you for downloading this mod. Nothing here would be possible without the existence of the Rimworld Mod Market Discord. You should give it a look.
+		</content>
+		<linkUrl>https://discord.gg/YXXwHYV6KR</linkUrl>
+	</HugsLib.UpdateFeatureDef>
+	
+</Defs>
