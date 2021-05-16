@@ -1,13 +1,32 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ModMetaData>
 	<name>Heavy Melee Weapons</name>
-	<author>Blazen_Rock, xrushha, legodude17, Kitsune</author>
-	<url></url>
+	<author>Blazen_Rock, xrushha, legodude17, amnabi, Kitsune</author>
+	<url>https://steamcommunity.com/sharedfiles/filedetails/?id=2418407014</url>
     <supportedVersions>
 		<li>1.2</li>
 	</supportedVersions>
 	<packageId>PitchStone.HeavyMeleeWeapons</packageId>
-	<description>Work in progress.</description>
+	<loadBefore>
+	<li>legodude17.heavyweaponsreloading</li>
+	</loadBefore>
+	<loadAfter>
+	</loadAfter>
+	<description>Roses are red. Violets are blue. Heavy Monoswords bring dread, and Rocket Hammers will swing true.
+
+Heavy Melee Weapons aims to make melee combat more interesting via the introduction of powerful weapons. In or out of combat, the weapons in this mod are designed to open up additional solutions for problems outside of shooting your them until they stop moving.
+Credits
+legodude17 and amnabi for their coding.
+xrushha for  xml and weapon balancing.
+Peppsen for custom sounds.
+Kitsune for weapon art and various textures.
+Halno for the thumbnail and various graphics.
+	
+Backers
+RustyHams
+
+PackageId:Pitchstone.HeavyMeleeWeapons
+	 </description>
         <modDependencies>
 		<li>
 			<packageId>Ludeon.RimWorld.Royalty</packageId>
@@ -18,6 +37,10 @@
 			<displayName>Vanilla Expanded Framework</displayName>
 			<steamWorkshopUrl>https://steamcommunity.com/sharedfiles/filedetails/?id=2023507013</steamWorkshopUrl>
 		</li>
+		<li>
+			<packageId>VanillaExpanded.VWEHW</packageId>
+			<displayName>Vanilla Weapons Expanded - Heavy</displayName>
+			<steamWorkshopUrl>
 		</modDependencies>
 	<loadAfter>
 		<li>Ludeon.RimWorld.Royalty</li>
