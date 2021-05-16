@@ -716,6 +716,9 @@
           <li>SF_ReconPowerArmor</li>
         </supportedArmors>
       </li>
+      <li Class="VFECore.ThingDefExtension">
+        <usableWithShields>true</usableWithShields>
+      </li>
     </modExtensions>
     <comps Inherit="False">
       <li Class="CompOversizedWeapon.CompProperties_OversizedWeapon">
