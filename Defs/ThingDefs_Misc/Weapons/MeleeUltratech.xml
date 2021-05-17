@@ -31,8 +31,7 @@
     <defName>HMW_MeleeWeapon_HeavyMonoSword</defName>
     <label>heavy monosword</label>
    <description>A crystal-metallic heavy longsword infused with mechanites that maintain a mono-molecular cutting edge. It cuts through even thick armor with ease, and its fearsome shape intimidates foes. 
-	   \nIts great weight requires the user to wear powered armor or similar apparel.
-   </description>
+	   \nIts great weight requires the user to wear powered armor or similar apparel.</description>
     <soundInteract>Interact_MonoSword</soundInteract>
     <meleeHitSound>MeleeHit_MonoSword</meleeHitSound>
     <equippedAngleOffset>-85</equippedAngleOffset>
