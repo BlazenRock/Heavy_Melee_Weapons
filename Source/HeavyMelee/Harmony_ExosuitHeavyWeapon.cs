@@ -31,6 +31,11 @@ namespace HeavyMelee
             SA_HeavyWeaponHediffString.Add("FSFImplantTorsoWorker");
             SA_HeavyWeaponHediffString.Add("FSFImplantTorsoSpeed");
             SA_HeavyWeaponHediffString.Add("FSFImplantTorsoPsychic");
+            SA_HeavyWeaponHediffString.Add("TP_Combat_Exosuit");
+            SA_HeavyWeaponHediffString.Add("TP_Combat_Exosuit_MK_A");
+            SA_HeavyWeaponHediffString.Add("TP_Combat_Exosuit_MK_B");
+            SA_HeavyWeaponHediffString.Add("TP_Combat_Exosuit_MK_C");
+            SA_HeavyWeaponHediffString.Add("TP_Combat_Exosuit_MK_D");
             foreach (var str in SA_HeavyWeaponHediffString)
             {
                 var hdd = DefDatabase<HediffDef>.GetNamed(str, false);
