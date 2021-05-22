@@ -9,6 +9,15 @@ using Patch_FloatMenuMakerMap = HeavyWeapons.Patch_FloatMenuMakerMap;
 
 namespace HeavyMelee
 {
+    /**[DefOf]
+    public static class ExosuitPatchLoaderDefOf{
+        public static ExosuitPatchLoader exosuitPatchLoader;
+    }
+    public class ExosuitPatchLoader : Def{
+        public List<string> CountAsExosuitHediff = new List<string>();
+        public List<string> CountAsHeavyWeapon = new List<string>();
+    }**/
+
     [StaticConstructorOnStartup]
     public static class Harmony_ExosuitHeavyWeapon
     {
@@ -31,12 +40,19 @@ namespace HeavyMelee
             SA_HeavyWeaponHediffString.Add("FSFImplantTorsoWorker");
             SA_HeavyWeaponHediffString.Add("FSFImplantTorsoSpeed");
             SA_HeavyWeaponHediffString.Add("FSFImplantTorsoPsychic");
+            SA_HeavyWeaponHediffString.Add("TP_Combat_Exosuit");
+            SA_HeavyWeaponHediffString.Add("TP_Combat_Exosuit_MK_A");
+            SA_HeavyWeaponHediffString.Add("TP_Combat_Exosuit_MK_B");
+            SA_HeavyWeaponHediffString.Add("TP_Combat_Exosuit_MK_C");
+            SA_HeavyWeaponHediffString.Add("TP_Combat_Exosuit_MK_D");
+            //SA_HeavyWeaponHediffString.AddRange(ExosuitPatchLoaderDefOf.exosuitPatchLoader.CountAsExosuitHediff);
             foreach (var str in SA_HeavyWeaponHediffString)
             {
                 var hdd = DefDatabase<HediffDef>.GetNamed(str, false);
                 SA_HeavyWeaponableHediffDefs.Add(hdd);
             }
-
+            
+            //SA_HeavyWeaponHediffString.AddRange(ExosuitPatchLoaderDefOf.exosuitPatchLoader.CountAsHeavyWeapon);
             SA_HeavyWeaponThingString.Add("HMW_MeleeWeapon_HeavyMonoSword");
             SA_HeavyWeaponThingString.Add("HMW_MeleeWeapon_FlameLance");
             SA_HeavyWeaponThingString.Add("HMW_MeleeWeapon_PsychicWarhammer");
@@ -145,6 +161,9 @@ namespace HeavyMelee
         public static IEnumerable<Apparel> DefenderPawnShields(Pawn basePawn, DamageInfo di)
         {
             var map = basePawn.Map;
+            if(map == null){
+                yield break;
+            }
             var dirIntForm = (int) (di.Angle * 16 / 360.0f) % 16;
             Vector3 checkVector1;
             Vector3 checkVector2;
