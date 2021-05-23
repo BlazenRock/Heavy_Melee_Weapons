@@ -45,6 +45,7 @@ namespace HeavyMelee
             SA_HeavyWeaponHediffString.Add("TP_Combat_Exosuit_MK_B");
             SA_HeavyWeaponHediffString.Add("TP_Combat_Exosuit_MK_C");
             SA_HeavyWeaponHediffString.Add("TP_Combat_Exosuit_MK_D");
+
             //SA_HeavyWeaponHediffString.AddRange(ExosuitPatchLoaderDefOf.exosuitPatchLoader.CountAsExosuitHediff);
             foreach (var str in SA_HeavyWeaponHediffString)
             {
