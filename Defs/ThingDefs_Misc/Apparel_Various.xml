@@ -120,10 +120,10 @@
   </ThingDef>
   
 
-  <ThingDef ParentName="HMW_GuardianShieldBase">
+  <!-- <ThingDef ParentName="HMW_GuardianShieldBase">
     <defName>HMW__GuardianShieldB</defName>
     <label>guardian shield</label>
-    <description>A heavy spacer tech shield.</description> <!-- needs proper description -->
+    <description>A heavy spacer tech shield.</description> 
     <graphicData>
       <texPath>Pawn/GuardianShield/GuardianShield</texPath>
       <graphicClass>Graphic_Single</graphicClass>
@@ -192,6 +192,6 @@
         </offHandHoldOffset>
       </li>
     </comps>
-  </ThingDef>
+  </ThingDef> -->
   
 </Defs>
