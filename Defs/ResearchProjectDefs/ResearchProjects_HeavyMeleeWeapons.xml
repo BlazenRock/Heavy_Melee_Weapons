@@ -1,22 +1,17 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <Defs>
-
+  
   <ResearchProjectDef>
-    <defName>HMW_RocketHammer</defName>
-    <label>rocket hammer</label>
-    <description>Use various materials to craft rocket hammers.</description>
-    <baseCost>800</baseCost>
-    <techLevel>Industrial</techLevel>
+    <defName>HMW_UltratechWeapons</defName>
+    <label>ultratech weapons</label>
+    <description>Craft powerful ultratech weapons using various materials.</description>
     <prerequisites>
-      <li>Machining</li>
-	  <li>BiofuelRefining</li>
-	  <li>TransportPod</li>
+      <li>AdvancedFabrication</li>
     </prerequisites>
-    <requiredResearchBuilding>HiTechResearchBench</requiredResearchBuilding>
-	<tags>
-	</tags>
-    <researchViewX>12.00</researchViewX>
-    <researchViewY>2.70</researchViewY>
+	<baseCost>3000</baseCost>
+	<techLevel>Ultra</techLevel>
+    <researchViewX>17.00</researchViewX>
+    <researchViewY>2.6</researchViewY>
   </ResearchProjectDef>
 
 </Defs>

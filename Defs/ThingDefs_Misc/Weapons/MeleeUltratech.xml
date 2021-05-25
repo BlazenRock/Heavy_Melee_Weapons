@@ -546,7 +546,7 @@
         <li>TableMachining</li>
       </recipeUsers>
       <unfinishedThingDef>UnfinishedGun</unfinishedThingDef>
-      <researchPrerequisite>HMW_RocketHammer</researchPrerequisite>
+      <researchPrerequisite>TransportPod</researchPrerequisite>
       <skillRequirements>
         <Crafting>5</Crafting>
       </skillRequirements>
