@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Patch>
+	<Operation Class="PatchOperationFindMod">
+		<mods>
+			<li>Combat Extended</li>
+		</mods>
+		<match Class="PatchOperationSequence">
+			<success>Normal</success>
+			<operations>
+						
+                <!--Sagittarius Might-->
+				<li Class="PatchOperationReplace">
+					<xpath>/Defs/ThingDef[defName="HMW_MeleeWeapon_SagittariusMight"]/tools</xpath>
+					<value>
+						<tools>
+							<li Class="CombatExtended.ToolCE">
+								<label>handle</label>
+								<capacities>
+									<li>SelfDamagingPoke</li>
+								</capacities>
+								<power>36</power>
+								<cooldownTime>2.5</cooldownTime>
+								<armorPenetrationBlunt>16.925</armorPenetrationBlunt>
+								
+								
+							</li>
+							<li Class="CombatExtended.ToolCE">
+								<label>Head</label>
+								<capacities>
+									<li>SelfDamagingBlunt</li>
+								</capacities>
+								<power>84</power>
+								<cooldownTime>3.0</cooldownTime>
+								<armorPenetrationBlunt>360.3</armorPenetrationBlunt>
+								
+								
+							</li>
+							
+						</tools>
+					</value>
+				</li>
+               
+                        
+
+				<li Class="PatchOperationAdd">
+					<xpath>/Defs/ThingDef[defName="HMW_MeleeWeapon_SagittariusMight"]/statBases</xpath>
+					<value>
+						<Bulk>12</Bulk>
+						<MeleeCounterParryBonus>0.54</MeleeCounterParryBonus>
+					</value>
+				</li>
+                
+
+				<li Class="PatchOperationAdd">
+					<xpath>/Defs/ThingDef[defName="HMW_MeleeWeapon_SagittariusMight"]</xpath>
+					<value>
+						<equippedStatOffsets>
+							<MeleeCritChance>0.25</MeleeCritChance>
+							<MeleeParryChance>0.92</MeleeParryChance>
+							<MeleeDodgeChance>0.33</MeleeDodgeChance>
+						</equippedStatOffsets>
+					</value>
+				</li>
+                 <!--HMW_MeleeWeapon_RocketHammer-->
+				<li Class="PatchOperationReplace">
+					<xpath>/Defs/ThingDef[defName="HMW_MeleeWeapon_RocketHammer"]/tools</xpath>
+					<value>
+						<tools>
+							 <li Class="CombatExtended.ToolCE">
+                                <label>handle</label>
+                                <capacities>
+                                <li>Poke</li>
+                                </capacities>
+                                <power>30</power>
+                                <cooldownTime>2.5</cooldownTime>
+                            </li>
+                            <li Class="CombatExtended.ToolCE"><!--with ammo pawn will use this-->
+                                <label>head</label>
+                                <labelUsedInLogging>false</labelUsedInLogging>
+                                <capacities>
+                                <li>PoweredBlunt</li>
+                                </capacities>
+                                <power>72</power>
+                                <cooldownTime>1.5</cooldownTime>
+                            </li>
+                            <li Class="CombatExtended.ToolCE"><!--but without it, it will use this instead-->
+                                <label>head</label>
+                                <labelUsedInLogging>false</labelUsedInLogging>
+                                <capacities>
+                                <li>UnpoweredBlunt</li>
+                                </capacities>
+                                <power>36</power>
+                                <cooldownTime>3</cooldownTime>
+                            </li>
+							
+						</tools>
+					</value>
+				</li>
+               
+                        
+
+				<li Class="PatchOperationAdd">
+					<xpath>/Defs/ThingDef[defName="HMW_MeleeWeapon_RocketHammer"]/statBases</xpath>
+					<value>
+						<Bulk>20</Bulk>
+						<MeleeCounterParryBonus>0.44</MeleeCounterParryBonus>
+					</value>
+				</li>
+                
+
+				<li Class="PatchOperationAdd">
+					<xpath>/Defs/ThingDef[defName="HMW_MeleeWeapon_RocketHammer"]</xpath>
+					<value>
+						<equippedStatOffsets>
+							<MeleeCritChance>0.19</MeleeCritChance>
+							<MeleeParryChance>0.72</MeleeParryChance>
+							<MeleeDodgeChance>0.13</MeleeDodgeChance>
+						</equippedStatOffsets>
+					</value>
+				</li>
+								<!-- ========== Shield ========== -->
+
+				
+					<li Class="PatchOperationReplace">
+						<xpath>Defs/ThingDef[defName="HMW__GuardianShield"]/statBases/ArmorRating_Sharp</xpath>
+						<value>
+							 <ArmorRating_Sharp>200.50</ArmorRating_Sharp>
+						</value>
+				</li>
+				<li Class="PatchOperationReplace">
+						<xpath>Defs/ThingDef[defName="HMW__GuardianShield"]/statBases/MaxHitPoints</xpath>
+						<value>
+							<MaxHitPoints>1200</MaxHitPoints>
+						</value>
+				</li>
+				<li Class="PatchOperationReplace">
+						<xpath>Defs/ThingDef[defName="HMW__GuardianShield"]/statBases/ArmorRating_Blunt</xpath>
+						<value>
+							<ArmorRating_Blunt>1200.69</ArmorRating_Blunt>
+						</value>
+				</li>
+				<li Class="PatchOperationReplace">
+						<xpath>Defs/ThingDef[defName="HMW__GuardianShield"]/statBases/ArmorRating_Heat</xpath>
+						<value>
+							<ArmorRating_Heat>1.00</ArmorRating_Heat>
+						</value>
+				</li>
+				<li Class="PatchOperationAdd">
+						<xpath>Defs/ThingDef[defName="HMW__GuardianShield"]/statBases</xpath>
+						<value>
+							<Bulk>18</Bulk>
+							<WornBulk>18</WornBulk>
+     	
+						</value>
+				</li>
+				<li Class="PatchOperationAdd">
+						<xpath>Defs/ThingDef[defName="HMW__GuardianShield"]</xpath>
+						<value>
+							<modExtensions>
+							<li Class="CombatExtended.ShieldDefExtension">
+								<shieldCoverage>
+								<li>Hands</li>
+								<li>Arms</li>
+								<li>Shoulders</li>
+								<li>Torso</li>
+								<li>Neck</li>
+								<li>FullHead</li>
+								</shieldCoverage>
+								<crouchCoverage>
+								<li>Legs</li>
+								</crouchCoverage>
+								<drawAsTall>true</drawAsTall>
+							</li>
+							</modExtensions>
+						</value>
+				</li>
+                </operations>
+        </match>
+    </Operation>
+</Patch>
