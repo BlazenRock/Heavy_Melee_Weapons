@@ -7,4 +7,4 @@ This version of the mod is designed to co-exist with Vanilla Rimworld, the  Roya
 
 [![ko-fi](https://ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/M4M44PFV1)
 
-(CC BY-NC-ND 4.0)
+[![Creative Commons](CC BY-NC-ND 4.0)](https://creativecommons.org/licenses/by-nc/4.0/)
