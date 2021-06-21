@@ -43,7 +43,7 @@
       <li>
         <grains>
           <li Class="AudioGrain_Folder">
-            <clipFolderPath>SagittariusMight/SagittariusMight</clipFolderPath> <!-- put the path here, should look like SagittariusMight/YourSoundName -->
+            <clipFolderPath>SagittariusMight/SagittariusMightOnHit</clipFolderPath> <!-- put the path here, should look like SagittariusMight/YourSoundName -->
           </li>
         </grains>      
         <volumeRange>17~20</volumeRange>      

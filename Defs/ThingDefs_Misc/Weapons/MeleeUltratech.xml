@@ -52,6 +52,7 @@
         </capacities>
         <power>18</power>
         <cooldownTime>1.9</cooldownTime>
+	<armorPenetration>0.20</armorPenetration>
       </li>
       <li>
         <label>point</label>
@@ -60,7 +61,7 @@
         </capacities>
         <power>36</power>
         <cooldownTime>2.6</cooldownTime>
-        <armorPenetration>0.55</armorPenetration>
+        <armorPenetration>0.90</armorPenetration>
       </li>
       <li>
         <label>edge</label>
@@ -69,7 +70,7 @@
         </capacities>
         <power>36</power>
         <cooldownTime>2.6</cooldownTime>
-        <armorPenetration>0.55</armorPenetration>
+        <armorPenetration>0.90</armorPenetration>
       </li>
     </tools>
     <comps>
@@ -97,9 +98,9 @@
         <isPrimary>true</isPrimary>
         <onlyManualCast>true</onlyManualCast>
         <range>1.9</range>
-        <meleeDamageBaseAmount>30</meleeDamageBaseAmount>
+        <meleeDamageBaseAmount>50</meleeDamageBaseAmount>
         <meleeDamageDef>Cut</meleeDamageDef>
-        <meleeArmorPenetrationBase>0.8</meleeArmorPenetrationBase>
+        <meleeArmorPenetrationBase>1</meleeArmorPenetrationBase>
         <hasStandardCommand>true</hasStandardCommand>
         <targetable>false</targetable>
         <targetParams>
@@ -545,7 +546,7 @@
         <li>TableMachining</li>
       </recipeUsers>
       <unfinishedThingDef>UnfinishedGun</unfinishedThingDef>
-      <researchPrerequisite>HMW_RocketHammer</researchPrerequisite>
+      <researchPrerequisite>TransportPod</researchPrerequisite>
       <skillRequirements>
         <Crafting>5</Crafting>
       </skillRequirements>
