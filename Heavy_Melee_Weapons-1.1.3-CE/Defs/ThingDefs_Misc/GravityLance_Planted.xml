@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+  <ThingDef ParentName="MoteBase">
+    <defName>Mote_SagittariusMightImplosion</defName>
+    <graphicData>
+      <texPath>Weapons/SagittariusMight/Implosion</texPath>
+    </graphicData>
+    <altitudeLayer>MoteOverhead</altitudeLayer>
+    <mote>
+      <solidTime>0</solidTime>
+      <fadeOutTime>0.2</fadeOutTime>
+    </mote>
+  </ThingDef>
+  
+  <HediffDef ParentName="InjuryBase">
+    <defName>SagittariusMightImplosion</defName>
+    <label>implosion crack</label>
+    <labelNoun>an implosion wound</labelNoun>
+    <description>A wound.</description>
+    <comps>
+      <li Class="HediffCompProperties_TendDuration">
+        <labelTendedWell>set</labelTendedWell>
+        <labelTendedWellInner>set</labelTendedWellInner>
+        <labelSolidTendedWell>set</labelSolidTendedWell>
+      </li>
+      <li Class="HediffCompProperties_GetsPermanent">
+        <permanentLabel>permanent crack</permanentLabel>
+      </li>
+    </comps>
+    <injuryProps>
+      <painPerSeverity>0.01</painPerSeverity>
+      <averagePainPerSeverityPermanent>0.00625</averagePainPerSeverityPermanent>
+      <destroyedLabel>Obliterated</destroyedLabel>
+    </injuryProps>
+  </HediffDef>
+  
+  <DamageDef>
+    <defName>SagittariusMightImplosion</defName>
+    <workerClass>DamageWorker_Blunt</workerClass>
+    <label>obliterated</label>
+    <hasForcefulImpact>false</hasForcefulImpact>
+    <makesBlood>false</makesBlood>
+    <canInterruptJobs>false</canInterruptJobs>
+    <externalViolence>true</externalViolence>
+    <deathMessage>{0} has been obliterated to death.</deathMessage>
+    <hediff>SagittariusMightImplosion</hediff>
+    <armorCategory>Blunt</armorCategory>
+    <minDamageToFragment>15</minDamageToFragment>
+    <defaultDamage>10</defaultDamage>
+    <defaultArmorPenetration>0</defaultArmorPenetration>
+    <explosionHeatEnergyPerCell>15</explosionHeatEnergyPerCell>
+    <explosionCellMote>Mote_SagittariusMightImplosion</explosionCellMote>
+    <explosionColorCenter>(0.7, 0.3, 1)</explosionColorCenter>
+    <explosionColorEdge>(0.7, 0.3, 1)</explosionColorEdge>
+    <soundExplosion>Explosion_Flame</soundExplosion>
+    <canUseDeflectMetalEffect>false</canUseDeflectMetalEffect>
+  </DamageDef>
+  
+  <ThingDef ParentName="BuildingBase">
+    <defName>PlantedGravityLance</defName>
+    <label>Planted Sagittarius's Might</label>
+    <description>A Sagittarius's Might planted onto the ground. Will explode soon, so you better get away as soon as you can!</description>
+    <thingClass>ThingWithComps</thingClass>
+    <graphicData>
+      <texPath>Building/PlantedGravityLance</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <drawSize>1.6</drawSize>
+    </graphicData>
+    <uiIconScale>0.65</uiIconScale>
+    <altitudeLayer>Building</altitudeLayer>
+    <rotatable>false</rotatable>
+    <fillPercent>0.5</fillPercent>
+    <statBases>
+      <MaxHitPoints>130</MaxHitPoints>
+      <Flammability>1.0</Flammability>
+    </statBases>
+    <pathCost>42</pathCost>
+    <receivesSignals>true</receivesSignals>
+    <blockWind>false</blockWind>
+    <tickerType>Normal</tickerType>
+    <passability>PassThroughOnly</passability>
+    <comps>
+      <li Class="HeavyMelee.CompProperties_GravityLanceExplode">
+        <explosionAfterTicks>480</explosionAfterTicks>	<!--15 seconds x 60 tps-->
+		<countDownSoundDef>MeleeHit_SagittariusMightCountdown</countDownSoundDef>
+		<countDownSoundDef4Sec>MeleeHit_SagittariusMightCountdown4SEC</countDownSoundDef4Sec>
+		<impactSoundDef>MeleeHit_SagittariusMightDetonation</impactSoundDef>
+		<explosionRadius>16</explosionRadius> <!--8 * 2-->
+		<damageDef>SagittariusMightImplosion</damageDef>
+		<damageAmount>600</damageAmount>
+		<armourPenetration>2</armourPenetration>
+      </li>
+    </comps>
+  </ThingDef>
+
+</Defs>
