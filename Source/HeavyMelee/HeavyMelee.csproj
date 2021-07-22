@@ -94,7 +94,7 @@
     <Compile Include="VerbMelee_SelfDamage.cs" />
     <Compile Include="Verb_Cleave.cs" />
     <Compile Include="Verb_MeleeCleave.cs" />
-    <Compile Include="Verb_ReloadableSelfExplode.cs" />
+    <Compile Include="Verb_SelfExplode.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

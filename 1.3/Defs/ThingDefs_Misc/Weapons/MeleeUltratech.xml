@@ -85,8 +85,8 @@
         <ConsiderMelee>true</ConsiderMelee>
         <verbProps>
           <li>
-            <colonistOnly>true</colonistOnly>
             <label>Cleave</label>
+            <canBeToggled>true</canBeToggled>
           </li>
         </verbProps>
       </li>
@@ -266,7 +266,6 @@
         <label>Flame Burst</label>
         <verbClass>HeavyMelee.Verb_SelfExplode</verbClass>
         <isPrimary>true</isPrimary>
-        <onlyManualCast>true</onlyManualCast>
         <range>12</range>
         <meleeDamageBaseAmount>10</meleeDamageBaseAmount>
         <meleeDamageDef>Flame30Degrees</meleeDamageDef>
@@ -281,8 +280,8 @@
         <ConsiderMelee>true</ConsiderMelee>
         <verbProps>
           <li>
-            <colonistOnly>true</colonistOnly>
             <label>Flame Burst</label>
+            <canBeToggled>true</canBeToggled>
           </li>
         </verbProps>
       </li>
@@ -461,7 +460,6 @@
         <label>EMP Burst</label>
         <verbClass>HeavyMelee.Verb_SelfExplode</verbClass>
         <isPrimary>true</isPrimary>
-        <onlyManualCast>true</onlyManualCast>
         <range>6</range>
         <meleeDamageBaseAmount>10</meleeDamageBaseAmount>
         <meleeDamageDef>EMP</meleeDamageDef>
@@ -476,8 +474,8 @@
         <ConsiderMelee>true</ConsiderMelee>
         <verbProps>
           <li>
-            <colonistOnly>true</colonistOnly>
             <label>EMP Burst</label>
+            <canBeToggled>true</canBeToggled>
           </li>
         </verbProps>
       </li>
@@ -628,6 +626,7 @@
           <li>
             <colonistOnly>true</colonistOnly>
             <label>rocket hammer jump</label>
+            <canBeToggled>true</canBeToggled>
           </li>
         </verbProps>
       </li>

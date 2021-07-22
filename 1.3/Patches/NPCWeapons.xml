@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Patch>
+    <Operation Class="PatchOperationAdd">
+        <xpath>/Defs/PawnKindDef[defName="Empire_Fighter_StellicGuardMelee"]/weaponTags</xpath>
+        <value>
+            <li>UltratechMelee</li>
+        </value>
+    </Operation>
+</Patch>
