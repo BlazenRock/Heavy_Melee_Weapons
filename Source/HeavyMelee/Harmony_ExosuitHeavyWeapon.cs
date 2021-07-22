@@ -9,15 +9,24 @@ using Patch_FloatMenuMakerMap = HeavyWeapons.Patch_FloatMenuMakerMap;
 
 namespace HeavyMelee
 {
-    /**[DefOf]
-    public static class ExosuitPatchLoaderDefOf{
-        public static ExosuitPatchLoader exosuitPatchLoader;
-    }
-    public class ExosuitPatchLoader : Def{
-        public List<string> CountAsExosuitHediff = new List<string>();
-        public List<string> CountAsHeavyWeapon = new List<string>();
-    }**/
-
+    /**
+     * [DefOf]
+     * public static class ExosuitPatchLoaderDefOf{
+     * public static ExosuitPatchLoader exosuitPatchLoader;
+     * }
+     * public class ExosuitPatchLoader : Def{
+     * public List
+     * <string>
+     *     CountAsExosuitHediff = new List
+     *     <string>
+     *         ();
+     *         public List
+     *         <string>
+     *             CountAsHeavyWeapon = new List
+     *             <string>
+     *                 ();
+     *                 }*
+     */
     [StaticConstructorOnStartup]
     public static class Harmony_ExosuitHeavyWeapon
     {
@@ -52,7 +61,7 @@ namespace HeavyMelee
                 var hdd = DefDatabase<HediffDef>.GetNamed(str, false);
                 SA_HeavyWeaponableHediffDefs.Add(hdd);
             }
-            
+
             //SA_HeavyWeaponHediffString.AddRange(ExosuitPatchLoaderDefOf.exosuitPatchLoader.CountAsHeavyWeapon);
             SA_HeavyWeaponThingString.Add("HMW_MeleeWeapon_HeavyMonoSword");
             SA_HeavyWeaponThingString.Add("HMW_MeleeWeapon_FlameLance");
@@ -162,69 +171,63 @@ namespace HeavyMelee
         public static IEnumerable<Apparel> DefenderPawnShields(Pawn basePawn, DamageInfo di)
         {
             var map = basePawn.Map;
-            if(map == null){
-                yield break;
-            }
+            if (map == null) yield break;
             var dirIntForm = (int) (di.Angle * 16 / 360.0f) % 16;
-            Vector3 checkVector1;
-            Vector3 checkVector2;
-            Vector3 checkVector3;
+            Vector3 checkVector;
             switch (dirIntForm)
             {
                 case 15: //east
                 case 0:
                 {
-                    checkVector2 = new Vector3(0, 0, -1);
+                    checkVector = new Vector3(0, 0, -1);
                     break;
                 }
                 case 1:
                 case 2:
                 {
-                    checkVector2 = new Vector3(-1, 0, -1);
+                    checkVector = new Vector3(-1, 0, -1);
                     break;
                 }
                 case 3: //north
                 case 4:
                 {
-                    checkVector2 = new Vector3(-1, 0, 0);
+                    checkVector = new Vector3(-1, 0, 0);
                     break;
                 }
                 case 5:
                 case 6:
                 {
-                    checkVector2 = new Vector3(-1, 0, 1);
+                    checkVector = new Vector3(-1, 0, 1);
                     break;
                 }
                 case 7: //west
                 case 8:
                 {
-                    checkVector2 = new Vector3(0, 0, 1);
+                    checkVector = new Vector3(0, 0, 1);
                     break;
                 }
                 case 9:
                 case 10:
                 {
-                    checkVector2 = new Vector3(1, 0, 1);
+                    checkVector = new Vector3(1, 0, 1);
                     break;
                 }
                 case 11: //south
                 case 12:
                 {
-                    checkVector2 = new Vector3(1, 0, 0);
+                    checkVector = new Vector3(1, 0, 0);
                     break;
                 }
                 case 13:
                 case 14:
                 {
-                    checkVector2 = new Vector3(1, 0, -1);
+                    checkVector = new Vector3(1, 0, -1);
                     break;
                 }
                 default:
                 {
                     Log.Warning("Shield Calculation : Angle out of range");
-                    checkVector1 = default;
-                    checkVector2 = default;
-                    checkVector3 = default;
+                    checkVector = default;
                     break;
                 }
             }
@@ -233,7 +236,7 @@ namespace HeavyMelee
             SA_PawnsCheck.Clear();
             SA_ConcurrencyErrorSafetyNet.Clear();
             var baseFaction = basePawn.Faction;
-            var iv3 = checkVector2.ToIntVec3() + basePawn.Position;
+            var iv3 = checkVector.ToIntVec3() + basePawn.Position;
             //SA_PawnsCheck.AddRange(map.thingGrid.ThingsAt(iv3));
             for (var i = 0; i < 9; i++)
                 SA_PawnsCheck.AddRange(

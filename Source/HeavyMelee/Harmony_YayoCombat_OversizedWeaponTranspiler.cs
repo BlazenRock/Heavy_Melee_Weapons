@@ -112,25 +112,13 @@ namespace HeavyMelee
                 switch (rotation.AsInt)
                 {
                     case 0:
-                    {
                         return compOversizedWeapon.Props.northOffset;
-                        break;
-                    }
                     case 1:
-                    {
                         return compOversizedWeapon.Props.eastOffset;
-                        break;
-                    }
                     case 2:
-                    {
                         return compOversizedWeapon.Props.southOffset;
-                        break;
-                    }
                     case 3:
-                    {
                         return compOversizedWeapon.Props.westOffset;
-                        break;
-                    }
                 }
             }
 
