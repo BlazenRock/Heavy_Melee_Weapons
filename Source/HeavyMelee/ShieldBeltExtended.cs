@@ -27,7 +27,7 @@ namespace HeavyMelee
             return 140f;
         }
 
-        public override GizmoResult GizmoOnGUI(Vector2 topLeft, float maxWidth)
+        public override GizmoResult GizmoOnGUI(Vector2 topLeft, float maxWidth, GizmoRenderParms parms)
         {
             var rect = new Rect(topLeft.x, topLeft.y, GetWidth(maxWidth), 75f);
             var rect2 = rect.ContractedBy(6f);
@@ -65,21 +65,21 @@ namespace HeavyMelee
 
         private readonly float ApparelScorePerEnergyMax = 0.25f;
 
-        private float energy;
-
         private readonly float EnergyLossPerDamage = 0.033f;
 
         private readonly float EnergyOnReset = 0.2f;
 
-        private Vector3 impactAngleVect;
-
         private readonly int KeepDisplayingTicks = 1000;
+
+        private readonly int StartingTicksToReset = 3200;
+
+        private float energy;
+
+        private Vector3 impactAngleVect;
 
         private int lastAbsorbDamageTick = -9999;
 
         private int lastKeepDisplayTick = -9999;
-
-        private readonly int StartingTicksToReset = 3200;
 
         private int ticksToReset = -1;
 
@@ -126,7 +126,6 @@ namespace HeavyMelee
         public override IEnumerable<Gizmo> GetWornGizmos()
         {
             foreach (var gizmo in base.GetWornGizmos()) yield return gizmo;
-            IEnumerator<Gizmo> enumerator = null;
             if (Find.Selector.SingleSelectedThing == Wearer)
                 yield return new Gizmo_EnergyShieldExtendedStatus
                 {
@@ -194,9 +193,9 @@ namespace HeavyMelee
             impactAngleVect = Vector3Utility.HorizontalVectorFromAngle(dinfo.Angle);
             var loc = Wearer.TrueCenter() + impactAngleVect.RotatedBy(180f) * 0.5f;
             var num = Mathf.Min(10f, 2f + dinfo.Amount / 10f);
-            MoteMaker.MakeStaticMote(loc, Wearer.Map, ThingDefOf.Mote_ExplosionFlash, num);
+            FleckMaker.Static(loc, Wearer.Map, FleckDefOf.ExplosionFlash, num);
             var num2 = (int) num;
-            for (var i = 0; i < num2; i++) MoteMaker.ThrowDustPuff(loc, Wearer.Map, Rand.Range(0.8f, 1.2f));
+            for (var i = 0; i < num2; i++) FleckMaker.ThrowDustPuff(loc, Wearer.Map, Rand.Range(0.8f, 1.2f));
             lastAbsorbDamageTick = Find.TickManager.TicksGame;
             KeepDisplaying();
         }
@@ -204,9 +203,9 @@ namespace HeavyMelee
         private void Break()
         {
             SoundDefOf.EnergyShield_Broken.PlayOneShot(new TargetInfo(Wearer.Position, Wearer.Map));
-            MoteMaker.MakeStaticMote(Wearer.TrueCenter(), Wearer.Map, ThingDefOf.Mote_ExplosionFlash, 12f);
+            FleckMaker.Static(Wearer.TrueCenter(), Wearer.Map, FleckDefOf.ExplosionFlash, 12f);
             for (var i = 0; i < 6; i++)
-                MoteMaker.ThrowDustPuff(
+                FleckMaker.ThrowDustPuff(
                     Wearer.TrueCenter() + Vector3Utility.HorizontalVectorFromAngle(Rand.Range(0, 360)) *
                     Rand.Range(0.3f, 0.6f), Wearer.Map, Rand.Range(0.8f, 1.2f));
             energy = 0f;
@@ -218,7 +217,7 @@ namespace HeavyMelee
             if (Wearer.Spawned)
             {
                 SoundDefOf.EnergyShield_Reset.PlayOneShot(new TargetInfo(Wearer.Position, Wearer.Map));
-                MoteMaker.ThrowLightningGlow(Wearer.TrueCenter(), Wearer.Map, 3f);
+                FleckMaker.ThrowLightningGlow(Wearer.TrueCenter(), Wearer.Map, 3f);
             }
 
             ticksToReset = -1;

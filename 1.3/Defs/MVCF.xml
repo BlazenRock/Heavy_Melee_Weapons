@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+    <MVCF.ModDef>
+        <defName>HeavyMeleeWeapons</defName>
+        <label>Heavy Melee Weapons</label>
+        <description>iaojgioagjoaijgioeajgioagj</description>
+        <Features>
+            <ExtraEquipmentVerbs>true</ExtraEquipmentVerbs>
+            <IntegratedToggle>true</IntegratedToggle>
+        </Features>
+    </MVCF.ModDef>
+</Defs>

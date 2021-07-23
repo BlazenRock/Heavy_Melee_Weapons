@@ -1,0 +1,750 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <ThingDef Abstract="True" Name="HMW_MeleeWeaponUltratechHeavy" ParentName="BaseWeapon">
+    <techLevel>Ultra</techLevel>
+    <comps>
+      <li>
+        <compClass>CompQuality</compClass>
+      </li>
+      <li Class="CompProperties_Art">
+        <nameMaker>NamerArtWeaponMelee</nameMaker>
+        <descriptionMaker>ArtDescription_WeaponMelee</descriptionMaker>
+        <minQualityForArtistic>Excellent</minQualityForArtistic>
+      </li>
+      <li Class="CompProperties_BiocodableWeapon" />
+    </comps>
+    <smeltable>true</smeltable>
+    <burnableByRecipe>true</burnableByRecipe>
+    <thingCategories>
+      <li>WeaponsMelee</li>
+    </thingCategories>
+    <weaponTags>
+      <li>UltratechMelee</li>
+    </weaponTags>
+    <thingSetMakerTags>
+      <li>RewardStandardMidFreq</li>
+    </thingSetMakerTags>
+  </ThingDef>
+
+  <ThingDef ParentName="HMW_MeleeWeaponUltratechHeavy">
+    <defName>HMW_MeleeWeapon_HeavyMonoSword</defName>
+    <label>heavy monosword</label>
+   <description>A crystal-metallic heavy longsword infused with mechanites that maintain a mono-molecular cutting edge. It cuts through even thick armor with ease, and its fearsome shape intimidates foes. 
+	   \nIts great weight requires the user to wear powered armor or similar apparel.</description>
+    <soundInteract>Interact_MonoSword</soundInteract>
+    <meleeHitSound>MeleeHit_MonoSword</meleeHitSound>
+    <equippedAngleOffset>-85</equippedAngleOffset>
+    <statBases>
+      <MarketValue>3000</MarketValue>
+      <Mass>4</Mass>
+    </statBases>
+    <graphicData>
+      <texPath>Weapons/KIT_MonoSword</texPath>
+      <drawSize>1.4</drawSize>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <tools>
+      <li>
+        <label>handle</label>
+        <capacities>
+          <li>Blunt</li>
+        </capacities>
+        <power>18</power>
+        <cooldownTime>1.9</cooldownTime>
+	<armorPenetration>0.20</armorPenetration>
+      </li>
+      <li>
+        <label>point</label>
+        <capacities>
+          <li>Stab</li>
+        </capacities>
+        <power>36</power>
+        <cooldownTime>2.6</cooldownTime>
+        <armorPenetration>0.90</armorPenetration>
+      </li>
+      <li>
+        <label>edge</label>
+        <capacities>
+          <li>Cut</li>
+        </capacities>
+        <power>36</power>
+        <cooldownTime>2.6</cooldownTime>
+        <armorPenetration>0.90</armorPenetration>
+      </li>
+    </tools>
+    <comps>
+      <li Class="CompOversizedWeapon.CompProperties_OversizedWeapon">
+        <northOffset>(0.25, 0, 0.2)</northOffset>
+        <southOffset>(0.25, 0, 0.2)</southOffset>
+        <eastOffset>(0, 0, 0.2)</eastOffset>
+        <westOffset>(0, 0, 0.2)</westOffset>
+      </li>
+      <li Class="MVCF.Comps.CompProperties_VerbProps">
+        <compClass>MVCF.Comps.Comp_VerbProps</compClass>
+        <ConsiderMelee>true</ConsiderMelee>
+        <verbProps>
+          <li>
+            <colonistOnly>true</colonistOnly>
+            <label>Cleave</label>
+          </li>
+        </verbProps>
+      </li>
+    </comps>
+    <verbs>
+      <li>
+        <label>Cleave</label>
+        <verbClass>HeavyMelee.Verb_Cleave</verbClass>
+        <isPrimary>true</isPrimary>
+        <onlyManualCast>true</onlyManualCast>
+        <range>1.9</range>
+        <meleeDamageBaseAmount>50</meleeDamageBaseAmount>
+        <meleeDamageDef>Cut</meleeDamageDef>
+        <meleeArmorPenetrationBase>1</meleeArmorPenetrationBase>
+        <hasStandardCommand>true</hasStandardCommand>
+        <targetable>false</targetable>
+        <targetParams>
+          <canTargetSelf>true</canTargetSelf>
+        </targetParams>
+      </li>
+    </verbs>
+    <modExtensions>
+      <li Class="HeavyWeapons.HeavyWeapon">
+        <isHeavy>true</isHeavy>
+        <supportedArmors>
+          <li>VWE_Apparel_Exoframe</li>
+          <li>SF_PoweredAssaultArmor</li>
+          <li>SF_EngineerPowerArmor</li>
+          <li>SF_ExplorerPowerArmor</li>
+          <li>SF_GrenadierPowerArmor</li>
+          <li>SF_CommandoArmor</li>
+          <li>SF_HazardOperationsArmor</li>
+          <li>SF_DiplomatPowerArmor</li>
+          <li>SF_DefenderPowerArmor</li>
+          <li>SF_ScoutPowerArmor</li>
+          <li>SF_SamuraiPowerArmor</li>
+          <li>SF_ShockTrooperArmor</li>
+          <li>SF_ReconPowerArmor</li>
+        </supportedArmors>
+      </li>
+    </modExtensions>
+  </ThingDef>
+
+  <!-- <ThingDef ParentName="HMW_MeleeWeaponUltratechHeavy">
+    <defName>HMW_MeleeWeapon_HeavyZeushammer</defName>
+    <label>heavy zeushammer</label>
+    <description>A heavy warhammer with an embedded EMP capacitor. Upon impact, it blasts the target with an EMP burst in addition to the physical damage.</description>
+    <soundInteract>Interact_ZeusHammer</soundInteract>
+    <meleeHitSound>MeleeHit_ZeusHammer</meleeHitSound>
+    <equippedAngleOffset>-65</equippedAngleOffset>
+    <statBases>
+      <MarketValue>3000</MarketValue>
+      <Mass>4</Mass>
+    </statBases>
+    <graphicData>
+      <texPath>Things/Item/Equipment/WeaponMelee/ZeusHammer</texPath>
+      <drawSize>1.4</drawSize>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <tools>
+      <li>
+        <label>handle</label>
+        <capacities>
+          <li>Poke</li>
+        </capacities>
+        <power>20</power>
+        <cooldownTime>2.5</cooldownTime>
+      </li>
+      <li>
+        <label>head</label>
+        <labelUsedInLogging>false</labelUsedInLogging>
+        <capacities>
+          <li>Blunt</li>
+        </capacities>
+        <power>38</power>
+        <cooldownTime>4</cooldownTime>
+        <extraMeleeDamages>
+          <li>
+            <def>EMP</def>
+            <amount>9</amount>
+          </li>
+        </extraMeleeDamages>
+      </li>
+    </tools>
+    <comps>
+      <li>
+        <compClass>CompOversizedWeapon.CompOversizedWeapon</compClass>
+      </li>
+    </comps>
+    <tradeTags Inherit="False" />
+    <thingCategories Inherit="False" />
+    <weaponTags Inherit="False" />
+    <thingSetMakerTags Inherit="False" />
+    <smeltable>false</smeltable>
+    <burnableByRecipe>false</burnableByRecipe>
+    <modExtensions>
+      <li Class="HeavyWeapons.HeavyWeapon">
+        <isHeavy>true</isHeavy>
+        <supportedArmors>
+          <li>VWE_Apparel_Exoframe</li>
+          <li>SF_PoweredAssaultArmor</li>
+          <li>SF_EngineerPowerArmor</li>
+          <li>SF_ExplorerPowerArmor</li>
+          <li>SF_GrenadierPowerArmor</li>
+          <li>SF_CommandoArmor</li>
+          <li>SF_HazardOperationsArmor</li>
+          <li>SF_DiplomatPowerArmor</li>
+          <li>SF_DefenderPowerArmor</li>
+          <li>SF_ScoutPowerArmor</li>
+          <li>SF_SamuraiPowerArmor</li>
+          <li>SF_ShockTrooperArmor</li>
+          <li>SF_ReconPowerArmor</li>
+        </supportedArmors>
+      </li>
+    </modExtensions>
+  </ThingDef> -->
+
+  <ThingDef ParentName="HMW_MeleeWeaponUltratechHeavy">
+    <defName>HMW_MeleeWeapon_FlameLance</defName>
+    <label>plasmalance</label>
+    <description>A metal-cored lance with a cutting edge that is able to set enemies on fire. The lance is capable of firing an incendiary charge, breaking defensive lines and roasting bugs. 
+  \nIts great weight requires the user to wear powered armor or similar apparel.</description>
+    <soundInteract>Interact_PlasmaSword</soundInteract>
+    <meleeHitSound>MeleeHit_PlasmaSword</meleeHitSound>
+    <equippedAngleOffset>0</equippedAngleOffset>
+    <statBases>
+      <MarketValue>3000</MarketValue>
+      <Mass>4</Mass>
+    </statBases>
+    <graphicData>
+      <texPath>Weapons/KIT_PlasmaLance</texPath>
+      <drawSize>1.6</drawSize>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <tools>
+      <li>
+        <label>handle</label>
+        <capacities>
+          <li>Blunt</li>
+        </capacities>
+        <power>16</power>
+        <cooldownTime>2.3</cooldownTime>
+      </li>
+      <li>
+        <label>point</label>
+        <capacities>
+          <li>Stab</li>
+        </capacities>
+        <power>26</power>
+        <cooldownTime>2.9</cooldownTime>
+        <extraMeleeDamages>
+          <li>
+            <def>Flame</def>
+            <amount>14</amount>
+            <chance>1.0</chance>
+          </li>
+        </extraMeleeDamages>
+      </li>
+      <li>
+        <label>edge</label>
+        <capacities>
+          <li>Cut</li>
+        </capacities>
+        <power>26</power>
+        <cooldownTime>2.9</cooldownTime>
+        <extraMeleeDamages>
+          <li>
+            <def>Flame</def>
+            <amount>14</amount>
+            <chance>1.0</chance>
+          </li>
+        </extraMeleeDamages>
+      </li>
+    </tools>
+    <verbs>
+      <li>
+        <label>Flame Burst</label>
+        <verbClass>HeavyMelee.Verb_ReloadableSelfExplode</verbClass>
+        <isPrimary>true</isPrimary>
+        <onlyManualCast>true</onlyManualCast>
+        <range>12</range>
+        <meleeDamageBaseAmount>10</meleeDamageBaseAmount>
+        <meleeDamageDef>Flame30Degrees</meleeDamageDef>
+        <hasStandardCommand>true</hasStandardCommand>
+        <targetable>false</targetable>
+        <nonInterruptingSelfCast>true</nonInterruptingSelfCast>
+      </li>
+    </verbs>
+    <comps>
+      <li Class="MVCF.Comps.CompProperties_VerbProps">
+        <compClass>MVCF.Comps.Comp_VerbProps</compClass>
+        <ConsiderMelee>true</ConsiderMelee>
+        <verbProps>
+          <li>
+            <colonistOnly>true</colonistOnly>
+            <label>Flame Burst</label>
+          </li>
+        </verbProps>
+      </li>
+      <li Class="Reloading.CompProperties_Reloadable">
+        <compClass>Reloading.CompReloadable</compClass>
+        <AmmoFilter>
+          <thingDefs>
+            <li>Chemfuel</li>
+          </thingDefs>
+        </AmmoFilter>
+        <MaxShots>6</MaxShots>
+        <ItemsPerShot>30</ItemsPerShot>
+        <ReloadTimePerShot>0.33</ReloadTimePerShot>
+      </li>
+      <li>
+        <compClass>CompOversizedWeapon.CompOversizedWeapon</compClass>
+      </li>
+    </comps>
+    <modExtensions>
+      <li Class="HeavyWeapons.HeavyWeapon">
+        <isHeavy>true</isHeavy>
+        <supportedArmors>
+          <li>VWE_Apparel_Exoframe</li>
+          <li>SF_PoweredAssaultArmor</li>
+          <li>SF_EngineerPowerArmor</li>
+          <li>SF_ExplorerPowerArmor</li>
+          <li>SF_GrenadierPowerArmor</li>
+          <li>SF_CommandoArmor</li>
+          <li>SF_HazardOperationsArmor</li>
+          <li>SF_DiplomatPowerArmor</li>
+          <li>SF_DefenderPowerArmor</li>
+          <li>SF_ScoutPowerArmor</li>
+          <li>SF_SamuraiPowerArmor</li>
+          <li>SF_ShockTrooperArmor</li>
+          <li>SF_ReconPowerArmor</li>
+        </supportedArmors>
+      </li>
+      <li Class="VFECore.ThingDefExtension">
+        <usableWithShields>true</usableWithShields>
+      </li>
+    </modExtensions>
+  </ThingDef>
+
+  <ThingDef ParentName="HMW_MeleeWeaponUltratechHeavy">
+    <defName>HMW_MeleeWeapon_PsychicWarhammer</defName>
+    <label>Relic Maul</label>
+   <description>An ultratech maul threaded with psychic focusing materials. A replica of the old legend, its main purpose is to enhance the wielder's psychic sensitivity and neural heat dissipation, allowing more use of psychic powers.
+  \nIts great weight requires the user to wear powered armor or similar apparel.</description>
+    <soundInteract>Interact_ZeusHammer</soundInteract>
+    <meleeHitSound>MeleeHit_ZeusHammer</meleeHitSound>
+    <equippedAngleOffset>-85</equippedAngleOffset>
+    <statBases>
+      <MarketValue>3000</MarketValue>
+      <Mass>4</Mass>
+    </statBases>
+    <graphicData>
+      <texPath>Weapons/KIT_RelicHammer</texPath>
+      <drawSize>1.6</drawSize>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <tools>
+      <li>
+        <label>handle</label>
+        <capacities>
+          <li>Poke</li>
+        </capacities>
+        <power>20</power>
+        <cooldownTime>2.8</cooldownTime>
+      </li>
+      <li>
+        <label>head</label>
+        <labelUsedInLogging>false</labelUsedInLogging>
+        <capacities>
+          <li>PsychicSmash</li>
+        </capacities>
+        <power>38</power>
+        <cooldownTime>4.5</cooldownTime>
+      </li>
+    </tools>
+    <comps>
+      <li Class="HeavyMelee.CompProperties_PsychicShock">
+        <PsyfocusCost>0.1</PsyfocusCost>
+      </li>
+      <li Class="CompOversizedWeapon.CompProperties_OversizedWeapon">
+        <northOffset>(0.4, 0, 0.1)</northOffset>
+        <southOffset>(0.4, 0, 0.1)</southOffset>
+        <eastOffset>(0.2, 0, 0.1)</eastOffset>
+        <westOffset>(-0.1, 0, 0.1)</westOffset>
+      </li>
+    </comps>
+    <equippedStatOffsets>
+      <PsychicSensitivityOffset>0.50</PsychicSensitivityOffset>
+      <PsychicEntropyRecoveryRate>0.083</PsychicEntropyRecoveryRate>
+    </equippedStatOffsets>
+    <modExtensions>
+      <li Class="HeavyWeapons.HeavyWeapon">
+        <isHeavy>true</isHeavy>
+        <supportedArmors>
+          <li>VWE_Apparel_Exoframe</li>
+          <li>SF_PoweredAssaultArmor</li>
+          <li>SF_EngineerPowerArmor</li>
+          <li>SF_ExplorerPowerArmor</li>
+          <li>SF_GrenadierPowerArmor</li>
+          <li>SF_CommandoArmor</li>
+          <li>SF_HazardOperationsArmor</li>
+          <li>SF_DiplomatPowerArmor</li>
+          <li>SF_DefenderPowerArmor</li>
+          <li>SF_ScoutPowerArmor</li>
+          <li>SF_SamuraiPowerArmor</li>
+          <li>SF_ShockTrooperArmor</li>
+          <li>SF_ReconPowerArmor</li>
+        </supportedArmors>
+      </li>
+    </modExtensions>
+  </ThingDef>
+
+  <ThingDef ParentName="HMW_MeleeWeaponUltratechHeavy">
+    <defName>HMW_MeleeWeapon_ZeusSword</defName>
+    <label>burst blade</label>
+    <description>A crystal-metallic greatsword infused with mechanites that maintain a mono-molecular cutting edge. The sword has built-in EMP emmiters, shocking those unfortunate enough to be on the recieving end of it.
+  \nIt cuts through even thick armor with ease, but its great weight requires the user to wear powered armor or similar apparel.</description>
+    <soundInteract>Interact_MonoSword</soundInteract>
+    <meleeHitSound>MeleeHit_ZeusSword</meleeHitSound>
+    <equippedAngleOffset>-98</equippedAngleOffset>
+    <statBases>
+      <MarketValue>3000</MarketValue>
+      <Mass>4</Mass>
+    </statBases>
+    <graphicData>
+      <texPath>Weapons/KIT_ZeusSword</texPath>
+      <drawSize>1.5</drawSize>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <tools>
+      <li>
+        <label>handle</label>
+        <capacities>
+          <li>Blunt</li>
+        </capacities>
+        <power>18</power>
+        <cooldownTime>1.9</cooldownTime>
+      </li>
+      <li>
+        <label>point</label>
+        <capacities>
+          <li>Stab</li>
+        </capacities>
+        <power>36</power>
+        <cooldownTime>2.6</cooldownTime>
+        <armorPenetration>0.55</armorPenetration>
+        <extraMeleeDamages>
+          <li>
+            <def>EMP</def>
+            <amount>9</amount>
+          </li>
+        </extraMeleeDamages>
+      </li>
+      <li>
+        <label>edge</label>
+        <capacities>
+          <li>Cut</li>
+        </capacities>
+        <power>36</power>
+        <cooldownTime>2.6</cooldownTime>
+        <armorPenetration>0.55</armorPenetration>
+        <extraMeleeDamages>
+          <li>
+            <def>EMP</def>
+            <amount>9</amount>
+          </li>
+        </extraMeleeDamages>
+      </li>
+    </tools>
+    <verbs>
+      <li>
+        <label>EMP Burst</label>
+        <verbClass>HeavyMelee.Verb_ReloadableSelfExplode</verbClass>
+        <isPrimary>true</isPrimary>
+        <onlyManualCast>true</onlyManualCast>
+        <range>6</range>
+        <meleeDamageBaseAmount>10</meleeDamageBaseAmount>
+        <meleeDamageDef>EMP</meleeDamageDef>
+        <hasStandardCommand>true</hasStandardCommand>
+        <targetable>false</targetable>
+        <nonInterruptingSelfCast>true</nonInterruptingSelfCast>
+      </li>
+    </verbs>
+    <comps>
+      <li Class="MVCF.Comps.CompProperties_VerbProps">
+        <compClass>MVCF.Comps.Comp_VerbProps</compClass>
+        <ConsiderMelee>true</ConsiderMelee>
+        <verbProps>
+          <li>
+            <colonistOnly>true</colonistOnly>
+            <label>EMP Burst</label>
+          </li>
+        </verbProps>
+      </li>
+      <li Class="Reloading.CompProperties_Reloadable">
+        <compClass>Reloading.CompReloadable</compClass>
+        <AmmoFilter>
+          <thingDefs>
+            <li>ComponentIndustrial</li>
+          </thingDefs>
+        </AmmoFilter>
+        <MaxShots>6</MaxShots>
+        <ItemsPerShot>1</ItemsPerShot>
+        <ReloadTimePerShot>0.33</ReloadTimePerShot>
+      </li>
+      <li Class="CompOversizedWeapon.CompProperties_OversizedWeapon">
+        <northOffset>(0, 0, 0.5)</northOffset>
+        <southOffset>(0.2, 0, 0.5)</southOffset>
+        <eastOffset>(0, 0, 0.5)</eastOffset>
+        <westOffset>(0, 0, 0.5)</westOffset>
+      </li>
+    </comps>
+    <modExtensions>
+      <li Class="HeavyWeapons.HeavyWeapon">
+        <isHeavy>true</isHeavy>
+        <supportedArmors>
+          <li>VWE_Apparel_Exoframe</li>
+          <li>SF_PoweredAssaultArmor</li>
+          <li>SF_EngineerPowerArmor</li>
+          <li>SF_ExplorerPowerArmor</li>
+          <li>SF_GrenadierPowerArmor</li>
+          <li>SF_CommandoArmor</li>
+          <li>SF_HazardOperationsArmor</li>
+          <li>SF_DiplomatPowerArmor</li>
+          <li>SF_DefenderPowerArmor</li>
+          <li>SF_ScoutPowerArmor</li>
+          <li>SF_SamuraiPowerArmor</li>
+          <li>SF_ShockTrooperArmor</li>
+          <li>SF_ReconPowerArmor</li>
+        </supportedArmors>
+      </li>
+    </modExtensions>
+  </ThingDef>
+
+  <ThingDef ParentName="HMW_MeleeWeaponUltratechHeavy">
+    <defName>HMW_MeleeWeapon_RocketHammer</defName>
+    <label>rocket hammer</label>
+    <description>A heavy warhammer with an embedded thruster. Upon using, the thruster sends the pawn flying.
+    \n It's great weight requires the user to wear powered armor or similar apparel.
+    \n Every swing costs a bit of fuel so plan put your actions ahead of time.</description>
+    <soundInteract>Interact_ZeusHammer</soundInteract>
+    <meleeHitSound>MeleeHit_ZeusHammer</meleeHitSound>
+    <equippedAngleOffset>-50</equippedAngleOffset>
+    <techLevel>Industrial</techLevel>
+    <statBases>
+      <MarketValue>2500</MarketValue>
+      <Mass>4</Mass>
+      <WorkToMake>4000</WorkToMake>      <!-- work to make the item -->
+      <JumpRange>14.9</JumpRange>
+    </statBases>
+    <recipeMaker>
+      <workSpeedStat>GeneralLaborSpeed</workSpeedStat>
+      <workSkill>Crafting</workSkill>
+      <effectWorking>Smith</effectWorking>
+      <soundWorking>Recipe_Smith</soundWorking>
+      <recipeUsers>
+        <li>TableMachining</li>
+      </recipeUsers>
+      <unfinishedThingDef>UnfinishedGun</unfinishedThingDef>
+      <researchPrerequisite>TransportPod</researchPrerequisite>
+      <skillRequirements>
+        <Crafting>5</Crafting>
+      </skillRequirements>
+    </recipeMaker>
+    <costList>
+      <Steel>75</Steel>
+      <ComponentIndustrial>5</ComponentIndustrial>
+      <Chemfuel>180</Chemfuel>
+    </costList>
+    <graphicData>
+      <texPath>Weapons/KIT_RocketHammer</texPath>
+      <drawSize>1.4</drawSize>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <tools>
+      <li>
+        <label>handle</label>
+        <capacities>
+          <li>Poke</li>
+        </capacities>
+        <power>10</power>
+        <cooldownTime>2.5</cooldownTime>
+      </li>
+      <li><!--with ammo pawn will use this-->
+        <label>head</label>
+        <labelUsedInLogging>false</labelUsedInLogging>
+        <capacities>
+          <li>PoweredBlunt</li>
+        </capacities>
+        <power>24</power>
+        <cooldownTime>1.5</cooldownTime>
+      </li>
+      <li><!--but without it, it will use this instead-->
+        <label>head</label>
+        <labelUsedInLogging>false</labelUsedInLogging>
+        <capacities>
+          <li>UnpoweredBlunt</li>
+        </capacities>
+        <power>12</power>
+        <cooldownTime>3</cooldownTime>
+      </li>
+    </tools>
+    <verbs>
+      <li>
+        <verbClass>HeavyMelee.Verb_ReloadableJump</verbClass>
+        <label>rocket hammer jump</label>
+        <violent>false</violent>
+        <hasStandardCommand>true</hasStandardCommand>
+        <onlyManualCast>True</onlyManualCast>
+        <forceNormalTimeSpeed>false</forceNormalTimeSpeed>
+        <warmupTime>0.5</warmupTime>
+        <warmupEffecter>JumpWarmupEffect</warmupEffecter>
+		    <range>14.9</range>
+        <requireLineOfSight>true</requireLineOfSight>
+		    <consumeFuelPerShot>30</consumeFuelPerShot>
+        <targetParams>
+          <canTargetLocations>true</canTargetLocations>
+          <canTargetPawns>true</canTargetPawns>
+          <canTargetBuildings>false</canTargetBuildings>
+        </targetParams>
+      </li>
+    </verbs>
+    <comps>
+      <li Class="Reloading.CompProperties_Reloadable">
+        <compClass>Reloading.CompReloadable</compClass>
+        <AmmoFilter>
+          <thingDefs>
+            <li>Chemfuel</li>
+          </thingDefs>
+        </AmmoFilter>
+        <MaxShots>180</MaxShots>
+        <ItemsPerShot>1</ItemsPerShot>
+        <ReloadTimePerShot>0.33</ReloadTimePerShot>
+      </li>
+      <li Class="MVCF.Comps.CompProperties_VerbProps">
+        <compClass>MVCF.Comps.Comp_VerbProps</compClass>
+        <ConsiderMelee>true</ConsiderMelee>
+        <verbProps>
+          <li>
+            <colonistOnly>true</colonistOnly>
+            <label>rocket hammer jump</label>
+          </li>
+        </verbProps>
+      </li>
+      <li Class="CompOversizedWeapon.CompProperties_OversizedWeapon">
+        <northOffset>(0, 0, 0)</northOffset>
+        <southOffset>(0, 0, 0)</southOffset>
+        <eastOffset>(0, 0, 0)</eastOffset>
+        <westOffset>(0.3, 0, 0)</westOffset>
+      </li>
+    </comps>
+    <modExtensions>
+      <li Class="HeavyWeapons.HeavyWeapon">
+        <isHeavy>true</isHeavy>
+        <supportedArmors>
+          <li>VWE_Apparel_Exoframe</li>
+          <li>SF_PoweredAssaultArmor</li>
+          <li>SF_EngineerPowerArmor</li>
+          <li>SF_ExplorerPowerArmor</li>
+          <li>SF_GrenadierPowerArmor</li>
+          <li>SF_CommandoArmor</li>
+          <li>SF_HazardOperationsArmor</li>
+          <li>SF_DiplomatPowerArmor</li>
+          <li>SF_DefenderPowerArmor</li>
+          <li>SF_ScoutPowerArmor</li>
+          <li>SF_SamuraiPowerArmor</li>
+          <li>SF_ShockTrooperArmor</li>
+          <li>SF_ReconPowerArmor</li>
+        </supportedArmors>
+      </li>
+    </modExtensions>
+  </ThingDef>
+
+  <ThingDef ParentName="HMW_MeleeWeaponUltratechHeavy">
+    <defName>HMW_MeleeWeapon_SagittariusMight</defName>
+    <label>Sagittarius Might</label>
+    <description>A needlessly elaborate weapon of execution. The royal's preferred way of erasing internal opposition from existence.
+    /n The artifact is one in a limited collection of singularity field generators since being banned in the glitter worlds. It can now only be found in the blackest markets.
+    /n Despite it's name, the artifact has nowhere near the same power of a super massive black hole. Anyone holding it should excercise extreme caution nonetheless.</description>    <!-- needs some creative writing -->
+    <soundInteract>Interact_ZeusHammer</soundInteract>
+    <meleeHitSound>MeleeHit_SagittariusMight</meleeHitSound>
+    <equippedAngleOffset>-98</equippedAngleOffset>
+    <statBases>
+      <MarketValue>7000</MarketValue>
+      <Mass>4</Mass>
+    </statBases>
+    <graphicData>
+      <texPath>Weapons/KIT_GravityStaff</texPath>
+      <drawSize>1.6</drawSize>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <tools>
+      <li>
+        <label>handle</label>
+        <capacities>
+          <li>SelfDamagingPoke</li>
+        </capacities>
+        <power>12</power>
+        <cooldownTime>2.5</cooldownTime>
+      </li>
+      <li>
+        <label>head</label>
+        <labelUsedInLogging>false</labelUsedInLogging>
+        <capacities>
+          <li>SelfDamagingBlunt</li>
+        </capacities>
+        <power>26</power>
+        <cooldownTime>3.0</cooldownTime>
+      </li>
+    </tools>
+    <modExtensions>
+      <li Class="HeavyMelee.SelfDamageModExtension">
+		<selfDamageAmountPerAttack>13</selfDamageAmountPerAttack>
+      </li>
+      <li Class="HeavyMelee.SagittariusMightPlantModExtention">
+		<label>Plant Sagittarius Might</label>
+		<description>Planting this weapon will make it detonate after 8 seconds.</description>
+		<texPath>Building/PlantedGravityLance</texPath>
+      </li>
+      <li Class="HeavyWeapons.HeavyWeapon">
+        <isHeavy>true</isHeavy>
+        <supportedArmors>
+          <li>VWE_Apparel_Exoframe</li>
+          <li>SF_PoweredAssaultArmor</li>
+          <li>SF_EngineerPowerArmor</li>
+          <li>SF_ExplorerPowerArmor</li>
+          <li>SF_GrenadierPowerArmor</li>
+          <li>SF_CommandoArmor</li>
+          <li>SF_HazardOperationsArmor</li>
+          <li>SF_DiplomatPowerArmor</li>
+          <li>SF_DefenderPowerArmor</li>
+          <li>SF_ScoutPowerArmor</li>
+          <li>SF_SamuraiPowerArmor</li>
+          <li>SF_ShockTrooperArmor</li>
+          <li>SF_ReconPowerArmor</li>
+        </supportedArmors>
+      </li>
+      <li Class="VFECore.ThingDefExtension">
+        <usableWithShields>true</usableWithShields>
+      </li>
+    </modExtensions>
+    <comps Inherit="False">
+      <li Class="CompOversizedWeapon.CompProperties_OversizedWeapon">
+        <northOffset>(-0.2, 0, 0.3)</northOffset>
+        <southOffset>(-0.2, 0, 0.3)</southOffset>
+        <eastOffset>(0., 0, 0.3)</eastOffset>
+        <westOffset>(0, 0, 0.3)</westOffset>
+      </li>
+      <li Class="CompProperties_Forbiddable" />
+      <li>
+        <compClass>CompEquippable</compClass>
+      </li>
+    </comps>
+    <tradeTags>
+      <li>Artifact</li>
+    </tradeTags>
+    <thingSetMakerTags>
+      <li>RewardStandardHighFreq</li>
+    </thingSetMakerTags>
+  </ThingDef>
+</Defs>

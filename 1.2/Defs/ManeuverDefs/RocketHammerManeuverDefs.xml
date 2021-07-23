@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+  <ManeuverDef>
+    <defName>RocketSwing</defName>
+    <requiredCapacity>PoweredBlunt</requiredCapacity>
+    <verb>
+      <verbClass>HeavyMelee.Verb_PoweredMelee</verbClass>
+      <meleeDamageDef>Blunt</meleeDamageDef>
+    </verb>
+    <logEntryDef>MeleeAttack</logEntryDef>
+    <combatLogRulesHit>Maneuver_Smash_MeleeHit</combatLogRulesHit>
+    <combatLogRulesDeflect>Maneuver_Smash_MeleeDeflect</combatLogRulesDeflect>
+    <combatLogRulesMiss>Maneuver_Smash_MeleeMiss</combatLogRulesMiss>
+    <combatLogRulesDodge>Maneuver_Smash_MeleeDodge</combatLogRulesDodge>
+  </ManeuverDef>
+  <ManeuverDef>
+    <defName>UnpoweredSwing</defName>
+    <requiredCapacity>UnpoweredBlunt</requiredCapacity>
+    <verb>
+      <verbClass>HeavyMelee.Verb_UnpoweredMelee</verbClass>
+      <meleeDamageDef>Blunt</meleeDamageDef>
+    </verb>
+    <logEntryDef>MeleeAttack</logEntryDef>
+    <combatLogRulesHit>Maneuver_Smash_MeleeHit</combatLogRulesHit>
+    <combatLogRulesDeflect>Maneuver_Smash_MeleeDeflect</combatLogRulesDeflect>
+    <combatLogRulesMiss>Maneuver_Smash_MeleeMiss</combatLogRulesMiss>
+    <combatLogRulesDodge>Maneuver_Smash_MeleeDodge</combatLogRulesDodge>
+  </ManeuverDef>
+</Defs>
