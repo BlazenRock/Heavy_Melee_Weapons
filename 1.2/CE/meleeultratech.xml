@@ -73,6 +73,7 @@
                                 </capacities>
                                 <power>30</power>
                                 <cooldownTime>2.5</cooldownTime>
+								<armorPenetrationBlunt>1</armorPenetrationBlunt>
                             </li>
                             <li Class="CombatExtended.ToolCE"><!--with ammo pawn will use this-->
                                 <label>head</label>
@@ -82,6 +83,7 @@
                                 </capacities>
                                 <power>72</power>
                                 <cooldownTime>1.5</cooldownTime>
+								<armorPenetrationBlunt>300</armorPenetrationBlunt>
                             </li>
                             <li Class="CombatExtended.ToolCE"><!--but without it, it will use this instead-->
                                 <label>head</label>
@@ -91,6 +93,7 @@
                                 </capacities>
                                 <power>36</power>
                                 <cooldownTime>3</cooldownTime>
+								<armorPenetrationBlunt>7</armorPenetrationBlunt>
                             </li>
 							
 						</tools>
