@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8" ?>
+<?xml version="1.0" encoding="utf-8" ?>
 <Defs>
 
   <ThingDef Abstract="True" Name="HMW_MeleeWeaponUltratechHeavy" ParentName="BaseWeapon">
@@ -38,8 +38,28 @@
     <statBases>
       <MarketValue>3000</MarketValue>
       <Mass>4</Mass>
+      <WorkToMake>1334</WorkToMake>
     </statBases>
-    <graphicData>
+    <techLevel>Spacer</techLevel>
+    <recipeMaker>
+      <workSpeedStat>GeneralLaborSpeed</workSpeedStat>
+      <workSkill>Crafting</workSkill>
+      <effectWorking>Smith</effectWorking>
+      <soundWorking>Recipe_Smith</soundWorking>
+      <recipeUsers>
+        <li>FabricationBench</li>
+      </recipeUsers>
+      <unfinishedThingDef>UnfinishedGun</unfinishedThingDef>
+      <researchPrerequisite>HMW_RoyalArmaments</researchPrerequisite>
+      <skillRequirements>
+        <Crafting>14</Crafting>
+      </skillRequirements>
+    </recipeMaker>
+    <costList>
+      <Plasteel>70</Plasteel>
+      <Uranium>20</Uranium>
+      <ComponentSpacer>4</ComponentSpacer>
+    </costList>
       <texPath>Weapons/KIT_MonoSword</texPath>
       <drawSize>1.4</drawSize>
       <graphicClass>Graphic_Single</graphicClass>
@@ -130,19 +150,19 @@
     </modExtensions>
   </ThingDef>
 
-  <!-- <ThingDef ParentName="HMW_MeleeWeaponUltratechHeavy">
+  <ThingDef ParentName="HMW_MeleeWeaponUltratechHeavy">
     <defName>HMW_MeleeWeapon_HeavyZeushammer</defName>
-    <label>heavy zeushammer</label>
-    <description>A heavy warhammer with an embedded EMP capacitor. Upon impact, it blasts the target with an EMP burst in addition to the physical damage.</description>
+    <label>pulse hammer</label>
+    <description>A enormous mace containing an unstable plasma core. Upon impact, it blasts the target with an EMP burst in addition to the physical damage.\n How did you get this? ;)</description>
     <soundInteract>Interact_ZeusHammer</soundInteract>
     <meleeHitSound>MeleeHit_ZeusHammer</meleeHitSound>
     <equippedAngleOffset>-65</equippedAngleOffset>
     <statBases>
-      <MarketValue>3000</MarketValue>
+      <MarketValue>99999999999999</MarketValue>
       <Mass>4</Mass>
     </statBases>
     <graphicData>
-      <texPath>Things/Item/Equipment/WeaponMelee/ZeusHammer</texPath>
+      <texPath>Weapons/Pulse_Hammer</texPath>
       <drawSize>1.4</drawSize>
       <graphicClass>Graphic_Single</graphicClass>
     </graphicData>
@@ -174,6 +194,12 @@
     <comps>
       <li>
         <compClass>CompOversizedWeapon.CompOversizedWeapon</compClass>
+      </li>
+      <li Class="CompOversizedWeapon.CompProperties_OversizedWeapon">
+        <northOffset>(0.4, 0.6, 0.1)</northOffset>
+        <southOffset>(0.4, 0.6, 0.1)</southOffset>
+        <eastOffset>(0.2, 0.6, 0.1)</eastOffset>
+        <westOffset>(-0.1, 0.6, 0.1)</westOffset>
       </li>
     </comps>
     <tradeTags Inherit="False" />
@@ -215,7 +241,29 @@
     <statBases>
       <MarketValue>3000</MarketValue>
       <Mass>4</Mass>
+      <WorkToMake>1000</WorkToMake>
     </statBases>
+    <techLevel>Spacer</techLevel>
+    <recipeMaker>
+      <workSpeedStat>GeneralLaborSpeed</workSpeedStat>
+      <workSkill>Crafting</workSkill>
+      <effectWorking>Smith</effectWorking>
+      <soundWorking>Recipe_Smith</soundWorking>
+      <recipeUsers>
+        <li>FabricationBench</li>
+      </recipeUsers>
+      <unfinishedThingDef>UnfinishedGun</unfinishedThingDef>
+      <researchPrerequisite>HMW_RoyalArmaments</researchPrerequisite>
+      <skillRequirements>
+        <Crafting>14</Crafting>
+      </skillRequirements>
+    </recipeMaker>
+    <costList>
+      <Plasteel>80</Plasteel>
+      <Uranium>30</Uranium>
+      <ComponentSpacer>6</ComponentSpacer>
+      <Chemfuel>180</Chemfuel>
+    </costList>
     <graphicData>
       <texPath>Weapons/KIT_PlasmaLance</texPath>
       <drawSize>1.6</drawSize>
@@ -336,6 +384,28 @@
     <statBases>
       <MarketValue>3000</MarketValue>
       <Mass>4</Mass>
+      <WorkToMake>1000</WorkToMake>
+    </statBases>
+    <techLevel>Spacer</techLevel>
+    <recipeMaker>
+      <workSpeedStat>GeneralLaborSpeed</workSpeedStat>
+      <workSkill>Crafting</workSkill>
+      <effectWorking>Smith</effectWorking>
+      <soundWorking>Recipe_Smith</soundWorking>
+      <recipeUsers>
+        <li>FabricationBench</li>
+      </recipeUsers>
+      <unfinishedThingDef>UnfinishedGun</unfinishedThingDef>
+      <researchPrerequisite>HMW_RoyalArmaments</researchPrerequisite>
+      <skillRequirements>
+        <Crafting>14</Crafting>
+      </skillRequirements>
+    </recipeMaker>
+    <costList>
+      <Plasteel>90</Plasteel>
+      <Uranium>40</Uranium>
+      <ComponentSpacer>4</ComponentSpacer>
+      <Gold>600</Gold>
     </statBases>
     <graphicData>
       <texPath>Weapons/KIT_RelicHammer</texPath>
@@ -409,6 +479,28 @@
     <statBases>
       <MarketValue>3000</MarketValue>
       <Mass>4</Mass>
+      <WorkToMake>1334</WorkToMake>
+    </statBases>
+    <techLevel>Spacer</techLevel>
+    <recipeMaker>
+      <workSpeedStat>GeneralLaborSpeed</workSpeedStat>
+      <workSkill>Crafting</workSkill>
+      <effectWorking>Smith</effectWorking>
+      <soundWorking>Recipe_Smith</soundWorking>
+      <recipeUsers>
+        <li>FabricationBench</li>
+      </recipeUsers>
+      <unfinishedThingDef>UnfinishedGun</unfinishedThingDef>
+      <researchPrerequisite>HMW_RoyalArmaments</researchPrerequisite>
+      <skillRequirements>
+        <Crafting>14</Crafting>
+      </skillRequirements>
+    </recipeMaker>
+    <costList>
+      <Plasteel>110</Plasteel>
+      <Uranium>30</Uranium>
+      <ComponentSpacer>6</ComponentSpacer>
+    </costList>
     </statBases>
     <graphicData>
       <texPath>Weapons/KIT_ZeusSword</texPath>
@@ -544,7 +636,7 @@
         <li>TableMachining</li>
       </recipeUsers>
       <unfinishedThingDef>UnfinishedGun</unfinishedThingDef>
-      <researchPrerequisite>TransportPod</researchPrerequisite>
+      <researchPrerequisite>HMW_RocketHammer</researchPrerequisite>
       <skillRequirements>
         <Crafting>5</Crafting>
       </skillRequirements>
