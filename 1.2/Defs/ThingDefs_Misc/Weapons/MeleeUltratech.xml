@@ -138,7 +138,7 @@
     <meleeHitSound>MeleeHit_ZeusHammer</meleeHitSound>
     <equippedAngleOffset>-65</equippedAngleOffset>
     <statBases>
-      <MarketValue>99999999999999</MarketValue>
+      <MarketValue>9999999</MarketValue>
       <Mass>4</Mass>
     </statBases>
     <graphicData>
@@ -208,7 +208,7 @@
         </supportedArmors>
       </li>
     </modExtensions>
-  </ThingDef> -->
+  </ThingDef>
 
   <ThingDef ParentName="HMW_MeleeWeaponUltratechHeavy">
     <defName>HMW_MeleeWeapon_FlameLance</defName>
