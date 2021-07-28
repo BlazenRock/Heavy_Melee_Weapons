@@ -130,7 +130,7 @@
     </modExtensions>
   </ThingDef>
 
-  <!-- <ThingDef ParentName="HMW_MeleeWeaponUltratechHeavy">
+  <ThingDef ParentName="HMW_MeleeWeaponUltratechHeavy">
     <defName>HMW_MeleeWeapon_HeavyZeushammer</defName>
     <label>heavy zeushammer</label>
     <description>A heavy warhammer with an embedded EMP capacitor. Upon impact, it blasts the target with an EMP burst in addition to the physical damage.</description>
@@ -138,11 +138,11 @@
     <meleeHitSound>MeleeHit_ZeusHammer</meleeHitSound>
     <equippedAngleOffset>-65</equippedAngleOffset>
     <statBases>
-      <MarketValue>3000</MarketValue>
+      <MarketValue>9999999</MarketValue>
       <Mass>4</Mass>
     </statBases>
     <graphicData>
-      <texPath>Things/Item/Equipment/WeaponMelee/ZeusHammer</texPath>
+      <texPath>Weapons/Pulse_Hammer</texPath>
       <drawSize>1.4</drawSize>
       <graphicClass>Graphic_Single</graphicClass>
     </graphicData>
@@ -202,7 +202,7 @@
         </supportedArmors>
       </li>
     </modExtensions>
-  </ThingDef> -->
+  </ThingDef>
 
   <ThingDef ParentName="HMW_MeleeWeaponUltratechHeavy">
     <defName>HMW_MeleeWeapon_FlameLance</defName>
