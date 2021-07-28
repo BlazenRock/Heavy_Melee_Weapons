@@ -38,28 +38,7 @@
     <statBases>
       <MarketValue>3000</MarketValue>
       <Mass>4</Mass>
-      <WorkToMake>1334</WorkToMake>
     </statBases>
-    <techLevel>Spacer</techLevel>
-    <recipeMaker>
-      <workSpeedStat>GeneralLaborSpeed</workSpeedStat>
-      <workSkill>Crafting</workSkill>
-      <effectWorking>Smith</effectWorking>
-      <soundWorking>Recipe_Smith</soundWorking>
-      <recipeUsers>
-        <li>FabricationBench</li>
-      </recipeUsers>
-      <unfinishedThingDef>UnfinishedGun</unfinishedThingDef>
-      <researchPrerequisite>HMW_RoyalArmaments</researchPrerequisite>
-      <skillRequirements>
-        <Crafting>14</Crafting>
-      </skillRequirements>
-    </recipeMaker>
-    <costList>
-      <Plasteel>70</Plasteel>
-      <Uranium>20</Uranium>
-      <ComponentSpacer>4</ComponentSpacer>
-    </costList>
     <graphicData>
       <texPath>Weapons/KIT_MonoSword</texPath>
       <drawSize>1.4</drawSize>
@@ -242,29 +221,7 @@
     <statBases>
       <MarketValue>3000</MarketValue>
       <Mass>4</Mass>
-      <WorkToMake>1000</WorkToMake>
     </statBases>
-    <techLevel>Spacer</techLevel>
-    <recipeMaker>
-      <workSpeedStat>GeneralLaborSpeed</workSpeedStat>
-      <workSkill>Crafting</workSkill>
-      <effectWorking>Smith</effectWorking>
-      <soundWorking>Recipe_Smith</soundWorking>
-      <recipeUsers>
-        <li>FabricationBench</li>
-      </recipeUsers>
-      <unfinishedThingDef>UnfinishedGun</unfinishedThingDef>
-      <researchPrerequisite>HMW_RoyalArmaments</researchPrerequisite>
-      <skillRequirements>
-        <Crafting>14</Crafting>
-      </skillRequirements>
-    </recipeMaker>
-    <costList>
-      <Plasteel>80</Plasteel>
-      <Uranium>30</Uranium>
-      <ComponentSpacer>6</ComponentSpacer>
-      <Chemfuel>180</Chemfuel>
-    </costList>
     <graphicData>
       <texPath>Weapons/KIT_PlasmaLance</texPath>
       <drawSize>1.6</drawSize>
@@ -385,28 +342,6 @@
     <statBases>
       <MarketValue>3000</MarketValue>
       <Mass>4</Mass>
-      <WorkToMake>1000</WorkToMake>
-    </statBases>
-    <techLevel>Spacer</techLevel>
-    <recipeMaker>
-      <workSpeedStat>GeneralLaborSpeed</workSpeedStat>
-      <workSkill>Crafting</workSkill>
-      <effectWorking>Smith</effectWorking>
-      <soundWorking>Recipe_Smith</soundWorking>
-      <recipeUsers>
-        <li>FabricationBench</li>
-      </recipeUsers>
-      <unfinishedThingDef>UnfinishedGun</unfinishedThingDef>
-      <researchPrerequisite>HMW_RoyalArmaments</researchPrerequisite>
-      <skillRequirements>
-        <Crafting>14</Crafting>
-      </skillRequirements>
-    </recipeMaker>
-    <costList>
-      <Plasteel>90</Plasteel>
-      <Uranium>40</Uranium>
-      <ComponentSpacer>4</ComponentSpacer>
-      <Gold>600</Gold>
     </statBases>
     <graphicData>
       <texPath>Weapons/KIT_RelicHammer</texPath>
@@ -480,28 +415,6 @@
     <statBases>
       <MarketValue>3000</MarketValue>
       <Mass>4</Mass>
-      <WorkToMake>1334</WorkToMake>
-    </statBases>
-    <techLevel>Spacer</techLevel>
-    <recipeMaker>
-      <workSpeedStat>GeneralLaborSpeed</workSpeedStat>
-      <workSkill>Crafting</workSkill>
-      <effectWorking>Smith</effectWorking>
-      <soundWorking>Recipe_Smith</soundWorking>
-      <recipeUsers>
-        <li>FabricationBench</li>
-      </recipeUsers>
-      <unfinishedThingDef>UnfinishedGun</unfinishedThingDef>
-      <researchPrerequisite>HMW_RoyalArmaments</researchPrerequisite>
-      <skillRequirements>
-        <Crafting>14</Crafting>
-      </skillRequirements>
-    </recipeMaker>
-    <costList>
-      <Plasteel>110</Plasteel>
-      <Uranium>30</Uranium>
-      <ComponentSpacer>6</ComponentSpacer>
-    </costList>
     </statBases>
     <graphicData>
       <texPath>Weapons/KIT_ZeusSword</texPath>
