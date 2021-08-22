@@ -27,6 +27,8 @@
     </thingSetMakerTags>
   </ThingDef>
 
+<!-- Heavy Monosword -->
+
   <ThingDef ParentName="HMW_MeleeWeaponUltratechHeavy">
     <defName>HMW_MeleeWeapon_HeavyMonoSword</defName>
     <label>heavy monosword</label>
@@ -130,6 +132,8 @@
     </modExtensions>
   </ThingDef>
 
+<!-- Pulse Hammer -->
+
   <ThingDef ParentName="HMW_MeleeWeaponUltratechHeavy">
     <defName>HMW_MeleeWeapon_HeavyZeushammer</defName>
     <label>pulse hammer</label>
@@ -209,6 +213,8 @@
       </li>
     </modExtensions>
   </ThingDef>
+
+<!-- Flame Lance -->
 
   <ThingDef ParentName="HMW_MeleeWeaponUltratechHeavy">
     <defName>HMW_MeleeWeapon_FlameLance</defName>
@@ -332,6 +338,8 @@
     </modExtensions>
   </ThingDef>
 
+<!-- Psychic Warhammer -->
+
   <ThingDef ParentName="HMW_MeleeWeaponUltratechHeavy">
     <defName>HMW_MeleeWeapon_PsychicWarhammer</defName>
     <label>Relic Maul</label>
@@ -404,6 +412,8 @@
       </li>
     </modExtensions>
   </ThingDef>
+
+<!-- Burst blade -->
 
   <ThingDef ParentName="HMW_MeleeWeaponUltratechHeavy">
     <defName>HMW_MeleeWeapon_ZeusSword</defName>
@@ -526,6 +536,8 @@
       </li>
     </modExtensions>
   </ThingDef>
+
+<!-- Rocket Hammer -->
 
   <ThingDef ParentName="HMW_MeleeWeaponUltratechHeavy">
     <defName>HMW_MeleeWeapon_RocketHammer</defName>
@@ -666,6 +678,8 @@
     </modExtensions>
   </ThingDef>
 
+<!-- Gravity Spear -->
+
   <ThingDef ParentName="HMW_MeleeWeaponUltratechHeavy">
     <defName>HMW_MeleeWeapon_SagittariusMight</defName>
     <label>Sagittarius Might</label>
@@ -753,4 +767,10 @@
       <li>RewardStandardHighFreq</li>
     </thingSetMakerTags>
   </ThingDef>
+
+  <!-- Auto-Hammer -->
+
+
+  <!-- Rusty's Ax -->
+  
 </Defs>
