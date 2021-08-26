@@ -27,6 +27,8 @@
     </thingSetMakerTags>
   </ThingDef>
 
+<!-- Heavy Monosword -->
+
   <ThingDef ParentName="HMW_MeleeWeaponUltratechHeavy">
     <defName>HMW_MeleeWeapon_HeavyMonoSword</defName>
     <label>heavy monosword</label>
@@ -130,6 +132,8 @@
     </modExtensions>
   </ThingDef>
 
+<!-- Pulse Hammer -->
+
   <ThingDef ParentName="HMW_MeleeWeaponUltratechHeavy">
     <defName>HMW_MeleeWeapon_HeavyZeushammer</defName>
     <label>pulse hammer</label>
@@ -209,6 +213,8 @@
       </li>
     </modExtensions>
   </ThingDef>
+
+<!-- Flame Lance -->
 
   <ThingDef ParentName="HMW_MeleeWeaponUltratechHeavy">
     <defName>HMW_MeleeWeapon_FlameLance</defName>
@@ -332,6 +338,8 @@
     </modExtensions>
   </ThingDef>
 
+<!-- Psychic Warhammer -->
+
   <ThingDef ParentName="HMW_MeleeWeaponUltratechHeavy">
     <defName>HMW_MeleeWeapon_PsychicWarhammer</defName>
     <label>Relic Maul</label>
@@ -404,6 +412,8 @@
       </li>
     </modExtensions>
   </ThingDef>
+
+<!-- Burst blade -->
 
   <ThingDef ParentName="HMW_MeleeWeaponUltratechHeavy">
     <defName>HMW_MeleeWeapon_ZeusSword</defName>
@@ -527,6 +537,8 @@
     </modExtensions>
   </ThingDef>
 
+<!-- Rocket Hammer -->
+
   <ThingDef ParentName="HMW_MeleeWeaponUltratechHeavy">
     <defName>HMW_MeleeWeapon_RocketHammer</defName>
     <label>rocket hammer</label>
@@ -552,7 +564,7 @@
         <li>TableMachining</li>
       </recipeUsers>
       <unfinishedThingDef>UnfinishedGun</unfinishedThingDef>
-      <researchPrerequisite>HMW_RocketHammer</researchPrerequisite>
+      <researchPrerequisite>HMW_IndustrialMelee</researchPrerequisite>
       <skillRequirements>
         <Crafting>5</Crafting>
       </skillRequirements>
@@ -666,12 +678,14 @@
     </modExtensions>
   </ThingDef>
 
+<!-- Gravity Spear -->
+
   <ThingDef ParentName="HMW_MeleeWeaponUltratechHeavy">
     <defName>HMW_MeleeWeapon_SagittariusMight</defName>
     <label>Sagittarius Might</label>
     <description>A needlessly elaborate weapon of execution. The royal's preferred way of erasing internal opposition from existence.
-    /n The artifact is one in a limited collection of singularity field generators since being banned in the glitter worlds. It can now only be found in the blackest markets.
-    /n Despite it's name, the artifact has nowhere near the same power of a super massive black hole. Anyone holding it should excercise extreme caution nonetheless.</description>    <!-- needs some creative writing -->
+    \n The artifact is one in a limited collection of singularity field generators since being banned in the glitter worlds. It can now only be found in the blackest markets.
+    \n Despite it's name, the artifact has nowhere near the same power of a super massive black hole. Anyone holding it should excercise extreme caution nonetheless.</description>    <!-- needs some creative writing -->
     <soundInteract>Interact_ZeusHammer</soundInteract>
     <meleeHitSound>MeleeHit_SagittariusMight</meleeHitSound>
     <equippedAngleOffset>-98</equippedAngleOffset>
@@ -753,4 +767,10 @@
       <li>RewardStandardHighFreq</li>
     </thingSetMakerTags>
   </ThingDef>
+
+  <!-- Auto-Hammer -->
+
+
+  <!-- Rusty's Ax -->
+  
 </Defs>

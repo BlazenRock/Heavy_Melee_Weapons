@@ -2,9 +2,9 @@
 <Defs>
 
   <ResearchProjectDef>
-    <defName>HMW_RocketHammer</defName>
-    <label>rocket hammer</label>
-    <description>Use various materials to craft rocket hammers.</description>
+    <defName>HMW_IndustrialMelee</defName>
+    <label>chemfuel powered weapons</label>
+    <description>By the power of chemfuel, allows pawns to craft powerful industrial weapons.</description>
     <baseCost>800</baseCost>
     <techLevel>Industrial</techLevel>
     <prerequisites>

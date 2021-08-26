@@ -33,12 +33,6 @@ PackageId:Pitchstone.HeavyMeleeWeapons
 			<displayName>Vanilla Expanded Framework</displayName>
 			<steamWorkshopUrl>https://steamcommunity.com/sharedfiles/filedetails/?id=2023507013</steamWorkshopUrl>
 		</li>
-        <li>
-            <packageId>legodude17.legobricks</packageId>
-            <displayName>LegoBricks</displayName>
-            <steamWorkshopUrl>https://steamcommunity.com/sharedfiles/filedetails/?id=2548933983</steamWorkshopUrl>
-            <downloadUrl>https://github.com/legodude17/legobricks</downloadUrl>
-        </li>
 		</modDependencies>
 	<loadBefore>
 	<li>legodude17.heavyweaponsreloading</li>
